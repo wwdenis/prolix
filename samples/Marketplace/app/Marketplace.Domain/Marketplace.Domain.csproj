@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{378B69C4-3AEF-4221-AC6D-846017986E0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marketplace.Domain</RootNamespace>
+    <AssemblyName>Marketplace.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Security\SecurityContext.cs" />
+    <Compile Include="Descriptors\Configuration\CategoryDescriptor.cs" />
+    <Compile Include="Descriptors\Security\PasswordResetDescriptor.cs" />
+    <Compile Include="Descriptors\Security\PasswordChangeDescriptor.cs" />
+    <Compile Include="Descriptors\Security\RegisterDescriptor.cs" />
+    <Compile Include="Descriptors\Security\LoginDescriptor.cs" />
+    <Compile Include="Descriptors\Security\UserDescriptor.cs" />
+    <Compile Include="Descriptors\Trading\CustomerDescriptor.cs" />
+    <Compile Include="Descriptors\Trading\DealerDescriptor.cs" />
+    <Compile Include="Descriptors\Trading\ProductDescriptor.cs" />
+    <Compile Include="Descriptors\Trading\OrderDescriptor.cs" />
+    <Compile Include="Models\Configuration\ApplicationSetting.cs" />
+    <Compile Include="Models\Configuration\Setting.cs" />
+    <Compile Include="Models\Configuration\StatusType.cs" />
+    <Compile Include="Models\Configuration\Category.cs" />
+    <Compile Include="Models\Geography\Country.cs" />
+    <Compile Include="Models\Geography\Province.cs" />
+    <Compile Include="Models\Security\AuditChange.cs" />
+    <Compile Include="Models\Security\AuditLog.cs" />
+    <Compile Include="Models\Security\AuditType.cs" />
+    <Compile Include="Models\Security\Feature.cs" />
+    <Compile Include="Models\Security\LoginRequest.cs" />
+    <Compile Include="Models\Security\Access.cs" />
+    <Compile Include="Models\Security\PasswordChange.cs" />
+    <Compile Include="Models\Security\PasswordReset.cs" />
+    <Compile Include="Models\Security\Register.cs" />
+    <Compile Include="Models\Security\Role.cs" />
+    <Compile Include="Models\Security\User.cs" />
+    <Compile Include="Models\Trading\Customer.cs" />
+    <Compile Include="Models\Trading\Dealer.cs" />
+    <Compile Include="Models\Trading\OrderItem.cs" />
+    <Compile Include="Models\Trading\Product.cs" />
+    <Compile Include="Models\Trading\Order.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+      <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
+      <Name>Wwa.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

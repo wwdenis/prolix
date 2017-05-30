@@ -1,0 +1,119 @@
+﻿<h3>
+    <i class="fa fa-angle-right"></i>Customer
+</h3>
+<!-- CT: Controller alias -->
+<div class="row" ng-init="CT.Init()">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <form method="post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label">Customer Name:*</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Form.Name" ng-change="CT.ClearRule('Name')" />
+                            <div ng-class="CT.RuleStyle('Name')">{{CT.RuleMessage('Name')}}</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="control-label">Phone Number:*</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Form.PhoneNumber" 
+                                   ng-change="CT.ClearRule('PhoneNumber')"
+                                   ng-disabled="CT.IsEdit()"
+                                   ui-mask="999-999-9999" />
+                            <div ng-class="CT.RuleStyle('PhoneNumber')">{{CT.RuleMessage('PhoneNumber')}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label">Address:*</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Form.Address" ng-change="CT.ClearRule('Address')" />
+                            <div ng-class="CT.RuleStyle('Address')">{{CT.RuleMessage('Address')}}</div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <label class="control-label">City:*</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Form.City" ng-change="CT.ClearRule('City')" />
+                            <div ng-class="CT.RuleStyle('City')">{{CT.RuleMessage('City')}}</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label for="" class="control-label">Country:*</label>
+
+                            <select class="form-control"
+                                    ng-options="opt.Id as opt.Name for opt in Countries"
+                                    ng-model="Form.CountryId"
+                                    ng-change="CT.ClearRule('CountryId')">
+                                <option value="">Choose</option>
+                            </select>
+                            <div ng-class="CT.RuleStyle('CountryId')">{{CT.RuleMessage('CountryId')}}</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label for="" class="control-label">Province:*</label>
+
+                            <select class="form-control"
+                                    ng-options="opt.Id as opt.Name for opt in Provinces"
+                                    ng-model="Form.ProvinceId"
+                                    ng-change="CT.ClearRule('ProvinceId')">
+                                <option value="">Choose</option>
+                            </select>
+                            <div ng-class="CT.RuleStyle('ProvinceId')">{{CT.RuleMessage('ProvinceId')}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label">Zip Code*:</label>
+                            <input type="text" maxlength="15" class="form-control tel"
+                                   ng-model="Form.ZipCode"
+                                   ng-change="CT.ClearRule('ZipCode')"
+                                   ui-mask="99999" />
+
+                            <div ng-class="CT.RuleStyle('ZipCode')">{{CT.RuleMessage('ZipCode')}}</div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <br />
+                            <div class="checkbox checkbox-primary">
+                                <input id="active" class="styled" type="checkbox"
+                                       ng-model="Form.Active" ng-disabled="CT.IsNew()">
+                                <label for="active">
+                                    Active
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3 col-md-2">
+                        <button type="button" class="btn pesq btn-primary btn-block pull-right" ng-click="CT.Back()">
+                            <span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Cancel
+                        </button>
+                    </div>
+                    <div class="col-xs-3 col-md-2">
+                        <button type="button" class="btn pesq btn-success btn-block pull-right" ng-click="CT.Save()">
+                            <span class="glyphicon glyphicon-floppy-save"></span> &nbsp;Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <br />
+        </div>
+    </div><!-- col-lg-12-->
+</div>
+<div class="progressContainer" ng-show="IsBusy">
+    <div class="progress"></div>
+</div>

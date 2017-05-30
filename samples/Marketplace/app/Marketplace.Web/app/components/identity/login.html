@@ -1,0 +1,62 @@
+﻿<div class="container-info" ng-init="CT.Init()">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Login</h4>Enter your credentials
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="logo-info">
+                            <a href="#!/"><img src="img/logo.png"></a>
+                        </div>
+                        <p class="small-info">
+                            If you have trouble to login, please contact <a>support@marketplace.com</a>
+                        </p>
+                        <p><a href="#!/register" class="btn btn-info btn-block">Register</a></p>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="well">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Email</label>
+                                    <input type="text" class="form-control"
+                                           title="Enter your email" 
+                                           ng-model="Input.UserName" ng-change="CT.ClearRule('UserName')"
+                                           wa-focus="true">
+                                    <div ng-class="CT.RuleStyle('UserName')">{{CT.RuleMessage('UserName')}}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" class="form-control"
+                                           title="Enter your password"
+                                           ng-keydown="$event.which === 13 && CT.Login()"
+                                           ng-model="Input.Password" 
+                                           ng-change="CT.ClearRule('Password')">
+                                    <div ng-class="CT.RuleStyle('Password')">{{CT.RuleMessage('Password')}}</div>
+                                </div>
+
+                                <div class="checkbox checkbox-primary">
+                                    <input id="remember" class="styled" type="checkbox" ng-model="Remember"">
+                                    <label for="remember">
+                                        Remember this computer
+                                    </label>
+                                </div>
+
+                                <button type="button" value="login" class="btn btn-success btn-block"
+                                        ng-click="CT.Login()">
+                                    <span class="glyphicon glyphicon-log-in"></span> &nbsp;Login
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="progressContainer" ng-show="IsBusy">
+    <div class="progress"></div>
+</div>

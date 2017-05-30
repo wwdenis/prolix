@@ -1,0 +1,12 @@
+﻿### Temp Files ###
+*.user
+*.suo
+*.dbmdl
+*.jfm
+
+### Temp Folders ###
+/**/packages
+/**/bin
+/**/obj
+/**/.vs
+
