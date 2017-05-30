@@ -1,8 +1,8 @@
 ﻿## Generated Files ##
 app/app.js
 app/app.js.map
-config.json
 
-content
-fonts
-scripts
+## Dependencies ##
+/content
+/fonts
+/scripts

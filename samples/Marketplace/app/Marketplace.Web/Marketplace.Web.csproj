@@ -226,16 +226,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\ajax-loader.gif" />
-    <Content Include="img\angular-js.png" />
     <Content Include="img\back_modal.png" />
-    <Content Include="img\icon-ok.png" />
-    <Content Include="img\icon-photo.png" />
-    <Content Include="img\icon_download.png" />
     <Content Include="img\logo.png" />
-    <Content Include="img\more.png" />
-    <Content Include="img\photo-icon.png" />
-    <Content Include="img\quest-icon.png" />
-    <Content Include="img\social.png" />
     <Content Include="index.html" />
     <Content Include="robots.txt" />
     <Content Include="Web.config" />

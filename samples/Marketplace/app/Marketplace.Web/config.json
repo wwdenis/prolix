@@ -1,0 +1,5 @@
+{
+  "ApiUrl": "http://localhost:20000/api/",
+  "CustomErrors": false,
+  "Environment":  "Debug"
+}
