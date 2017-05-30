@@ -30,6 +30,7 @@ WWA is a application framework built on top of __.NET Framework__ and __ASP .NET
 - __Wwa.Identity.AspNet__: Authentication layer implenentation using ASP .NET Identity
 - __Wwa.Ioc.Autofac__: Dependency injection implementation using Autofac
 - __Wwa.Ioc.Unity__: Dependency injection implementation using Microsoft Unity
+- __Wwa.Angular__: TypeScript infrastructure code for consuming Wwa-powered RESTful apps
 
 Links
 -----
