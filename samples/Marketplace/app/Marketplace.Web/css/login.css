@@ -1,0 +1,369 @@
+
+* {
+    -moz-box-sizing: border-box;
+     outline:0 !important; 
+
+}
+
+
+ html {
+            height: 100%;
+            background: #ededed url("../img/bg/bg-insc.jpg") no-repeat center top;
+        }
+body{margin: 0;}
+.global-header:before, .global-header:after {
+    content: "";
+    display: table;
+}
+.global-header:before, .global-header:after {
+    content: "";
+    display: table;
+}
+.global-header:after {
+    clear: both;
+}
+.global-header:before, .global-header:after {
+    content: "";
+    display: table;
+}
+.global-header:after {
+    clear: both;
+}
+.global-header:before, .global-header:after {
+    content: "";
+    display: table;
+}
+.global-header {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 50px 0;
+    width: 478px;
+}
+.global-header {
+    background: none repeat scroll 0 0 #214049;
+    font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    margin: 0;
+     padding: 1px 0;
+    width: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+    display: block;
+}
+.global-header nav {
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+    z-index: 1000;
+}
+
+.global-header .logo {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;     
+    height: 66px;
+
+}
+.global-header .logo {
+      float: left;
+  margin: -8px 0 0 -7px;
+}
+a {
+    color: #2E9FFF;
+    text-decoration: none;
+    transition: color 0.2s ease 0s;
+}
+img {
+    border: 0 none;
+    height: auto;
+    vertical-align: middle; 
+}
+
+.login, .signup {
+    -moz-box-sizing: border-box;
+    background:transparent;
+   margin-top: 50px!important;
+    margin: 0 auto;
+    ;
+   width: 790px;  height: 229px;
+   -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+}
+form {
+    margin-bottom: 0;
+}
+form, .bl-log-1{
+      width: 100%;
+      margin: 0 0 26px;
+}
+
+.login h1, .signup h1 {
+    color: #546673;
+    font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    margin-bottom: 30px;
+    text-align: center;
+      font-size: 25px;
+}
+h1 {
+    color: #000000;
+    font-family: "Gotham Rounded A","Gotham Rounded B","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.1em;
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"] {
+    transition: background 0.5s ease 0s, border-color 0.5s ease 0s;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    color: #525355;
+  display: inline-block;
+  font-size: 16px;
+  height: 41.2px;
+  line-height: 26px;
+  margin-bottom: 20px;
+  padding: 4px 6px;
+}
+input {
+    border: 2px solid #E4E7EE;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: none;
+}
+input {
+    -moz-box-sizing: border-box;
+    width: 100%;
+}
+input, textarea, select, .uneditable-input {
+    border: 1px solid #DFDFDF;
+  border-radius: 3px 3px 3px 3px
+}
+input {
+    width: 100%;
+}
+input, button, select, textarea {
+    font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+label, input, button, select, textarea {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 26px;
+}
+button, input {
+    line-height: normal;
+}
+button, input, select, textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.login .password-container, .signup .password-container {
+    position: relative;
+}
+.login .password-container span, .signup .password-container span {
+    color: #7F919E;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+}
+
+button.submit {
+    background: none repeat scroll 0 0 #3CA8C8;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: none;
+    color: #FFFFFF;
+    float: left;
+    margin-right: 5%;
+    padding: 8px 12px;
+      width: 42.5%;
+}
+button.button, input.button[type="submit"] {
+}
+.button {
+    background-color: #E6EDF3;
+    background-image: -moz-linear-gradient(center top , #EDF3F9, #DCE4EB);
+    background-repeat: repeat-x;
+    border: 1px solid #C4CFDA;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #525355;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease 0s;
+    vertical-align: middle;
+}
+input, button, select, textarea {
+    font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+label, input, button, select, textarea {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 26px;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+}
+button, input {
+    line-height: normal;
+}
+button, input, select, textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.create-account a {
+    background: none repeat scroll 0 0 #E3E6EC;
+  border-radius: 5px 5px 5px 5px;
+  color: #80919F;
+  display: inline-block;
+  padding: 4px 12px;
+  text-align: center;
+  transition: all 0.2s ease 0s;
+  width: 40.5%;
+}
+a {
+    color: #3CA8C8;
+    text-decoration: none;
+    transition: color 0.2s ease 0s;
+	  font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.art-1-log{
+  float: left;
+  width: 49%;
+}
+.art-2-log{ 
+  float: left;
+  width: 48%;
+  padding: 0 0 0 20px;
+  border-left: solid 1px #DFDFDF;
+}
+.art-1-log .bl-log-1{
+  padding-right: 62px;
+}
+
+.art-2-log form{
+border: none;
+}
+
+.art-2-log form p{
+  max-width: 390px;
+  margin: 0;
+  padding-left: 33px;
+      font-size: 16px;
+  line-height: 27px;
+  }
+  .button-log-2{
+     margin-top: 13.5%;
+  margin-left: 29%;
+  }
+  
+  #login-form p {
+  margin-top: 7px;
+
+      padding: 0 0 0 14px;
+    font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;}
+.profile-login {
+  background: url("img/bg/bg-insc.jpg") no-repeat center top;
+}
+
+		.art-ace-res{
+		    width: 41.2%;
+			margin: 84px auto;
+		}
+		.bl-ace-res h1{
+			font: normal 22px/100% DINBold, Arial, Helvetica, Sans-serif;
+		}
+		.bl-ace-res button{
+		    width: 50.5%;
+			margin-left: 4px;
+		}
+        .art-alt-sen .bl-ace-res button{
+		    width: 100%;
+		
+		}
+.art-alt-sen {
+        padding: 10px 258px;
+}	
+
+        .login-title{
+
+        margin-top: 80px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 18px
+
+        }
+
+        h1.login-subtile, label.login-subtile  {
+       
+        font-weight: 600;
+        color: #73888E;
+        width: 82%;
+        margin-left: 9%;
+        text-align:center
+        }
+
+        .longin-custom-input{
+             border: 1px solid #DFDFDF;
+            border-radius: 3px 3px 3px 3px;
+        }
+       .mt {
+        margin-top: 20px
+       }
+
+       .clear {
+         clear:both
+       }
+
+       .login-align-bt-center{
+            margin-left: 29%;
+
+   }
+   .alert-success {
+    width: 92%!important;
+}
+    .login-label{    
+        font-weight: 600;
+        font-size: 15px;
+        margin: 5px 0;
+
+	    }
+
+    .msg-val {
+        font-weight: 100;
+        width: 100%;
+        color: red;
+        margin-left: 0px;
+        border: solid 1px #FDBEBE;
+        margin-top: 3px;
+        margin-bottom: 0;
+        font-size: 11px;
+        background-color: #FFE5E5;
+        padding: 5px 11px;
+        border-radius: 5px;
+        clear:both
+    }
+   
+     .m-bt-0{
+          margin-bottom:0 !important;
+     }
+
+    .m-tp-20{
+        margin-top:20px
+    }
+ 
+   section.login label.login-subtile.login-label {
+    color: #5D7176;
+}

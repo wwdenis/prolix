@@ -1,0 +1,297 @@
+﻿<h3>
+    <i class="fa fa-angle-right"></i>Orders
+</h3>
+<!-- CT: Controller alias -->
+<div class="row" ng-init="CT.Init()">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <form method="post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <!-- Typeahead: Bootstrap autocomplete component -->
+                            <label for="" class="control-label">Customer:</label>
+                            <span ng-show="Customer.IsLoading" class="pull-right">
+                                <i class="glyphicon glyphicon-refresh"></i> Searching...
+                            </span>
+                            <span ng-show="Customer.NoResults" class="pull-right">
+                                <i class="glyphicon glyphicon-remove"></i> No results
+                            </span>
+                            <input type="text" class="form-control"
+                                   placeholder="Search for Customer Name"
+                                   wa-focus="true"
+                                   ng-model="Customer.Model"
+                                   uib-typeahead="opt as opt.Name for opt in CT.SearchCustomer($viewValue)"
+                                   typeahead-min-length="3"
+                                   typeahead-editable="false"
+                                   typeahead-loading="Customer.IsLoading"
+                                   typeahead-no-results="Customer.NoResults"
+                                   typeahead-on-select="Query.CustomerId = Customer.Model.Id"
+                                   ng-change="Query.CustomerId = Customer.Model.Id" />
+                            <div ng-class="CT.RuleStyle('CustomerId')">{{CT.RuleMessage('CustomerId')}}</div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-md-3">
+                            <!-- Typeahead: Bootstrap autocomplete component -->
+                            <label for="" class="control-label">Product:</label>
+                            <span ng-show="Product.IsLoading" class="pull-right">
+                                <i class="glyphicon glyphicon-refresh"></i> Searching...
+                            </span>
+                            <span ng-show="Product.NoResults" class="pull-right">
+                                <i class="glyphicon glyphicon-remove"></i> No results
+                            </span>
+                            <input type="text" class="form-control"
+                                   placeholder="Search for Name"
+                                   ng-model="Product.Model"
+                                   uib-typeahead="opt as opt.Name for opt in CT.SearchProduct($viewValue)"
+                                   typeahead-min-length="3"
+                                   typeahead-editable="false"
+                                   typeahead-loading="Product.IsLoading"
+                                   typeahead-no-results="Product.NoResults"
+                                   typeahead-on-select="Query.ProductId = Product.Model.Id"
+                                   ng-change="Query.ProductId = Product.Model.Id" />
+                            <div ng-class="CT.RuleStyle('ProductId')">{{CT.RuleMessage('ProductId')}}</div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <!-- DatePicker: Bootstrap calender component -->
+                            <label for="" class="control-label">Start Date:</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="Query.StartDate"
+                                       uib-datepicker-popup="dd/MM/yyyy"
+                                       current-text="Today"
+                                       close-text="Close"
+                                       clear-text="Clear"
+                                       is-open="StartDateOpened" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="StartDateOpened = !StartDateOpened">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                            <div ng-class="CT.RuleStyle('StartDate')">{{CT.RuleMessage('StartDate')}}</div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="" class="control-label">Amount From:</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Query.AmountFrom"
+                                   wa-number="" />
+                            <div ng-class="CT.RuleStyle('AmountFrom')">{{CT.RuleMessage('AmountFrom')}}</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-md-4">
+                            <!-- Typeahead: Bootstrap autocomplete component -->
+                            <label for="" class="control-label">Dealer:</label>
+                            <span ng-show="Dealer.IsLoading" class="pull-right">
+                                <i class="glyphicon glyphicon-refresh"></i> Searching...
+                            </span>
+                            <span ng-show="Dealer.NoResults" class="pull-right">
+                                <i class="glyphicon glyphicon-remove"></i> No results
+                            </span>
+                            <input type="text" class="form-control"
+                                   placeholder="Search for Dealer Name"
+                                   ng-model="Dealer.Model"
+                                   uib-typeahead="opt as opt.Name for opt in CT.SearchDealer($viewValue)"
+                                   typeahead-min-length="3"
+                                   typeahead-editable="false"
+                                   typeahead-loading="Dealer.IsLoading"
+                                   typeahead-no-results="Dealer.NoResults"
+                                   typeahead-on-select="Query.DealerId = Dealer.Model.Id"
+                                   ng-change="Query.DealerId = Dealer.Model.Id" />
+                            <div ng-class="CT.RuleStyle('DealerId')">{{CT.RuleMessage('DealerId')}}</div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-3">
+                            <label for="" class="control-label">Status:</label>
+                            <div class="input-group">
+                                <!-- Render list -->
+                                <select class="form-control"
+                                        ng-options="opt.Id as opt.Name for opt in StatusTypes"
+                                        ng-model="Query.StatusId">
+                                    <option value="">All</option>
+                                </select>
+                                <div class="field-validation-valid"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <!-- DatePicker: Bootstrap calender component -->
+                            <label for="" class="control-label">End Date:</label>
+                            <p class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="Query.EndDate"
+                                       uib-datepicker-popup="dd/MM/yyyy"
+                                       current-text="Today"
+                                       close-text="Close"
+                                       clear-text="Clear"
+                                       is-open="EndDateOpened" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="EndDateOpened = !EndDateOpened">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                            <div ng-class="CT.RuleStyle('EndDate')">{{CT.RuleMessage('EndDate')}}</div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="" class="control-label">Amount To:</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Query.AmountTo"
+                                   wa-number="" />
+                            <div ng-class="CT.RuleStyle('AmountTo')">{{CT.RuleMessage('AmountTo')}}</div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <br />
+                            <button type="button" class="btn pesq btn-primary btn-block pull-right"
+                                    ng-click="CT.Search()">
+                                <span class="glyphicon glyphicon-search"></span> &nbsp;Search
+                            </button>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <br />
+                            <button type="button" class="btn btn-success btn-block pull-right"
+                                    ng-click="CT.Add()">
+                                <span class="glyphicon glyphicon-plus"></span> &nbsp;New
+                            </button>
+                        </div>
+
+                        <div class="col-xs-12 col-md-2" style="float:right;">
+                            <label class="control-label">Records:</label>
+
+                            <!-- Allowed page sizes -->
+                            <select class="form-control"
+                                    ng-options="opt for opt in PageSizes"
+                                    ng-model="Query.PageSize">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-striped table-bordered tablesorter tablesorter-blue">
+                <!-- Header with sort commands -->
+                <thead>
+                    <tr class="tablesorter-headerRow">
+                        <th ng-click="CT.Sort('Date')" ng-class="CT.HeaderStyle('Date')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0" data-column="3">
+                            <div class="tablesorter-header-inner">
+                                Date
+                            </div>
+                        </th>
+                        <th ng-click="CT.Sort('CustomerName')" ng-class="CT.HeaderStyle('CustomerName')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0" data-column="4">
+                            <div class="tablesorter-header-inner">
+                                Customer
+                            </div>
+                        </th>
+                        <th ng-click="CT.Sort('DealerName')" ng-class="CT.HeaderStyle('DealerName')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0" data-column="5">
+                            <div class="tablesorter-header-inner">
+                                Dealer
+                            </div>
+                        </th>
+                        <th ng-click="CT.Sort('TotalAmount')" ng-class="CT.HeaderStyle('TotalAmount')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0" data-column="6">
+                            <div class="tablesorter-header-inner">
+                                Amount
+                            </div>
+                        </th>
+                        <th ng-click="CT.Sort('StatusId')" ng-class="CT.HeaderStyle('StatusId')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0" data-column="6">
+                            <div class="tablesorter-header-inner">
+                                Status
+                            </div>
+                        </th>
+                        <th style="-moz-user-select: none;" unselectable="on" tabindex="0"
+                            class="width-col-peq" data-column="10">
+                            <div class="tablesorter-header-inner acao">
+                                Action
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Api result rendering -->
+                    <tr ng-repeat="opt in Items">
+                        <td align="center" class="col-sm-1"> {{opt.Date | date:'dd/MM/yyyy'}} </td>
+                        <td align="center" class="col-sm-3" title="{{opt.CustomerName}}"> {{opt.CustomerName}} </td>
+                        <td align="center" class="col-sm-3" title="{{opt.DealerName}}"> {{opt.DealerName}} </td>
+                        <td align="center"class="col-sm-1"> {{opt.TotalAmount | number:2}} </td>
+                        <td align="center" class="col-sm-1">
+                            <i ng-class="CT.StatusStyle(opt.StatusId)" />
+                        </td>
+                        <td class="col-sm-2">
+                            <a href="#!/orders/edit/{{opt.Id}}"><i class="fa fa-pencil"> </i></a>
+                            <a href="" ng-click="CT.TryDelete(opt.Id)"><i class="fa fa-trash-o"> </i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="pull-left pagination-detail">
+                            <span class="pagination-info totalRows">
+                                Records: {{ RecordCount }}
+                            </span>
+                        </div>
+                        <div class="btn-group pull-right pagination">
+                            <!-- First page -->
+                            <button ng-class="CT.PreviousStyle()"
+                                    ng-click="CT.First()">
+                                &lt;&lt;
+                            </button>
+
+                            <!-- Previous page -->
+                            <button ng-class="CT.PreviousStyle()"
+                                    ng-click="CT.Previous()">
+                                &lt;
+                            </button>
+
+                            <!-- Page counter -->
+                            <button ng-repeat="page in PageHeader"
+                                    ng-class="CT.PageStyle(page, Query.PageNumber)"
+                                    ng-click="CT.GoTo(page)">
+                                {{ page }}
+                            </button>
+
+                            <!-- Next page -->
+                            <button ng-class="CT.NextStyle()"
+                                    ng-click="CT.Next()">
+                                &gt;
+                            </button>
+
+                            <!-- Last page -->
+                            <button ng-class="CT.NextStyle()"
+                                    ng-click="CT.Last()">
+                                &gt;&gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix">
+        </div>
+
+    </div><!-- col-lg-12-->
+</div>
+<div class="progressContainer" ng-show="IsBusy">
+    <div class="progress"></div>
+</div>

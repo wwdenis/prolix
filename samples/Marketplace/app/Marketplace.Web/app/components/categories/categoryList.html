@@ -1,0 +1,144 @@
+﻿<h3>
+    <i class="fa fa-angle-right"></i>Categories
+</h3>
+<!-- CT: Controller alias -->
+<div class="row" ng-init="CT.Init()">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <form method="post">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label">Name:</label>
+                            <input type="text" class="form-control"
+                                   ng-model="Query.Name" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <br />
+                            <button type="button" class="btn pesq btn-primary btn-block pull-right"
+                                    ng-click="CT.Search()">
+                                <span class="glyphicon glyphicon-search"></span> &nbsp;Search
+                            </button>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <br />
+                            <button type="button" class="btn btn-success btn-block pull-right"
+                                    ng-click="CT.Add()">
+                                <span class="glyphicon glyphicon-plus"></span> &nbsp;New
+                            </button>
+                        </div>
+
+                        <div class="col-xs-12 col-md-2" style="float:right;">
+                            <label class="control-label">Records:</label>
+
+                            <!-- Allowed page sizes -->
+                            <select class="form-control"
+                                    ng-options="opt for opt in PageSizes"
+                                    ng-model="Query.PageSize">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-striped table-bordered tablesorter tablesorter-blue">
+                <!-- Header with sort commands -->
+                <thead>
+                    <tr class="tablesorter-headerRow">
+                        <th ng-click="CT.Sort('Name')"
+                            ng-class="CT.HeaderStyle('Name')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0">
+                            <div class="tablesorter-header-inner">
+                                <b>Name</b>
+                            </div>
+                        </th>
+                     
+                        <th ng-click="CT.Sort('Active')" ng-class="CT.HeaderStyle('Active')"
+                            style="-moz-user-select: none;" unselectable="on" tabindex="0" data-column="6">
+                            <div class="tablesorter-header-inner">
+                                Active
+                            </div>
+                        </th>
+                        <th style="-moz-user-select: none;" unselectable="on" tabindex="0"
+                            class="width-col-peq" data-column="10">
+                            <div class="tablesorter-header-inner acao">
+                                Action
+                            </div>
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Api result rendering -->
+                    <tr ng-repeat="opt in Items">
+                        <td align="center"> {{opt.Name}} </td>
+                        <td align="center" class="col-sm-2">
+                            <i ng-class="CT.ActiveStyle(opt.Active)" />
+                        </td>
+                        <td class="col-sm-2">
+                            <a href="#!/categories/edit/{{opt.Id}}"><i class="fa fa-pencil"> </i></a>
+                            <a href="" ng-click="CT.TryDelete(opt.Id)"><i class="fa fa-trash-o"> </i></a>
+                            <a href="#!/categories/{{opt.Id}}"><i class='fa fa-ellipsis-h'> </i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="pull-left pagination-detail">
+                            <span class="pagination-info totalRows">
+                                Records: {{ RecordCount }}
+                            </span>
+                        </div>
+                        <div class="btn-group pull-right pagination">
+                            <!-- First page -->
+                            <button ng-class="CT.PreviousStyle()"
+                                    ng-click="CT.First()">
+                                &lt;&lt;
+                            </button>
+
+                            <!-- Previous page -->
+                            <button ng-class="CT.PreviousStyle()"
+                                    ng-click="CT.Previous()">
+                                &lt;
+                            </button>
+
+                            <!-- Page counter -->
+                            <button ng-repeat="page in PageHeader"
+                                    ng-class="CT.PageStyle(page, Query.PageNumber)"
+                                    ng-click="CT.GoTo(page)">
+                                {{ page }}
+                            </button>
+
+                            <!-- Next page -->
+                            <button ng-class="CT.NextStyle()"
+                                    ng-click="CT.Next()">
+                                &gt;
+                            </button>
+
+                            <!-- Last page -->
+                            <button ng-class="CT.NextStyle()"
+                                    ng-click="CT.Last()">
+                                &gt;&gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix">
+        </div>
+
+    </div><!-- col-lg-12-->
+</div>
+<div class="progressContainer" ng-show="IsBusy">
+    <div class="progress"></div>
+</div>

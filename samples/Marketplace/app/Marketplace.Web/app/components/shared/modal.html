@@ -1,0 +1,13 @@
+﻿<div role="dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">{{Options.HeaderText}}</h4>
+    </div>
+    <div class="modal-body">
+        {{Options.BodyText}}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="CT.Close()" ng-show="Options.CloseEnabled">{{Options.CloseText}}</button>
+        <button type="button" class="btn btn-primary" ng-click="CT.Ok()" ng-show="Options.OkEnabled">{{Options.OkText}}</button>
+    </div>
+</div>

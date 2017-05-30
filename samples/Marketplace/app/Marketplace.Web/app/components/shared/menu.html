@@ -1,0 +1,45 @@
+﻿<script type="text/ng-template" id="menuTemplate.html">
+    <div>
+        <div>
+            <a href="" class="list-group-item list-group-item-success panel-title"
+               ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                <i class="{{panelClass}}"></i>
+                &nbsp;
+                {{heading}}
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
+            </a>
+        </div>
+        <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="collapse in" ng-transclude></div>
+        </div>
+    </div>
+</script>
+
+<div id="sidebar" class="nav-collapse" ng-init="CT.Init()">
+    <!-- sidebar menu start-->
+    <div class="sidebar-menu menu-group" id="nav-accordion">
+
+        <p class="centered"><a href="#!/"><img src="img/logo.png"></a></p>
+        <h5 class="centered name-user">
+            Welcome Mr./Mrs.
+            <br />
+            <label>{{User}}</label>
+        </h5>
+        
+        <uib-accordion>
+
+            <div uib-accordion-group ng-repeat="item in Items" is-open="item.IsOpened"
+                                 heading="{{item.Caption}}" panel-class="{{item.Icon}}" 
+                                 template-url="menuTemplate.html">
+                <div id="menuConfig" ng-repeat="child in item.Children">
+                    <a href="#!/{{child.Url}}" class="list-group-item">
+                        <span class="{{child.Icon}}"></span>&nbsp;&nbsp;{{child.Caption}}
+                    </a>
+                </div>
+            </div>
+
+        </uib-accordion>
+       
+    </div>
+    <!-- sidebar menu end-->
+</div>

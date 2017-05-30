@@ -1,0 +1,28 @@
+﻿<script>
+    function HackHideMenu() {
+        $('.desktop-menu').toggle('slow')
+    }
+</script>
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips"
+             title="Show/Hide Menu" data-toggle="collapse" onclick="HackHideMenu()"></div>
+    </div>
+    <!--logo start-->
+    <a href="#!/" class="logo"><b>MARKETPLACE APP</b></a>
+    <!--logo end-->
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li>
+                <button type="button" class="logout" ng-click="CT.ChangePassword()">
+                    <span class="glyphicon glyphicon-log-out"></span> &nbsp;CHANGE PASSWORD
+                </button>
+            </li>
+            <li>
+                <button type="button" class="logout" ng-click="CT.Logout()">
+                    <span class="glyphicon glyphicon-log-out"></span> &nbsp;LOGOUT
+                </button>
+            </li>
+        </ul>
+    </div>
+</header>

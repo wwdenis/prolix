@@ -1,0 +1,75 @@
+﻿/** INDICADOR DE PROGRESSO **/
+.progressContainer {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-image: url("../img/back_modal.png");
+    z-index: 200;
+    /*display: none;*/
+}
+
+.progress {
+    background-image: url("../img/ajax-loader.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 120px;
+    height: 120px;
+    border: 2px solid #000;
+    background-color: #ccc;
+    border-radius: 60px;
+    border-color: lightgrey;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    box-shadow: 0px 0px 5px #000;
+}
+
+/*Estilização do Menu*/
+.menu-group {
+    margin-top: 80px;
+}
+#MainMenu {
+    margin-top: 30px;
+}
+.list-group-item-success{
+    background: #0072C9!important;
+    color: #fff!important;
+    border-radius: 0!important;
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    }
+.list-group-item-success:hover {
+    background:#075D9E!important;
+}
+#MainMenu .list-group .collapse .list-group-item {
+        background-color: #E3E6EA;
+        border-radius: 0!important;
+        -webkit-border-radius: 0!important;
+        -moz-border-radius: 0!important;
+        border: 0;
+ 
+    -webkit-transition: background 1000ms ease-in;
+    -moz-transition: background 1000ms ease-in;
+    -ms-transition: background 1000ms ease-in;
+    -o-transition: background 1000ms ease-in;
+    transition: background 200ms ease-in;
+}
+
+#MainMenu .list-group .collapse .list-group-item:hover {
+    background-color: #D9DEE4;
+        font-weight: 600;
+        -webkit-transition: all 200ms ease-in;
+-moz-transition: all 200ms ease-in;
+-ms-transition: all 200ms ease-in;
+-o-transition: all 200ms ease-in;
+transition: all 200ms ease-in;
+}
+
+a.list-group-item {
+    color: #002E50;
+
+}

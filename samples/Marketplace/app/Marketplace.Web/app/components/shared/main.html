@@ -1,0 +1,39 @@
+﻿<h3>
+    <i class="fa fa-angle-right"></i>Marketplace Demo
+</h3>
+
+<p>Welcome to Marketplace Demo</p>
+
+<div class="row" ng-init="CT.Init()">
+    <div class="col-lg-12 main-chart">
+        <div class="mtbox">
+
+            <div class="col-md-3 col-sm-2 col-md-offset-1 box0" 
+                 ng-click="CT.GoTo('/dealers')">
+                <div class="box1">
+                    <i class="fa fa-user fa-5x"></i>
+                    <h3>{{CompanyCount}}</h3>
+                </div>
+                <p>Dealers</p>
+            </div>
+            <div class="col-md-4 col-sm-2 box0" 
+                 ng-click="CT.GoTo('/orders')">
+                <div class="box1">
+
+                    <i class="fa fa-check fa-5x"></i>
+                    <h3>{{OrderCount}}</h3>
+                </div>
+                <p>Orders</p>
+            </div>
+            <div class="col-md-3 col-sm-2 box0"
+                 ng-click="CT.GoTo('/products')">
+                <div class="box1">
+                    <i class="fa fa-star fa-5x"></i>
+                    <h3>{{ProductCount}}</h3>
+                </div>
+                <p>Products</p>
+            </div>
+
+        </div>
+    </div>
+</div><!--/row -->
