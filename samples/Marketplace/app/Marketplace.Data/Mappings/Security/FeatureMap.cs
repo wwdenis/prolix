@@ -11,7 +11,7 @@ namespace Marketplace.Data.Mappings.Security
     {
         public FeatureMap()
         {
-            ToTable("Feature");
+            ToTable("Features");
 
             #region Key
 
