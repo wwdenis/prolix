@@ -1,1 +1,6 @@
 ﻿*.cs linguist-language=CSharp
+*.csproj linguist-language=CSharp
+*.nupkg linguist-language=CSharp
+*.ts linguist-language=TypeScript
+
+assets/* linguist-vendored
