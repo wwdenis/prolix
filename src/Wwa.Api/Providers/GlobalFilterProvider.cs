@@ -20,7 +20,7 @@ namespace Wwa.Api.Providers
 
             var filters = configuration?
                 .DependencyResolver?
-                .GetServices(typeof(ISharedService))
+                .GetServices(typeof(IDependencyFilter))
                 .Cast<IDependencyFilter>();
 
             if (filters != null)
