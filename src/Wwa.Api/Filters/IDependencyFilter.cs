@@ -6,7 +6,7 @@ using Wwa.Core.Ioc;
 
 namespace Wwa.Api.Filters
 {
-    public interface IDependencyFilter : IFilter, IInstance
+    public interface IDependencyFilter : IFilter, ISharedService
     {
         FilterScope Scope { get; }
     }

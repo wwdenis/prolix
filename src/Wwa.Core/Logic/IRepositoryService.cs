@@ -4,7 +4,9 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+
 using Wwa.Core.Domain;
+using Wwa.Core.Ioc;
 
 namespace Wwa.Core.Logic
 {

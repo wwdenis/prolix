@@ -84,13 +84,15 @@
     <Compile Include="Identity\IdentityError.cs" />
     <Compile Include="Identity\IdentityException.cs" />
     <Compile Include="Identity\IIdentityManager.cs" />
+    <Compile Include="Ioc\IContext.cs" />
     <Compile Include="Ioc\IInstance.cs" />
+    <Compile Include="Ioc\ISharedService.cs" />
     <Compile Include="Ioc\IResolverManager.cs" />
     <Compile Include="Ioc\ResolverManager.cs" />
     <Compile Include="Ioc\Factory.cs" />
-    <Compile Include="Ioc\IContext.cs" />
     <Compile Include="Ioc\IFactory.cs" />
     <Compile Include="Ioc\IResolver.cs" />
+    <Compile Include="Ioc\IService.cs" />
     <Compile Include="Ioc\DepedencyLifetime.cs" />
     <Compile Include="Logic\DescriptorManager.cs" />
     <Compile Include="Logic\ModelAudit.cs" />
@@ -99,7 +101,6 @@
     <Compile Include="Logic\DescribeAttribute.cs" />
     <Compile Include="Logic\IModelDescriptor.cs" />
     <Compile Include="Logic\IRepositoryService.cs" />
-    <Compile Include="Logic\IService.cs" />
     <Compile Include="Logic\IUpdatableService.cs" />
     <Compile Include="Logic\ModelDescriptor.cs" />
     <Compile Include="Logic\ModelDescriptorField.cs" />

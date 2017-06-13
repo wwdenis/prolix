@@ -38,8 +38,9 @@ namespace Wwa.Core.Ioc
         public IResolver Resolver { get; }
         public List<Assembly> Assemblies { get; } = new List<Assembly>();
 
-        public IDictionary<Type, Type> Services { get; } = new WeakDictionary<Type, Type>();
         public IDictionary<Type, Type> Contexts { get; } = new WeakDictionary<Type, Type>();
+        public IDictionary<Type, Type> Services { get; } = new WeakDictionary<Type, Type>();
+        public IDictionary<Type, Type> SharedServices { get; } = new WeakDictionary<Type, Type>();
         public ICollection<Type> Instances { get; } = new HashSet<Type>();
         public ICollection<Type> Factories { get; } = new HashSet<Type>();
         public ICollection<Type> Types { get; } = new HashSet<Type>();
@@ -61,16 +62,6 @@ namespace Wwa.Core.Ioc
             Types.AddRange(types);
         }
 
-        public void MapContext<AbstractType, ConcreteType>()
-        {
-            Contexts.Add(typeof(ConcreteType), typeof(AbstractType));
-        }
-
-        public void MapService<AbstractType, ConcreteType>()
-        {
-            Services.Add(typeof(ConcreteType), typeof(AbstractType));
-        }
-
         /// <summary>
         /// Initializes the application
         /// </summary>
@@ -79,10 +70,12 @@ namespace Wwa.Core.Ioc
             var coreAssembly = GetType().GetAssembly();
             MapAssembly(coreAssembly);
 
-            // Services
-            RegisterServices();
             // Contexts
             RegisterContext();
+            // Services
+            RegisterServices();
+            // Shared Services
+            RegisterSharedServices();
             // Instances
             RegisterInstance();
             // Factories
@@ -109,25 +102,19 @@ namespace Wwa.Core.Ioc
 
             Assemblies.Add(assembly);
 
-            var serviceMappings = assembly.MapTypes<IService>();
             var contextMappings = assembly.MapTypes<IContext>();
+            var serviceMappings = assembly.MapTypes<IService>();
+            var sharedServiceMappings = assembly.MapTypes<ISharedService>();
             var instanceTypes = assembly.FindInterfaces<IInstance>();
             var factoryTypes = assembly.FindInterfaces<IFactory>(true);
             var descriptorMappings = assembly.MapGenericTypes<IModelDescriptor>(true);
 
-            Services.AddRange(serviceMappings);
             Contexts.AddRange(contextMappings);
+            Services.AddRange(serviceMappings);
+            SharedServices.AddRange(sharedServiceMappings);
             Instances.AddRange(instanceTypes);
             Factories.AddRange(factoryTypes);
             Descriptors.AddRange(descriptorMappings);
-        }
-
-        void RegisterServices()
-        {
-            foreach (var type in Services)
-            {
-                Resolver.Register(type.Key, type.Value, DepedencyLifetime.PerDependency);
-            }
         }
 
         void RegisterContext()
@@ -139,6 +126,22 @@ namespace Wwa.Core.Ioc
                 // Map the generic IDbContext to make it acessible through all assemblies
                 if (typeof(IDbContext).IsAssignableFrom(type.Key))
                     Resolver.Register(type.Key, typeof(IDbContext), DepedencyLifetime.PerLifetime);
+            }
+        }
+
+        void RegisterServices()
+        {
+            foreach (var type in Services)
+            {
+                Resolver.Register(type.Key, type.Value, DepedencyLifetime.PerDependency);
+            }
+        }
+
+        void RegisterSharedServices()
+        {
+            foreach (var type in SharedServices)
+            {
+                Resolver.Register(type.Key, type.Value, DepedencyLifetime.PerDependency, type.Key.Name);
             }
         }
 

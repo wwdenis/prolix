@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Wwa.Core.Logic;
+using Wwa.Core.Ioc;
 
 namespace Wwa.Core.Http
 {

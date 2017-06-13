@@ -32,7 +32,7 @@ namespace Marketplace.Tests
             manager.MapAssembly<SecurityContext>(); // Domain
 
             // Mocking the data context
-            manager.MapContext<IDataContext, MockDataContext>();
+            manager.MapAssembly<MockDataContext>(); // Mock: Data
 
             // Builds the IoC container
             _resolver = manager.Build();

@@ -8,6 +8,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
 using Wwa.Api.Filters;
+using Wwa.Core.Ioc;
 
 namespace Wwa.Api.Providers
 {
@@ -19,7 +20,7 @@ namespace Wwa.Api.Providers
 
             var filters = configuration?
                 .DependencyResolver?
-                .GetServices(typeof(IDependencyFilter))
+                .GetServices(typeof(ISharedService))
                 .Cast<IDependencyFilter>();
 
             if (filters != null)

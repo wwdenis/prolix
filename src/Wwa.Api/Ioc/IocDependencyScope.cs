@@ -33,9 +33,6 @@ namespace Wwa.Api.Ioc
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            if (!Resolver.IsRegistered(serviceType))
-                return Enumerable.Empty<object>();
-
             return Resolver.ResolveAll(serviceType);
         }
 

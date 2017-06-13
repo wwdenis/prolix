@@ -24,7 +24,7 @@ namespace Wwa.Core.Extensions.Reflection
 
         public static Type[] FindInterfaces<CriteriaType>(this Assembly assembly, bool isInstantiable = false)
         {
-            var types = from i in assembly?.ExportedTypes
+            var types = from i in assembly?.DefinedTypes
                         where i.GetTypeInfo().IsClass
                         && !i.GetTypeInfo().IsAbstract
                         && i.GetTypeInfo().ImplementedInterfaces.Contains(typeof(CriteriaType))
@@ -75,14 +75,26 @@ namespace Wwa.Core.Extensions.Reflection
 
             return MakeGenericMethod(instance.GetType(), method.Name, args);
         }
-
+        
         public static Type GetFirstInterface(this Type type)
         {
-            var info = type.GetTypeInfo();
-            var contracts = info.ImplementedInterfaces;
-            var query = contracts.Except(contracts.SelectMany(t => t.GetTypeInfo().ImplementedInterfaces));
+            if (type == null)
+                return null;
 
-            return query.FirstOrDefault();
+            var baseType = type?.BaseType;
+            var typeInfo = type?.GetTypeInfo();
+            var baseInfo = baseType?.GetTypeInfo();
+
+            var typeInterfaces = typeInfo?.ImplementedInterfaces ?? new Type[0];
+            var baseInterfaces = baseInfo?.ImplementedInterfaces ?? new Type[0];
+
+            var query = typeInterfaces.Except(baseInterfaces);
+            var result = query.FirstOrDefault();
+
+            if (result != null)
+                return result;
+
+            return baseType.GetFirstInterface();
         }
 
         public static void PopulateProperties(this Type type, IDictionary<string, string> source = null)

@@ -57,12 +57,16 @@ namespace Marketplace.Api
             // IoC container
             var manager = new ResolverManager<AutofacResolver>();
 
-            // Map all assemblies
+            // Map app dependencies
             manager.MapAssembly<SecurityContext>();     // Domain
             manager.MapAssembly<DataContext>();         // Data
             manager.MapAssembly<CategoryService>();     // Logic
-            manager.MapAssembly<IdentityManager>();     // Identity
-            manager.MapAssembly<ProductController>();   // Api
+            manager.MapAssembly<CategoryController>();  // Filters
+
+            // Map code dependencies
+            manager.MapAssembly<GlobalAuthorizeAttribute>();// Filters
+            manager.MapAssembly<IdentityManager>();         // Identity
+
 
             // Map all controllers
             manager.MapType<IHttpController>(Assembly.GetExecutingAssembly());
