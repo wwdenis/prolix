@@ -20,20 +20,25 @@ namespace Wwa.Api.Filters
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             var identity = actionContext.RequestContext.Principal.Identity;
-            var route = actionContext.Request.RequestUri.LocalPath.Trim('/');
-            var method = actionContext.Request.Method.Method.ToCapital();
 
-            bool allowAccess = false;
-
-            // Thread-safe call
-            lock (sync)
+            if (identity.IsAuthenticated)
             {
-                allowAccess = Evaluate(identity, route, method);
-            }
+                var request = actionContext.Request;
+                var route = request.RequestUri.LocalPath.Trim('/');
+                var method = request.Method.Method.ToCapital();
 
-            // Deny access
-            if (!allowAccess)
-                actionContext.Response = new HttpResponseMessage(HttpStatusCode.Forbidden);
+                bool allowAccess = false;
+
+                // Thread-safe call
+                lock (sync)
+                {
+                    allowAccess = Evaluate(identity, route, method);
+                }
+
+                // Deny access
+                if (!allowAccess)
+                    actionContext.Response = new HttpResponseMessage(HttpStatusCode.Forbidden);
+            }
 
             base.OnActionExecuting(actionContext);
         }

@@ -10,7 +10,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Filters;
 
-using Marketplace.Api.Controllers;
+using Marketplace.Api.Core.Filters;
 using Marketplace.Data;
 using Marketplace.Domain.Security;
 using Marketplace.Logic.Services.Configuration;
@@ -22,7 +22,6 @@ using Wwa.Api.Formatters;
 using Wwa.Api.Handlers;
 using Wwa.Api.Ioc;
 using Wwa.Api.Providers;
-
 using Wwa.Core.Ioc;
 using Wwa.Identity.AspNet;
 using Wwa.Ioc.Autofac;
@@ -61,20 +60,19 @@ namespace Marketplace.Api
             manager.MapAssembly<SecurityContext>();     // Domain
             manager.MapAssembly<DataContext>();         // Data
             manager.MapAssembly<CategoryService>();     // Logic
-            manager.MapAssembly<CategoryController>();  // Filters
+            manager.MapAssembly<PermissionAttribute>(); // Api
 
             // Map code dependencies
             manager.MapAssembly<GlobalAuthorizeAttribute>();// Filters
             manager.MapAssembly<IdentityManager>();         // Identity
-
-
+            
             // Map all controllers
             manager.MapType<IHttpController>(Assembly.GetExecutingAssembly());
 
             // Setting the Resolver
             config.DependencyResolver = manager.GetHttpResolver();
         }
-
+        
         static void ConfigureHandlers(HttpConfiguration config)
         {
             // Global Services/Handlers

@@ -47,7 +47,7 @@ namespace Wwa.Api.Handlers
 
             if (ex is RuleException)
             {
-                // Erro de Regra de Negocio
+                // Business vallidation errors
                 var ruleEx = ex as RuleException;
                 var rule = ruleEx.Rule ?? new RuleValidation();
 

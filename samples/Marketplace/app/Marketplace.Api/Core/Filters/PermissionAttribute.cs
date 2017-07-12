@@ -26,31 +26,24 @@ namespace Marketplace.Api.Core.Filters
         IUserService UserService { get; }
         IFeatureService FeatureService { get; }
         SecurityContext Security { get; }
-        
+
         protected override bool Evaluate(IIdentity identity, string route, string method)
         {
             var path = $"{route}/{method}";
             var identityId = identity?.Name;
+            
+            // Check feature premission
+            User user = UserService.Get(i => i.IdentityId == identityId);
 
-            var allowAccess = false;
+            bool isAdmin = user?.Role.IsAdmin ?? false;
+            var permissions = user?.Role?.Permissions ?? new Feature[0];
+
+            // Admin has full access
+            bool allowAccess = isAdmin || permissions.Any(i => i.Path.ToLower() == path.ToLower());
 
             Security.Feature = FeatureService.Get(path);
-
-            // Check feature premission
-            if (identity.IsAuthenticated)
-            {
-                User user = UserService.Get(i => i.IdentityId == identityId);
-
-                // Admin has full access
-                if (!user.Role.IsAdmin)
-                {
-                    var permissions = user.Role.Permissions;
-                    allowAccess = permissions.Any(i => i.Path.ToLower() == path.ToLower());
-                }
-
-                Security.User = user;
-            }
-
+            Security.User = user;
+            
             return allowAccess;
         }
     }

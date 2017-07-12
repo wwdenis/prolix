@@ -133,6 +133,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Core\Filters\PermissionAttribute.cs" />
+    <Compile Include="Core\Identity\OwinContextFactory.cs" />
     <Compile Include="Core\Mappings\Configuration\StatusTypeMap.cs" />
     <Compile Include="Core\Mappings\Configuration\CategoryMap.cs" />
     <Compile Include="Core\Mappings\Geography\CountryMap.cs" />

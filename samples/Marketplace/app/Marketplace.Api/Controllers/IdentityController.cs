@@ -51,7 +51,6 @@ namespace Marketplace.Api.Controllers
 
             var item = model.Map<Register>();
 
-            // Valida modelo e efetua regras de negocio
             var result = await IdentiyService.Register(item);
 
             return Ok(result);
@@ -82,8 +81,7 @@ namespace Marketplace.Api.Controllers
                 return BadRequest("Invalid credentials");
 
             var item = model.Map<PasswordReset>();
-            item.IdentityId = User.Identity.Name;
-
+            
             await IdentiyService.ResetPassword(item);
             
             return Ok();

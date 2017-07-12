@@ -43,7 +43,7 @@ namespace Marketplace.Data.Mappings.Security
                 .Map(cs => {
                     cs.MapLeftKey("RoleId");
                     cs.MapRightKey("FeatureId");
-                    cs.ToTable("Permission");
+                    cs.ToTable("Permissions");
                 });
 
             #endregion

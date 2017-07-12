@@ -57,7 +57,7 @@ namespace Wwa.Identity.AspNet
             _serverOptions = new OAuthAuthorizationServerOptions
             {
                 Provider = new OAuthAuthorizationServerProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMilliseconds(TokenExpirationHours),
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(TokenExpirationHours),
 
                 // TokenEndpointPath = new PathString("/Token"),
                 // AuthorizeEndpointPath = new PathString("/Login"),
@@ -129,11 +129,7 @@ namespace Wwa.Identity.AspNet
             {
                 manager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(protector);
             }
-
-            // Inject internal objects
-            IdentityManager.UserManager = manager;
-            IdentityManager.AuthManager = context?.Authentication;
-
+            
             return manager;
         }
 
