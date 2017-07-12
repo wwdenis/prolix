@@ -124,7 +124,7 @@ namespace Wwa.Core.Ioc
                 Resolver.Register(type.Key, type.Value, DepedencyLifetime.PerLifetime);
 
                 // Map the generic IDbContext to make it acessible through all assemblies
-                if (typeof(IDbContext).IsAssignableFrom(type.Key))
+                if (type.Key.ImplementsInterface(typeof(IDbContext)))
                     Resolver.Register(type.Key, typeof(IDbContext), DepedencyLifetime.PerLifetime);
             }
         }

@@ -68,14 +68,6 @@ namespace Wwa.Core.Extensions.Collections
 			return list.ElementAtOrDefault(index);
 		}
 
-        public static string TryGet(this NameValueCollection list, string key)
-        {
-            if (string.IsNullOrWhiteSpace(key) || (!list?.AllKeys?.Contains(key) ?? false))
-                return null;
-
-            return list[key];
-        }
-
         public static ItemType MoveNext<ItemType>(this IList<ItemType> list, ItemType current = null)
 			where ItemType : class
 		{
@@ -231,21 +223,6 @@ namespace Wwa.Core.Extensions.Collections
             }
 
             return builder.ToString();
-        }
-
-        public static string[] ParseSettings(this NameValueCollection list, string key)
-        {
-            const char CONFIG_SEPARATOR = ',';
-            var value = list.TryGet(key);
-            var parsed = value?.Split(new[] { CONFIG_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
-
-            if (parsed == null)
-                return new string[0];
-
-            var result = from i in parsed
-                         select i.Trim();
-
-            return result.ToArray();
         }
     }
 }

@@ -15,21 +15,21 @@ namespace Wwa.Core.Extensions.Reflection
     {
         public static Type[] FindTypes<CriteriaType>(this Assembly assembly)
         {
-            var types = from i in assembly.ExportedTypes
-                        where i.GetTypeInfo().IsSubclassOf(typeof(CriteriaType))
-                        select i;
+            var types = from i in assembly.DefinedTypes
+                        where i.IsSubclassOf(typeof(CriteriaType))
+                        select i.AsType();
 
             return types.ToArray();
         }
 
         public static Type[] FindInterfaces<CriteriaType>(this Assembly assembly, bool isInstantiable = false)
         {
-            var types = from i in assembly?.DefinedTypes
-                        where i.GetTypeInfo().IsClass
-                        && !i.GetTypeInfo().IsAbstract
-                        && i.GetTypeInfo().ImplementedInterfaces.Contains(typeof(CriteriaType))
-                        && (!isInstantiable || i.GetConstructors().Any(c => !c.GetParameters().Any()))
-                        select i;
+            var types = from t in assembly?.DefinedTypes
+                        where t.IsClass
+                        && !t.IsAbstract
+                        && t.ImplementedInterfaces.Contains(typeof(CriteriaType))
+                        && (!isInstantiable || t.DeclaredConstructors.Any(c => !c.GetParameters().Any()))
+                        select t.AsType();
 
             return types?.ToArray() ?? new Type[0];
         }
@@ -52,7 +52,6 @@ namespace Wwa.Core.Extensions.Reflection
         {
             var all = from i in type.GetRuntimeMethods()
                       where i.Name == name
-                      && i.GetParameters().Count() == 0
                       && i.GetGenericArguments().Count() == args.Count()
                       select i;
 
@@ -75,14 +74,14 @@ namespace Wwa.Core.Extensions.Reflection
 
             return MakeGenericMethod(instance.GetType(), method.Name, args);
         }
-        
+
         public static Type GetFirstInterface(this Type type)
         {
             if (type == null)
                 return null;
 
-            var baseType = type?.BaseType;
             var typeInfo = type?.GetTypeInfo();
+            var baseType = typeInfo?.BaseType;
             var baseInfo = baseType?.GetTypeInfo();
 
             var typeInterfaces = typeInfo?.ImplementedInterfaces ?? new Type[0];
@@ -254,8 +253,9 @@ namespace Wwa.Core.Extensions.Reflection
             if (type == null)
                 return new PropertyInfo[0];
 
-            var baseProps = type.BaseType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            var concreteProps = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var info = type.GetTypeInfo();
+            var baseProps = info.BaseType.GetRuntimeProperties();
+            var concreteProps = type.GetRuntimeProperties();
 
             var props = from i in concreteProps
                         where searchAll || !baseProps.Any(c => c.Name == i.Name)
@@ -281,7 +281,7 @@ namespace Wwa.Core.Extensions.Reflection
                     if (!string.IsNullOrWhiteSpace(parsed))
                         return false;
                 }
-                else if (prop.PropertyType.IsValueType)
+                else if (prop.PropertyType.GetTypeInfo().IsValueType)
                 {
                     var propType = Nullable.GetUnderlyingType(prop.PropertyType);
                     var defaultValue = Activator.CreateInstance(propType);

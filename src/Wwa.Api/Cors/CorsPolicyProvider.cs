@@ -44,8 +44,8 @@ namespace Wwa.Api.Cors
             if (config == null)
                 return null;
 
-            var origins = config.ParseSettings(CORS_ORIGINS_KEY);
-            var headers = config.ParseSettings(CORS_HEADERS_KEY);
+            var origins = ParseSettings(config, CORS_ORIGINS_KEY);
+            var headers = ParseSettings(config, CORS_HEADERS_KEY);
             
             var policy = new CorsPolicy
             {
@@ -63,6 +63,25 @@ namespace Wwa.Api.Cors
                 return null;
 
             return policy;
+        }
+
+        string[] ParseSettings(NameValueCollection list, string key)
+        {
+            const char CONFIG_SEPARATOR = ',';
+            var value = "";
+
+            if (!string.IsNullOrWhiteSpace(key) && (list?.AllKeys?.Contains(key) ?? false))
+                value = list[key];
+
+            var parsed = value?.Split(new[] { CONFIG_SEPARATOR }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (parsed == null)
+                return new string[0];
+
+            var result = from i in parsed
+                         select i.Trim();
+
+            return result.ToArray();
         }
     }
 }
