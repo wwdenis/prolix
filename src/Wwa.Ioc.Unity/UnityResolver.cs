@@ -11,7 +11,7 @@ namespace Wwa.Ioc.Unity
     /// <summary>
     /// Unity generic Ioc Container
     /// </summary>
-    public class UnityResolver : IResolver
+    internal class UnityResolver : IResolver
     {
         bool _disposed;
         IUnityContainer _container;

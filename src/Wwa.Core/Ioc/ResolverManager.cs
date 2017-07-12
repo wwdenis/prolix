@@ -1,24 +1,22 @@
 // Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
-using Wwa.Core.Logic;
-using Wwa.Core.Extensions.Collections;
-using Wwa.Core.Extensions.Reflection;
-
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
+
 using Wwa.Core.Collections;
 using Wwa.Core.Data;
+using Wwa.Core.Extensions.Collections;
+using Wwa.Core.Extensions.Reflection;
+using Wwa.Core.Logic;
 
 namespace Wwa.Core.Ioc
 {
     /// <summary>
     /// Application Bootstrapper
     /// </summary>
-    public class ResolverManager<ResolverType> : IResolverManager
-        where ResolverType : class, IResolver, new()
+    public abstract class ResolverManager : IResolverManager
     {
         #region Constructors
 
@@ -26,11 +24,7 @@ namespace Wwa.Core.Ioc
         {
             Resolver = resolver ?? throw new ArgumentNullException("resolver");
         }
-
-        public ResolverManager() : this(new ResolverType())
-        {
-        }
-
+        
         #endregion
 
         #region Properties

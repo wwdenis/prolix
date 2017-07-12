@@ -2,6 +2,8 @@
 // See License.txt in the project root for license information.
 
 using System;
+using System.ComponentModel;
+
 namespace Wwa.Core.Domain
 {
     /// <summary>
@@ -9,15 +11,49 @@ namespace Wwa.Core.Domain
     /// This is the most basic model in the architecture hierarchy.
     /// </summary>
     /// <typeparam name="KeyType">Id type</typeparam>
-    public abstract class Model<KeyType> : IIdentifiable<KeyType>
+    public abstract class Model<KeyType> : Observable, IIdentifiable<KeyType>
         where KeyType : IComparable<KeyType>, IEquatable<KeyType>
     {
+        #region Fields
+
+        private KeyType _id;
+        private bool _isDirty;
+
+        #endregion
+
+        #region Constructor
+
+        public Model()
+        {
+            PropertyChanged += Model_PropertyChanged;
+        }
+
+        #endregion
+
         #region Properties
 
         /// <summary>
-        /// Id
+		/// The unique identifier
+		/// </summary>
+		public virtual KeyType Id
+        {
+            get { return _id; }
+            set { Set(ref _id, value); }
+        }
+
+        /// <summary>
+        /// Returns true if any property has changed
         /// </summary>
-        public KeyType Id { get; set; }
+        public bool IsDirty() =>_isDirty;
+
+        #endregion
+
+        #region Private Methods
+
+        private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            _isDirty = true;
+        }
 
         #endregion
 

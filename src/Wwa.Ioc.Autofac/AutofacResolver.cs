@@ -15,7 +15,7 @@ namespace Wwa.Ioc.Autofac
     /// <summary>
     /// Autofac generic Ioc Container
     /// </summary>
-    public class AutofacResolver : IResolver
+    internal class AutofacResolver : IResolver
     {
         bool _disposed;
         ILifetimeScope _container;
