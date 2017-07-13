@@ -40,6 +40,7 @@
                     Command="{Binding LoginCommand}"
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="White"/>
+            <ActivityIndicator IsRunning="True" IsVisible="{Binding IsBusy}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -46,6 +46,7 @@
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\IIdentityService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

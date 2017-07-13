@@ -1,11 +1,13 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Marketplace.Xam.Services;
+using Marketplace.Xam.ViewModels;
+
+using Wwa.Http.Client;
 using Wwa.Ioc.Autofac;
 using Wwa.Xam.App;
 using Wwa.Xam.Navigation;
-
-using Marketplace.Xam.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Marketplace.Xam
@@ -17,8 +19,9 @@ namespace Marketplace.Xam
             InitializeComponent();
 
             var dependency = new AutofacDependencyManager();
-            dependency.MapAssembly<App>();
+            dependency.MapAssembly<CategoryService>();
             dependency.MapAssembly<NavigationService>();
+            dependency.MapAssembly<RestService>();
 
             var forms = new FormsManager(this, dependency);
 
