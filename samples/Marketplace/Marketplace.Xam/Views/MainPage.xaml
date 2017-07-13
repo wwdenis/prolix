@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:v="clr-namespace:Marketplace.Xam.Views"
+			 xmlns:b="clr-namespace:Wwa.Xam.Behaviors;assembly=Wwa.Xam"
+             x:Class="Marketplace.Xam.Views.MainPage">
+
+    <Grid Padding="5,0,0,0">
+
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="StackLayout">
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="Spacing" Value="5" />
+                </Style>
+                <Style TargetType="Image">
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="WidthRequest" Value="50" />
+                    <Setter Property="HeightRequest" Value="50" />
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="XAlign" Value="Center" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="0" Grid.Column="0">
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CategoryCommand}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>IconOrganization_Gray.png</OnPlatform.iOS>
+                        <OnPlatform.Android>IconOrganization_Gray.png</OnPlatform.Android>
+                        <OnPlatform.WinPhone>Assets/IconOrganization_Gray.png</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Categories" />
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="0" Grid.Column="1">
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ProductCommand}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>IconMarket_Gray.png</OnPlatform.iOS>
+                        <OnPlatform.Android>IconMarket_Gray.png</OnPlatform.Android>
+                        <OnPlatform.WinPhone>Assets/IconMarket_Gray.png</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Products" />
+
+        </StackLayout>
+        
+        <StackLayout Grid.Row="1" Grid.Column="0">
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding DealerCommand}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>IconBusinessExperience_Gray.png</OnPlatform.iOS>
+                        <OnPlatform.Android>IconBusinessExperience_Gray.png</OnPlatform.Android>
+                        <OnPlatform.WinPhone>Assets/IconBusinessExperience_Gray.png</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Dealers" />
+
+        </StackLayout>
+
+
+        <StackLayout Grid.Row="1" Grid.Column="1">
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CustomerCommand}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>IconPlanning_Gray.png</OnPlatform.iOS>
+                        <OnPlatform.Android>IconPlanning_Gray.png</OnPlatform.Android>
+                        <OnPlatform.WinPhone>Assets/IconPlanning_Gray.png</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Customers" />
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" Grid.Column="0">
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OrderCommand}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>IconFinances_Gray.png</OnPlatform.iOS>
+                        <OnPlatform.Android>IconFinances_Gray.png</OnPlatform.Android>
+                        <OnPlatform.WinPhone>Assets/IconFinances_Gray.png</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Orders" />
+
+        </StackLayout>
+        
+        <StackLayout Grid.Row="2" Grid.Column="1">
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding UserCommand}"/>
+            </StackLayout.GestureRecognizers>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>IconPeople_Gray.png</OnPlatform.iOS>
+                        <OnPlatform.Android>IconPeople_Gray.png</OnPlatform.Android>
+                        <OnPlatform.WinPhone>Assets/IconPeople_Gray.png</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Users" />
+
+        </StackLayout>
+    </Grid>
+</ContentPage> 

@@ -36,8 +36,9 @@ namespace Marketplace.Api.Controllers
             var item = model.Map<LoginRequest>();
             
             var result = await IdentiyService.Login(item);
+            var parsed = result.Map<AccessModel>();
 
-            return Ok(result);
+            return Ok(parsed);
         }
 
         // POST /Register
@@ -52,8 +53,9 @@ namespace Marketplace.Api.Controllers
             var item = model.Map<Register>();
 
             var result = await IdentiyService.Register(item);
+            var parsed = result.Map<AccessModel>();
 
-            return Ok(result);
+            return Ok(parsed);
         }
 
         // POST /ChangePassword
