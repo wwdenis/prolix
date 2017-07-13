@@ -3,7 +3,7 @@
 
 using AutoMapper;
 
-using Marketplace.Api.Models.Security;
+using Marketplace.Models.Security;
 using Marketplace.Domain.Models.Security;
 
 namespace Marketplace.Api.Core.Mapping.Security

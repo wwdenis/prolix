@@ -3,7 +3,7 @@
 
 using System.Web.Http;
 
-using Marketplace.Api.Models.Configuration;
+using Marketplace.Models.Configuration;
 using Marketplace.Domain.Models.Configuration;
 using Marketplace.Logic.Contracts.Configuration;
 

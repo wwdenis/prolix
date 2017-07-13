@@ -12,9 +12,9 @@ namespace Wwa.Xam.Navigation
 	{
 		#region Constants
 
-		const string DEFAULT_ALERT_TITLE = "Alerta";
-		const string DEFAULT_CONFIRM_TITLE = "Confirmação";
-		const string DEFAULT_ERROR_MESSAGE = "Não é possível executar o comando solicitado!";
+		const string DEFAULT_ALERT_TITLE = "Alert";
+		const string DEFAULT_CONFIRM_TITLE = "Confirm";
+		const string DEFAULT_ERROR_MESSAGE = "Command not available or not working!";
 
 		#endregion
 
@@ -31,10 +31,7 @@ namespace Wwa.Xam.Navigation
 		/// <summary>
 		/// The application's main page
 		/// </summary>
-		Page MainPage
-		{
-			get { return Application.Current.MainPage; }
-		}
+		Page MainPage => Application.Current.MainPage;
 
 		#endregion
 
@@ -62,7 +59,7 @@ namespace Wwa.Xam.Navigation
 		/// <param name="acceptButton">The accept button text</param>
 		/// <param name="cancelButton">The cancel button text</param>
 		/// <returns>TRUE if the accept button was clicked</returns>
-		public async Task<bool> Confirm(string message, string title = null, string acceptButton = "OK", string cancelButton = "Cancelar")
+		public async Task<bool> Confirm(string message, string title = null, string acceptButton = "OK", string cancelButton = "Cancel")
 		{
 			if (string.IsNullOrWhiteSpace(title))
 				title = DEFAULT_CONFIRM_TITLE;
@@ -75,7 +72,7 @@ namespace Wwa.Xam.Navigation
 		/// </summary>
 		public async Task Error()
 		{
-			await Alert(DEFAULT_ALERT_TITLE, DEFAULT_ERROR_MESSAGE);
+			await Alert(DEFAULT_ERROR_MESSAGE, DEFAULT_ALERT_TITLE);
 		}
 
 		#endregion

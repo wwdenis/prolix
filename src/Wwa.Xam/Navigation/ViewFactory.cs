@@ -212,7 +212,7 @@ namespace Wwa.Xam.Navigation
 			view.Title = vm.Title;
 			view.BindingContext = vm;
 
-			if (!map.ShowNavigation)
+			if (map.HideNavigation)
 			{
 				NavigationPage.SetHasNavigationBar(view, false);
 			}

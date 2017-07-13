@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETFramework", "NETFramewor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Xam", "..\..\src\Wwa.Xam\Wwa.Xam.csproj", "{78D2DD1C-BF69-4ED6-9495-8A7998681F79}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,5 +137,6 @@ Global
 		{B2E7643B-E8CC-4872-93D5-EBA38B8AC7FE} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
 		{48536B01-4EF9-4CA7-9F0B-4B0436ABD32C} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
 		{78D2DD1C-BF69-4ED6-9495-8A7998681F79} = {B2E7643B-E8CC-4872-93D5-EBA38B8AC7FE}
+		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416} = {5047C670-02D3-4FD4-B991-B9D66AADB23E}
 	EndGlobalSection
 EndGlobal

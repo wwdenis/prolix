@@ -155,26 +155,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Configuration\StatusTypeModel.cs" />
-    <Compile Include="Models\Configuration\IndustryModel.cs" />
-    <Compile Include="Models\Configuration\SectorModel.cs" />
-    <Compile Include="Models\Configuration\CategoryModel.cs" />
-    <Compile Include="Models\Geography\CountryModel.cs" />
-    <Compile Include="Models\Geography\ProvinceModel.cs" />
-    <Compile Include="Models\NamedModel.cs" />
-    <Compile Include="Models\Security\LoginModel.cs" />
-    <Compile Include="Models\Security\AccessModel.cs" />
-    <Compile Include="Models\Security\PasswordChangeModel.cs" />
-    <Compile Include="Models\Security\PasswordResetModel.cs" />
-    <Compile Include="Models\Security\RegisterModel.cs" />
-    <Compile Include="Models\Security\RoleModel.cs" />
-    <Compile Include="Models\Security\UserModel.cs" />
-    <Compile Include="Models\Trading\CustomerModel.cs" />
-    <Compile Include="Models\Trading\DealerModel.cs" />
-    <Compile Include="Models\Trading\DetailOrderModel.cs" />
-    <Compile Include="Models\Trading\OrderItemModel.cs" />
-    <Compile Include="Models\Trading\ProductModel.cs" />
-    <Compile Include="Models\Trading\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +200,10 @@
     <ProjectReference Include="..\Marketplace.Logic\Marketplace.Logic.csproj">
       <Project>{b31f4582-37de-479e-8337-8364963685a9}</Project>
       <Name>Marketplace.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketplace.Models\Marketplace.Models.csproj">
+      <Project>{5ea3bebb-e0eb-43be-9b85-666c448c7416}</Project>
+      <Name>Marketplace.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

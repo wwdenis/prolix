@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 
-using Marketplace.Api.Models.Security;
+using Marketplace.Models.Security;
 using Marketplace.Domain.Models.Security;
 using Marketplace.Logic.Contracts.Security;
 using Marketplace.Logic.Queries.Security;

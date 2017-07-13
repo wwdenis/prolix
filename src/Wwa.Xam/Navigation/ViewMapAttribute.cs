@@ -55,9 +55,9 @@ namespace Wwa.Xam.Navigation
 		public bool IsTablet { get; set; }
 
 		/// <summary>
-		/// Shows the native navigation bar
+		/// Hide the native navigation bar
 		/// </summary>
-		public bool ShowNavigation { get; set; }
+		public bool HideNavigation { get; set; }
 
 		#endregion
 	}

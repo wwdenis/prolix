@@ -2,8 +2,8 @@
 // See License.txt in the project root for license information.
 
 using AutoMapper;
-using Marketplace.Api.Models;
-using Marketplace.Api.Models.Trading;
+using Marketplace.Models;
+using Marketplace.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 
 namespace Marketplace.Api.Core.Mapping.Trading
