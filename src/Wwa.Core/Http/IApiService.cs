@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 using Wwa.Core.Collections;
 using Wwa.Core.Domain;
+using Wwa.Core.Ioc;
 
 namespace Wwa.Core.Http
 {
     /// <summary>
     /// REST Client for Wwa-powered Api's
     /// </summary>
-    public interface IApiService<ModelType, KeyType>
+    public interface IApiService<ModelType, KeyType> : IService
         where ModelType : Model<KeyType>, new()
         where KeyType : IComparable<KeyType>, IEquatable<KeyType>
     {
@@ -21,7 +22,7 @@ namespace Wwa.Core.Http
         IDictionary<string, string> DefaultHeaders { get; set; }
 
         Task<ModelType> Get(KeyType id);
-        Task<PagedList<ModelType>> List(QueryRequest<ModelType> query);
+        Task<PagedList<ModelType>> List(QueryRequest<ModelType> query = null);
         Task<ModelType> Add(ModelType model);
         Task<ModelType> Update(ModelType model);
         Task Delete(KeyType id);

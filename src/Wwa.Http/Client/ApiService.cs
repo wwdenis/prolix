@@ -13,7 +13,7 @@ using Wwa.Http.Extensions;
 
 namespace Wwa.Http.Client
 {
-    public class ApiService<ModelType, KeyType> : IApiService<ModelType, KeyType>
+    public abstract class ApiService<ModelType, KeyType> : IApiService<ModelType, KeyType>
         where ModelType : Model<KeyType>, new()
         where KeyType : IComparable<KeyType>, IEquatable<KeyType>
     {
@@ -45,21 +45,18 @@ namespace Wwa.Http.Client
             }
         }
 
-        async public Task<PagedList<ModelType>> List(QueryRequest<ModelType> query)
+        async public Task<PagedList<ModelType>> List(QueryRequest<ModelType> query = null)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
                     throw new ArgumentNullException("ResourceName");
 
-                if (query == null)
-                    throw new ArgumentNullException("query");
-
                 var body = await RestService.List<ModelType>(ResourceName, query);
                 var result = new PagedList<ModelType>(body?.Content)
                 {
-                    PageSize = query.PageSize,
-                    PageNumber = query.PageNumber,
+                    PageSize = query?.PageSize ?? 0,
+                    PageNumber = query?.PageNumber ?? 1,
                     PageCount = body.Headers["X-Page-Count"]?.ToInt() ?? 0,
                     RecordCount = body.Headers["X-Page-Records"]?.ToInt() ?? 0
                 };
@@ -146,7 +143,7 @@ namespace Wwa.Http.Client
         }
     }
 
-    public class ApiService<ModelType> : ApiService<ModelType, int>
+    public abstract class ApiService<ModelType> : ApiService<ModelType, int>
         where ModelType : Model, new()
     {
     }

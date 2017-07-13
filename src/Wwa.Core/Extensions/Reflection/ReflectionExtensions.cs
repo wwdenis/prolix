@@ -36,14 +36,20 @@ namespace Wwa.Core.Extensions.Reflection
 
         public static IDictionary<Type, Type> MapTypes<CriteriaType>(this Assembly assembly)
         {
-            var types = assembly.FindInterfaces<CriteriaType>();
+            var types = from i in assembly.FindInterfaces<CriteriaType>()
+                        where !i.GetTypeInfo().IsAbstract
+                        select i;
+
             var mappings = types.ToDictionary(i => i, i => i.GetFirstInterface());
             return mappings;
         }
 
         public static IDictionary<Type, Type> MapGenericTypes<CriteriaType>(this Assembly assembly, bool fromBase = false)
         {
-            var types = assembly.FindInterfaces<CriteriaType>();
+            var types = from i in assembly.FindInterfaces<CriteriaType>()
+                        where !i.GetTypeInfo().IsAbstract
+                        select i;
+
             var mappings = types.ToDictionary(i => i, i => i.GetFirstGenericChild(fromBase));
             return mappings;
         }
@@ -88,7 +94,16 @@ namespace Wwa.Core.Extensions.Reflection
             var baseInterfaces = baseInfo?.ImplementedInterfaces ?? new Type[0];
 
             var query = typeInterfaces.Except(baseInterfaces);
-            var result = query.FirstOrDefault();
+            var specificInterfaces = new List<Type>();
+
+            foreach (var contract in query)
+            {
+                bool isParent = query.Any(i => i.ImplementsInterface(contract));
+                if (!isParent)
+                    specificInterfaces.Add(contract);
+            }
+
+            var result = specificInterfaces.FirstOrDefault();
 
             if (result != null)
                 return result;
