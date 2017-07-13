@@ -61,7 +61,7 @@ namespace Wwa.Ioc.Autofac
                     _builder.RegisterInstance(instance).InstancePerDependency();
                     break;
                 case DepedencyLifetime.PerLifetime:
-                    _builder.RegisterInstance(instance).InstancePerLifetimeScope();
+                    _builder.RegisterInstance(instance).SingleInstance();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("lifetime");

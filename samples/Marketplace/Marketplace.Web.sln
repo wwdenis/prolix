@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{5047C670-02D3-4FD4-B991-B9D66AADB23E}"
 EndProject
@@ -45,6 +45,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETStandard", "NETStandard", "{B2E7643B-E8CC-4872-93D5-EBA38B8AC7FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETFramework", "NETFramework", "{48536B01-4EF9-4CA7-9F0B-4B0436ABD32C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Xam", "..\..\src\Wwa.Xam\Wwa.Xam.csproj", "{78D2DD1C-BF69-4ED6-9495-8A7998681F79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,6 +106,10 @@ Global
 		{F3C40CB8-F8CB-495A-AA95-C8C81A04E1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3C40CB8-F8CB-495A-AA95-C8C81A04E1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3C40CB8-F8CB-495A-AA95-C8C81A04E1AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D2DD1C-BF69-4ED6-9495-8A7998681F79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,5 +130,6 @@ Global
 		{F3C40CB8-F8CB-495A-AA95-C8C81A04E1AA} = {1DC672EF-06F9-4F74-A1FC-169C2230F167}
 		{B2E7643B-E8CC-4872-93D5-EBA38B8AC7FE} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
 		{48536B01-4EF9-4CA7-9F0B-4B0436ABD32C} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
+		{78D2DD1C-BF69-4ED6-9495-8A7998681F79} = {B2E7643B-E8CC-4872-93D5-EBA38B8AC7FE}
 	EndGlobalSection
 EndGlobal
