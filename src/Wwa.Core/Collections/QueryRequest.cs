@@ -69,7 +69,7 @@ namespace Wwa.Core.Collections
         /// </summary>
         /// <param name="fieldKey">The field id sent by the api client (e.g. CityName)</param>
         /// <param name="fieldExpression">The sort delegate (Lambda expression)</param>
-        public void MapSort(string fieldKey, Expression<Func<ModelType, object>> fieldExpression)
+        protected void MapSort(string fieldKey, Expression<Func<ModelType, object>> fieldExpression)
         {
             // Hack EF object expressions
             LambdaExpression lambda = fieldExpression.Normalize();

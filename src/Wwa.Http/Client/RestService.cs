@@ -12,9 +12,9 @@ using Wwa.Http.Extensions;
 namespace Wwa.Http.Client
 {
     /// <summary>
-    /// Api Client Service
+    /// Generic REST Client Service
     /// </summary>
-    public class ApiService : IApiService
+    public class RestService : IRestService
     {
 		#region Fields
 
@@ -24,7 +24,7 @@ namespace Wwa.Http.Client
 
 		#region Constructor
 
-		public ApiService(IHttpService httpService)
+		public RestService(IHttpService httpService)
         {
 			HttpService = httpService;
 		}
@@ -33,7 +33,7 @@ namespace Wwa.Http.Client
 
 		#region Static Constructor
 
-		static ApiService()
+		static RestService()
 		{
 			// Initialize common json configuration
 			JsonExtensions.IgnoreErrors();

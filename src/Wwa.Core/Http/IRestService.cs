@@ -7,9 +7,9 @@ using Wwa.Core.Ioc;
 namespace Wwa.Core.Http
 {
 	/// <summary>
-	/// Api Client Service
+	/// Generic REST Client Service
 	/// </summary>
-	public interface IApiService : IService
+	public interface IRestService : IService
     {
 		/// <summary>
 		/// Performs GET calls to get an individual resource.
