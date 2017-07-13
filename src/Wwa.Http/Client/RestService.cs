@@ -177,7 +177,7 @@ namespace Wwa.Http.Client
             return result;
         }
 
-		async Task<HttpBody<ResponseType>> PostApi<ResponseType, BodyType>(string url, HttpBody<BodyType> input)
+		async Task<HttpBody<ResponseType>> PostApi<ResponseType, BodyType>(string url, HttpBody<BodyType> body)
 			where ResponseType : class
 			where BodyType: class
 		{
@@ -185,21 +185,26 @@ namespace Wwa.Http.Client
 			HttpBody<string> response = null;
 			try
 			{
-				if (input.IsForm)
+				if (body.IsForm)
 				{
                     // Post FORM and parse the result
-                    var dic = input.ToFormDictionaty();
+                    var dic = body.ToFormDictionaty();
 					response = await HttpService.Post(url, dic);
 				}
 				else
 				{
+                    string json = string.Empty;
+
                     // Post JSON and parse the result
-                    var json = JsonConvert.SerializeObject(input);
+                    if (body.Content != null)
+                    {
+                        if (body.GetType() == typeof(string))
+                            json = body as string;
+                        else
+                            json = JsonConvert.SerializeObject(body.Content);
+                    }
 
-                    if (input.GetType() == typeof(string))
-                        json = input as string;
-
-					response = await HttpService.Post(url, json);
+                    response = await HttpService.Post(url, json);
 				}
 
 				var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
