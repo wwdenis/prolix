@@ -11,7 +11,7 @@ namespace Wwa.Core.Http
     public interface IHttpService : IService
 	{
 		string BaseUrl { get; set; }
-		IDictionary<string, string> DefaultCookies { get; }
+        IDictionary<string, string> DefaultHeaders { get; set; }
 		Task<StringBody> Get(string url);
 		Task<StringBody> Post(string url, string json);
 		Task<StringBody> Post(string url, IDictionary<string, string> form);

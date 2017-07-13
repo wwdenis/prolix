@@ -2,10 +2,10 @@
 // See License.txt in the project root for license information.
 
 using Newtonsoft.Json;
-using Wwa.Core.Logic;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using Wwa.Core.Collections;
 using Wwa.Core.Http;
 using Wwa.Http.Extensions;
 
@@ -16,19 +16,28 @@ namespace Wwa.Http.Client
     /// </summary>
     public class RestService : IRestService
     {
-		#region Fields
+        #region Constructors
 
-		IHttpService HttpService { get; }
-		
-		#endregion
-
-		#region Constructor
-
-		public RestService(IHttpService httpService)
+        public RestService()
         {
-			HttpService = httpService;
-		}
+        }
 
+        public RestService(string baseUrl, IDictionary<string, string> defaultHeaders)
+        {
+            BaseUrl = baseUrl;
+            DefaultHeaders = defaultHeaders;
+        }
+
+        #endregion
+
+        #region Properties
+
+        public string BaseUrl { get; set; }
+
+        public IDictionary<string, string> DefaultHeaders { get; set; } = new WeakDictionary<string, string>();
+
+        IHttpService HttpService => new HttpService(BaseUrl, DefaultHeaders);
+		
 		#endregion
 
 		#region Static Constructor
@@ -53,7 +62,7 @@ namespace Wwa.Http.Client
         async public virtual Task<HttpBody<ResponseType>> Get<ResponseType>(string resource, object param = null)
             where ResponseType : class, new()
         {
-            return await Get<ResponseType>(resource, param);
+            return await GetApi<ResponseType>(resource, param);
         }
 
         /// <summary>
@@ -154,14 +163,12 @@ namespace Wwa.Http.Client
                 // Gets JSON and parse the result
                 StringBody response = await HttpService.Get(url);
 				ResponseType data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-				result = new HttpBody<ResponseType>(data, response.Cookies);
+				result = new HttpBody<ResponseType>(data, response);
 			}
-			catch (HttpException ex)
+            catch (HttpException)
             {
-                // Parse the error result
-                CheckRule(ex);
-				throw ex;
-			}
+                throw;
+            }
             catch (Exception ex)
             {
 				throw new HttpException(ex);
@@ -196,14 +203,12 @@ namespace Wwa.Http.Client
 				}
 
 				var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-				result = new HttpBody<ResponseType>(data, response.Cookies);
+				result = new HttpBody<ResponseType>(data, response);
 			}
-			catch (HttpException ex)
+            catch (HttpException)
             {
-                // Parse the error result
-                CheckRule(ex);
-				throw ex;
-			}
+                throw;
+            }
             catch (Exception ex)
 			{
 				throw new HttpException(ex);
@@ -223,13 +228,11 @@ namespace Wwa.Http.Client
                 var json = JsonConvert.SerializeObject(input);
                 var response = await HttpService.Put(url, json);
                 var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-                result = new HttpBody<ResponseType>(data, response.Cookies);
+                result = new HttpBody<ResponseType>(data, response);
             }
-            catch (HttpException ex)
+            catch (HttpException)
             {
-                // Parse the error result
-                CheckRule(ex);
-				throw ex;
+                throw;
             }
             catch (Exception ex)
             {
@@ -250,13 +253,11 @@ namespace Wwa.Http.Client
                 // Recupera o JSON no servidor, e realiza parse do retorno
                 var response = await HttpService.Delete(url);
                 var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-                result = new HttpBody<ResponseType>(data, response.Cookies);
+                result = new HttpBody<ResponseType>(data, response);
             }
-            catch (HttpException ex)
+            catch (HttpException)
             {
-				// Parse the error result
-				CheckRule(ex);
-				throw ex;
+				throw;
             }
             catch (Exception ex)
             {
@@ -265,14 +266,6 @@ namespace Wwa.Http.Client
 
             return result;
         }
-
-        void CheckRule(HttpException ex)
-		{
-			RuleValidation rule = ex.ParseData<RuleValidation>();
-
-			if (rule != null)
-				throw new RuleException(ex.Message, rule);
-		} 
 
         #endregion
     }

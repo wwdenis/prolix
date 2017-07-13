@@ -1,6 +1,7 @@
 // Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Wwa.Core.Ioc;
 
@@ -11,14 +12,18 @@ namespace Wwa.Core.Http
 	/// </summary>
 	public interface IRestService : IService
     {
-		/// <summary>
-		/// Performs GET calls to get an individual resource.
-		/// </summary>
-		/// <typeparam name="ResponseType">The result model type</typeparam>
-		/// <param name="resource">The relative endpoint Url</param>
-		/// <param name="param">The endpoint parameters</param>
-		/// <returns>The requested model</returns>
-		Task<HttpBody<ResponseType>> Get<ResponseType>(string resource, object param = null)
+        string BaseUrl { get; set; }
+        IDictionary<string, string> DefaultHeaders { get; set; }
+        
+
+        /// <summary>
+        /// Performs GET calls to get an individual resource.
+        /// </summary>
+        /// <typeparam name="ResponseType">The result model type</typeparam>
+        /// <param name="resource">The relative endpoint Url</param>
+        /// <param name="param">The endpoint parameters</param>
+        /// <returns>The requested model</returns>
+        Task<HttpBody<ResponseType>> Get<ResponseType>(string resource, object param = null)
             where ResponseType : class, new();
 
         /// <summary>

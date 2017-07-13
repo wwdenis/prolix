@@ -11,8 +11,13 @@ namespace Wwa.Core.Http
 {
 	public class StringBody : HttpBody<string>
 	{
-		public StringBody(string content = null, IDictionary<string, string> cookies = null) : base(content, cookies)
+		public StringBody() : base(string.Empty)
 		{
 		}
+
+        public StringBody(string content) : base(content)
+        {
+
+        }
 	}
 }
