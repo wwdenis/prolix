@@ -11,7 +11,8 @@ namespace Wwa.Core.Ioc
 {
     public interface IResolverManager
     {
-        IResolver Build();
+        IResolver Resolver { get; }
+        void Build();
         void MapAssembly<AssemblyContainer>();
     }
 }

@@ -35,7 +35,9 @@ namespace Marketplace.Tests
             manager.MapAssembly<MockDataContext>(); // Mock: Data
 
             // Builds the IoC container
-            _resolver = manager.Build();
+            manager.Build();
+
+            _resolver = manager.Resolver;
         }
         
         [TestMethod]

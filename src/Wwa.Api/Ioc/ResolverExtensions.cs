@@ -15,8 +15,8 @@ namespace Wwa.Api.Ioc
     {
         public static IDependencyResolver GetHttpResolver(this IResolverManager manager)
         {
-            var ioc = manager.Build();
-            return new IocDependencyResolver(ioc);
+            manager.Build();
+            return new IocDependencyResolver(manager.Resolver);
         }
     }
 }

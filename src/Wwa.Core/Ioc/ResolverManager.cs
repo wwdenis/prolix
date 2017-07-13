@@ -59,7 +59,7 @@ namespace Wwa.Core.Ioc
         /// <summary>
         /// Initializes the application
         /// </summary>
-        public virtual IResolver Build()
+        public virtual void Build()
 		{
             var coreAssembly = GetType().GetAssembly();
             MapAssembly(coreAssembly);
@@ -81,8 +81,6 @@ namespace Wwa.Core.Ioc
             
             // Finish the ioc container
             Resolver.Finish();
-
-			return Resolver;
 		}
 
         #endregion
