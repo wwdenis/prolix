@@ -77,7 +77,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
       <Name>Wwa.Core</Name>
     </ProjectReference>

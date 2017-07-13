@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -75,11 +75,11 @@
       <Project>{378b69c4-3aef-4221-ac6d-846017986e0b}</Project>
       <Name>Marketplace.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
       <Name>Wwa.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj">
+    <ProjectReference Include="..\..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj">
       <Project>{20bca77b-b073-4ee1-a147-28223242a6fe}</Project>
       <Name>Wwa.Data.EF</Name>
     </ProjectReference>

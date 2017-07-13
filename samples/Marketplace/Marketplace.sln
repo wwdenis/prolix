@@ -17,19 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Data", "Marketp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Logic", "Marketplace.Logic\Marketplace.Logic.csproj", "{BBFE8436-E5D6-49CB-8EA7-138047597DAE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Core", "..\..\..\src\Wwa.Core\Wwa.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Core", "..\..\src\Wwa.Core\Wwa.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Identity.AspNet", "..\..\..\src\Wwa.Identity.AspNet\Wwa.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Identity.AspNet", "..\..\src\Wwa.Identity.AspNet\Wwa.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Data.EF", "..\..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Data.EF", "..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Http", "..\..\..\src\Wwa.Http\Wwa.Http.csproj", "{9D8EB14B-61F0-44E6-9905-2389A9F0AC37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Http", "..\..\src\Wwa.Http\Wwa.Http.csproj", "{9D8EB14B-61F0-44E6-9905-2389A9F0AC37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Api", "..\..\..\src\Wwa.Api\Wwa.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Api", "..\..\src\Wwa.Api\Wwa.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Ioc.Unity", "..\..\..\src\Wwa.Ioc.Unity\Wwa.Ioc.Unity.csproj", "{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Ioc.Unity", "..\..\src\Wwa.Ioc.Unity\Wwa.Ioc.Unity.csproj", "{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Ioc.Autofac", "..\..\..\src\Wwa.Ioc.Autofac\Wwa.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Ioc.Autofac", "..\..\src\Wwa.Ioc.Autofac\Wwa.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0AD2EB32-32A4-40CC-B148-FCAFFC458B85}"
 	ProjectSection(SolutionItems) = preProject
