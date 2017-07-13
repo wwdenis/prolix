@@ -5,9 +5,9 @@ using Wwa.Core.Ioc;
 
 namespace Wwa.Ioc.Unity
 {
-    public class UnityResolverManager : ResolverManager
+    public class UnityDependencyManager : DependencyManager
     {
-        public UnityResolverManager() : base(new UnityResolver())
+        public UnityDependencyManager() : base(new UnityResolver())
         {
         }
     }

@@ -5,9 +5,9 @@ using Wwa.Core.Ioc;
 
 namespace Wwa.Ioc.Autofac
 {
-    public class AutofacResolverManager : ResolverManager
+    public class AutofacDependencyManager : DependencyManager
     {
-        public AutofacResolverManager() : base(new AutofacResolver())
+        public AutofacDependencyManager() : base(new AutofacResolver())
         {
         }
     }

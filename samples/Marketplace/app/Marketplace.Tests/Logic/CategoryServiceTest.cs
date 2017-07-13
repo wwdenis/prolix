@@ -25,7 +25,7 @@ namespace Marketplace.Tests
         [TestInitialize]
         public void Initialize()
         {
-            var manager = new AutofacResolverManager();
+            var manager = new AutofacDependencyManager();
 
             // Map all assemblies
             manager.MapAssembly<CategoryService>(); // Services

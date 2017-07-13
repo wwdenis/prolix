@@ -54,7 +54,7 @@ namespace Marketplace.Api
         static void ConfigureDependencies(HttpConfiguration config)
         {
             // IoC container
-            var manager = new AutofacResolverManager();
+            var manager = new AutofacDependencyManager();
 
             // Map app dependencies
             manager.MapAssembly<SecurityContext>();     // Domain
