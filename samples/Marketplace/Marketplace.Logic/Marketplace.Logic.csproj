@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBFE8436-E5D6-49CB-8EA7-138047597DAE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marketplace.Logic</RootNamespace>
+    <AssemblyName>Marketplace.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\Configuration\IStatusTypeService.cs" />
+    <Compile Include="Contracts\Configuration\ISettingService.cs" />
+    <Compile Include="Contracts\Configuration\ICategoryService.cs" />
+    <Compile Include="Contracts\Geography\ICountryService.cs" />
+    <Compile Include="Contracts\Geography\IProvinceService.cs" />
+    <Compile Include="Contracts\Security\IAuditService.cs" />
+    <Compile Include="Contracts\Security\IFeatureService.cs" />
+    <Compile Include="Contracts\Security\IIdentityService.cs" />
+    <Compile Include="Contracts\Security\IRoleService.cs" />
+    <Compile Include="Contracts\Security\IUserService.cs" />
+    <Compile Include="Contracts\Trading\ICustomerService.cs" />
+    <Compile Include="Contracts\Trading\IDealerService.cs" />
+    <Compile Include="Contracts\Trading\IProductService.cs" />
+    <Compile Include="Contracts\Trading\IOrderService.cs" />
+    <Compile Include="Services\RepositoryService.cs" />
+    <Compile Include="Services\UpdatableService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Configuration\CategoryQuery.cs" />
+    <Compile Include="Queries\Geography\CountryQuery.cs" />
+    <Compile Include="Queries\Geography\ProvinceQuery.cs" />
+    <Compile Include="Queries\Security\UserQuery.cs" />
+    <Compile Include="Queries\Trading\CustomerQuery.cs" />
+    <Compile Include="Queries\Trading\DealerQuery.cs" />
+    <Compile Include="Queries\Trading\ProductQuery.cs" />
+    <Compile Include="Queries\Trading\OrderQuery.cs" />
+    <Compile Include="Services\Configuration\StatusTypeService.cs" />
+    <Compile Include="Services\Configuration\SettingService.cs" />
+    <Compile Include="Services\Configuration\CategoryService.cs" />
+    <Compile Include="Services\Geography\CountryService.cs" />
+    <Compile Include="Services\Geography\ProvinceService.cs" />
+    <Compile Include="Services\Security\AuditService.cs" />
+    <Compile Include="Services\Security\FeatureService.cs" />
+    <Compile Include="Services\Security\IdentityService.cs" />
+    <Compile Include="Services\Security\RoleService.cs" />
+    <Compile Include="Services\Security\UserService.cs" />
+    <Compile Include="Services\Trading\CustomerService.cs" />
+    <Compile Include="Services\Trading\DealerService.cs" />
+    <Compile Include="Services\Trading\ProductService.cs" />
+    <Compile Include="Services\Trading\OrderService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+      <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
+      <Name>Wwa.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">
+      <Project>{2fbef665-972a-42c3-ae58-2861f684cdd6}</Project>
+      <Name>Marketplace.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketplace.Domain\Marketplace.Domain.csproj">
+      <Project>{545d7eb7-32f6-4856-b235-e30321a36669}</Project>
+      <Name>Marketplace.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -49,7 +49,7 @@ namespace Wwa.Core.Extensions.Parsing
 				return string.Empty;
 
             if (culture == null)
-                culture = Thread.CurrentThread.CurrentCulture;
+                culture = CultureInfo.CurrentCulture;
 
 			string template = "{0:" + format + "}";
 

@@ -41,7 +41,7 @@ namespace Wwa.Core.Logic
             Type descriptorType = null;
 
             var modelType = typeof(ModelType);
-            var attr = modelType.GetCustomAttribute<DescribeAttribute>();
+            var attr = modelType.GetAttribute<DescribeAttribute>();
 
             descriptorType = attr?.DescriptorType;
 

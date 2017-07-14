@@ -11,7 +11,7 @@ namespace Wwa.Ioc.Unity
     /// <summary>
     /// Unity generic Ioc Container
     /// </summary>
-    public class UnityResolver : IResolver
+    internal class UnityResolver : IResolver
     {
         bool _disposed;
         IUnityContainer _container;
@@ -79,15 +79,21 @@ namespace Wwa.Ioc.Unity
             }
         }
 
-        public void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null)
         {
             switch (lifetime)
             {
                 case DepedencyLifetime.PerLifetime:
-                    _container.RegisterType(abstractType, concreteType, new ContainerControlledLifetimeManager());
+                    if (string.IsNullOrWhiteSpace(name))
+                        _container.RegisterType(abstractType, concreteType, new ContainerControlledLifetimeManager());
+                    else
+                        _container.RegisterType(abstractType, concreteType, name, new ContainerControlledLifetimeManager());
                     break;
                 default:
-                    _container.RegisterType(abstractType, concreteType);
+                    if (string.IsNullOrWhiteSpace(name))
+                        _container.RegisterType(abstractType, concreteType);
+                    else
+                        _container.RegisterType(abstractType, concreteType, name);
                     break;
             }
         }

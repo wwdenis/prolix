@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Marketplace.Xam.Views.LoginPage"
+             xmlns:vm="clr-namespace:Marketplace.Xam.ViewModels;"
+             Title="{Binding Title}">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label FontSize="22">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Marketplace Xamarin" FontAttributes="Bold" FontSize="22"/>
+                            <Span Text=" "/>
+                            <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Please enter your" />
+                            <Span Text=" "/>
+                            <Span Text="credentials" FontAttributes="Bold" />
+                            <Span Text="." />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Email" FontSize="Medium" />
+                <Entry Text="{Binding UserName}" FontSize="Small" Keyboard="Email" />
+                <Label Text="Password" FontSize="Medium" />
+                <Entry Text="{Binding Password}" FontSize="Small" IsPassword="True" />
+            </StackLayout>
+            <Button Margin="0,10,0,0"
+                    Text="Login" 
+                    Command="{Binding LoginCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"/>
+            <ActivityIndicator IsRunning="True" IsVisible="{Binding IsBusy}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

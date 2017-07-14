@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 using Wwa.Core.Collections;
+using Wwa.Core.Extensions.Collections;
 using Wwa.Core.Http;
 using Wwa.Http.Extensions;
 
@@ -19,11 +20,25 @@ namespace Wwa.Http.Client
 {
     public class HttpService : IHttpService
 	{
-		#region Properties
+        #region Constructors
 
-		public string BaseUrl { get; set; }
+        public HttpService()
+        {
+        }
 
-		public IDictionary<string, string> DefaultCookies { get; } = new WeakDictionary<string, string>();
+        public HttpService(string baseUrl, IDictionary<string, string> defaultHeaders)
+        {
+            BaseUrl = baseUrl;
+            DefaultHeaders = defaultHeaders;
+        }
+
+        #endregion
+
+        #region Properties
+
+        public string BaseUrl { get; set; }
+        
+        public IDictionary<string, string> DefaultHeaders { get; set; } = new WeakDictionary<string, string>();
 
         #endregion
 
@@ -48,9 +63,10 @@ namespace Wwa.Http.Client
 				if (!response.IsSuccessStatusCode)
                     throw new HttpException(response.ReasonPhrase, response.StatusCode, content);
 
-				var cookies = response.GetCookies();
-				bodyResponse = new StringBody(content, cookies);
-			}
+				var headers = response.GetHeaders();
+                bodyResponse = new StringBody(content);
+                bodyResponse.Headers.AddRange(headers);
+            }
 			
             return bodyResponse;
 		}
@@ -80,9 +96,10 @@ namespace Wwa.Http.Client
 				if (!response.IsSuccessStatusCode)
 					throw new HttpException(response.ReasonPhrase, response.StatusCode, content);
 
-				var cookies = response.GetCookies();
-				bodyResponse = new StringBody(content, cookies);
-			}
+                var headers = response.GetHeaders();
+                bodyResponse = new StringBody(content);
+                bodyResponse.Headers.AddRange(headers);
+            }
 
 			return bodyResponse;
 		}
@@ -108,9 +125,10 @@ namespace Wwa.Http.Client
 				if (!response.IsSuccessStatusCode)
 					throw new HttpException(response.ReasonPhrase, response.StatusCode, content);
 
-				var cookies = response.GetCookies();
-				bodyResponse = new StringBody(content, cookies);
-			}
+                var headers = response.GetHeaders();
+                bodyResponse = new StringBody(content);
+                bodyResponse.Headers.AddRange(headers);
+            }
 
 			return bodyResponse;
 		}
@@ -140,8 +158,9 @@ namespace Wwa.Http.Client
                 if (!response.IsSuccessStatusCode)
                     throw new HttpException(response.ReasonPhrase, response.StatusCode, content);
 
-                var cookies = response.GetCookies();
-                bodyResponse = new StringBody(content, cookies);
+                var headers = response.GetHeaders();
+                bodyResponse = new StringBody(content);
+                bodyResponse.Headers.AddRange(headers);
             }
 
             return bodyResponse;
@@ -166,8 +185,9 @@ namespace Wwa.Http.Client
                 if (!response.IsSuccessStatusCode)
                     throw new HttpException(response.ReasonPhrase, response.StatusCode, content);
 
-                var cookies = response.GetCookies();
-                bodyResponse = new StringBody(content, cookies);
+                var headers = response.GetHeaders();
+                bodyResponse = new StringBody(content);
+                bodyResponse.Headers.AddRange(headers);
             }
 
             return bodyResponse;
@@ -191,14 +211,6 @@ namespace Wwa.Http.Client
 			
 			var cookieContainer = new CookieContainer();
 			
-			if (DefaultCookies?.Any() ?? false)
-			{
-				foreach (var cookie in DefaultCookies)
-				{
-					cookieContainer.Add(uri, new Cookie(cookie.Key, cookie.Value));
-				}
-			}
-
 			var handler = new HttpClientHandler
 			{
 				CookieContainer = cookieContainer
@@ -208,8 +220,16 @@ namespace Wwa.Http.Client
 			{
 				BaseAddress = uri
 			};
-			
-			return client;
+
+            if (DefaultHeaders?.Any() ?? false)
+            {
+                foreach (var header in DefaultHeaders)
+                {
+                    client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                }
+            }
+
+            return client;
 		}
 
 		void Trace(string url, string response, string request, [CallerMemberName] string method = null)
@@ -224,7 +244,7 @@ namespace Wwa.Http.Client
 			Debug.WriteLine("DATE: {0}", DateTime.Now);
 			Debug.WriteLine("URL: {0}", url);
 			Debug.WriteLine("HTTP METHOD: {0}", method?.ToUpper());
-			Debug.WriteLine("REQUEST COOKIES: {0}", DefaultCookies);
+			Debug.WriteLine("REQUEST HEADERS: {0}", DefaultHeaders);
 			Debug.WriteLine(string.Empty);
 
 			if (!string.IsNullOrWhiteSpace(request))

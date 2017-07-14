@@ -45,13 +45,13 @@ namespace Wwa.Core.Collections
 
         public IEnumerable<ModelType> Items { get; }
 
-        public int PageSize { get; }
+        public int PageSize { get; set; }
 
-        public int RecordCount { get; }
+        public int RecordCount { get; set; }
 
-        public int PageNumber { get; }
+        public int PageNumber { get; set; }
 
-        public int PageCount { get; }
+        public int PageCount { get; set; }
 
         #endregion
 

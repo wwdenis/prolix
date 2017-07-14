@@ -1,11 +1,10 @@
 // Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
+using Wwa.Core.Extensions.Reflection;
 
 namespace Wwa.Core.Collections
 {
@@ -84,17 +83,12 @@ namespace Wwa.Core.Collections
         static IOrderedQueryable<ModelType> Sort<ModelType>(IQueryable<ModelType> source, bool descending, LambdaExpression expression)
         {
             var methodName = descending ? "OrderByDescending" : "OrderBy";
-
-            var all = typeof(Queryable).GetMethods(BindingFlags.Static | BindingFlags.Public);
-            var method = all.FirstOrDefault(i => i.Name == methodName && i.GetParameters().Length == 2);
-
-            var typeArgs = new Type[] { typeof(ModelType), expression.ReturnType };
-            var generic = method.MakeGenericMethod(typeArgs);
+            var method = typeof(Queryable).MakeGenericMethod(methodName, typeof(ModelType), expression.ReturnType);
             var args = new object[] { source, expression };
             
-            var query = generic.Invoke(null, args);
+            var query = method.Invoke(null, args);
             var result = query as IOrderedQueryable<ModelType>;
-
+            
             return result;
         }
     }

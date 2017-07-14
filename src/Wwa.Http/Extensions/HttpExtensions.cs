@@ -10,6 +10,8 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
 using Wwa.Core.Http;
+using Wwa.Core.Logic;
+using Wwa.Http.Client;
 
 namespace Wwa.Http.Extensions
 {
@@ -45,29 +47,34 @@ namespace Wwa.Http.Extensions
 			}
 		}
 
-		public static IDictionary<string, string> GetCookies(this HttpResponseMessage response)
+		public static IDictionary<string, string> GetHeaders(this HttpResponseMessage response)
 		{
-			var result = new Dictionary<string, string>();
+            return response?.Headers?.ToDictionary(k => k.Key, v => string.Join(", ", v.Value)) ?? new Dictionary<string, string>();
+		}
+
+        public static IDictionary<string, string> GetCookies(this HttpResponseMessage response)
+        {
+            var result = new Dictionary<string, string>();
 
             if (response?.Headers == null || !response.Headers.TryGetValues("set-cookie", out IEnumerable<string> cookies))
                 return result;
 
             foreach (var headerCookie in cookies)
-			{
-				var rows = headerCookie.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-				var first = rows.FirstOrDefault();
-				if (!string.IsNullOrWhiteSpace(first))
-				{
-					var cookie = first.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
-					if (cookie.Length == 2)
-						result.Add(cookie[0], cookie[1]);
-				}
-			}
+            {
+                var rows = headerCookie.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                var first = rows.FirstOrDefault();
+                if (!string.IsNullOrWhiteSpace(first))
+                {
+                    var cookie = first.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (cookie.Length == 2)
+                        result.Add(cookie[0], cookie[1]);
+                }
+            }
 
-			return result;
-		}
+            return result;
+        }
 
-		public static string ToQueryString(this object request, string baseUrl = null)
+        public static string ToQueryString(this object request, string baseUrl = null)
 		{
 			var props = request.GetType().GetRuntimeProperties();
 			var builder = new StringBuilder();
@@ -126,5 +133,13 @@ namespace Wwa.Http.Extensions
 
 			return form;
 		}
-	}
+
+        public static void CheckRule(this HttpException ex)
+        {
+            RuleValidation rule = ex.ParseData<RuleValidation>();
+
+            if (rule != null)
+                throw new RuleException(ex.Message, rule);
+        }
+    }
 }

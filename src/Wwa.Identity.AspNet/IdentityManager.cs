@@ -17,8 +17,14 @@ namespace Wwa.Identity.AspNet
 {
     public class IdentityManager : IIdentityManager
     {
-        internal static UserManager<IdentityUser> UserManager { get; set; }
-        internal static IAuthenticationManager AuthManager { get; set; }
+        public IdentityManager(IOwinContext owinContext)
+        {
+            OwinContext = owinContext;
+        }
+
+        IOwinContext OwinContext { get; }
+        UserManager<IdentityUser> UserManager => OwinContext?.GetUserManager<UserManager<IdentityUser>>();
+        IAuthenticationManager AuthManager => OwinContext?.Authentication;
 
         async public Task<IdentityAccount> Get(string id, string userName)
         {

@@ -22,11 +22,6 @@ namespace Wwa.Core.Ioc
         /// <summary>
         /// A unique instance will be returned from all resolve requests
         /// </summary>
-        PerLifetime = 2,
-
-        /// <summary>
-        /// A instance will be returned only for a web controlled environment
-        /// </summary>
-        PerHttpRequest = 3
+        PerLifetime = 2
     }
 }

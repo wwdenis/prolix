@@ -91,6 +91,10 @@ namespace Wwa.Http.Client
 			where ResponseType : class
 		{
 			var content = ErrorData?.ToString();
+
+            if (string.IsNullOrWhiteSpace(content))
+                return null;
+
 			var result = JsonConvert.DeserializeObject<ResponseType>(content);
 
 			if (result != null)

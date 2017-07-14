@@ -7,18 +7,34 @@ using System.Collections.Generic;
 
 namespace Wwa.Core.Http
 {
-	public class HttpBody<ContentType>
+	public class HttpBody
     {
-		public HttpBody(ContentType content = default(ContentType), IDictionary<string, string> cookies = null)
-		{
-			Content = content;
-			Cookies = new WeakDictionary<string, string>(cookies ?? new Dictionary<string, string>());
-		}
+        public HttpBody()
+        {
+            Headers = new WeakDictionary<string, string>();
+        }
 
-		public ContentType Content { get; set; }
+        public bool IsForm { get; set; }
 
-		public bool IsForm { get; set; }
+		public IDictionary<string, string> Headers { get; protected set; }
+    }
 
-		public IDictionary<string, string> Cookies { get; }
-	}
+    public class HttpBody<ContentType> : HttpBody
+    {
+        public HttpBody() : this(default(ContentType))
+        {
+        }
+
+        public HttpBody(ContentType content)
+        {
+            Content = content;
+        }
+
+        public HttpBody(ContentType content, HttpBody parent) : this(content)
+        {
+            Headers = parent?.Headers ?? new WeakDictionary<string, string>();
+        }
+
+        public ContentType Content { get; set; }
+    }
 }

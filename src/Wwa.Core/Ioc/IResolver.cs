@@ -55,7 +55,8 @@ namespace Wwa.Core.Ioc
         /// <param name="concreteType">The concrete type</param>
         /// <param name="abstractType">The interface type</param>
         /// <param name="lifetime">The lifetime type</param>
-        void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency);
+        /// <param name="name">The name for a named dependency</param>
+        void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null);
 
         /// <summary>
         /// Register a dependency

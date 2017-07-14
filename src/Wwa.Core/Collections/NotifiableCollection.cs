@@ -1,6 +1,7 @@
 // Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -54,28 +55,85 @@ namespace Wwa.Core.Collections
 		/// </summary>
 		public bool NotifyItem { get; set; }
 
-		#endregion
+        #endregion
 
-		#region Public Methods
+        #region Public Methods
 
-		/// <summary>
-		/// Add a collection
-		/// </summary>
-		/// <param name="source">The collection source</param>
-		public void AddRange(IEnumerable<ItemType> source)
-		{
-			if (!source?.Any() ?? false)
-				return;
+        /// <summary> 
+        /// Adds the elements of the specified collection to the end of the ObservableCollection(Of T). 
+        /// </summary> 
+        public void AddRange(IEnumerable<ItemType> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
+        {
+            if (collection == null)
+                throw new ArgumentNullException("collection");
 
-			foreach (var item in source)
-				Add(item);
-		}
+            CheckReentrancy();
 
-		#endregion
+            if (notificationMode == NotifyCollectionChangedAction.Reset)
+            {
+                foreach (var i in collection)
+                {
+                    Items.Add(i);
+                }
 
-		#region Events Handlers
+                OnPropertyChanged(new PropertyChangedEventArgs("Count"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
+                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
 
-		protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+                return;
+            }
+
+            int startIndex = Count;
+            var changedItems = collection as List<ItemType> ?? new List<ItemType>(collection);
+            foreach (var i in changedItems)
+            {
+                Items.Add(i);
+            }
+
+            OnPropertyChanged(new PropertyChangedEventArgs("Count"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, changedItems, startIndex));
+        }
+
+        /// <summary> 
+        /// Removes the first occurence of each item in the specified collection from ObservableCollection(Of T). 
+        /// </summary> 
+        public void RemoveRange(IEnumerable<ItemType> collection)
+        {
+            if (collection == null)
+                throw new ArgumentNullException("collection");
+
+            foreach (var i in collection)
+                Items.Remove(i);
+
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
+
+        /// <summary> 
+        /// Clears the current collection and replaces it with the specified item. 
+        /// </summary> 
+        public void Replace(ItemType item)
+        {
+            ReplaceRange(new[] { item });
+        }
+
+        /// <summary> 
+        /// Clears the current collection and replaces it with the specified collection. 
+        /// </summary> 
+        public void ReplaceRange(IEnumerable<ItemType> collection)
+        {
+            if (collection == null)
+                throw new ArgumentNullException("collection");
+
+            Items.Clear();
+            AddRange(collection, NotifyCollectionChangedAction.Reset);
+        }
+
+        #endregion
+
+        #region Events Handlers
+
+        protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
 		{
 			var newItems = e.NewItems.ToList<INotifyPropertyChanged>();
 			var oldItems = e.OldItems.ToList<INotifyPropertyChanged>();

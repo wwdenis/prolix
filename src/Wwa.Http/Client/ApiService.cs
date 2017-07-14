@@ -1,279 +1,150 @@
-// Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
+﻿// Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
-using Newtonsoft.Json;
-using Wwa.Core.Logic;
 using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
-
+using Wwa.Core.Collections;
+using Wwa.Core.Domain;
+using Wwa.Core.Extensions.Parsing;
 using Wwa.Core.Http;
 using Wwa.Http.Extensions;
 
 namespace Wwa.Http.Client
 {
-    /// <summary>
-    /// Api Client Service
-    /// </summary>
-    public class ApiService : IApiService
+    public abstract class ApiService<ModelType, KeyType> : IApiService<ModelType, KeyType>
+        where ModelType : Model<KeyType>, new()
+        where KeyType : IComparable<KeyType>, IEquatable<KeyType>
     {
-		#region Fields
+        public string BaseUrl { get; set; }
+        public string ResourceName { get; set; }
 
-		IHttpService HttpService { get; }
-		
-		#endregion
+        public IDictionary<string, string> DefaultHeaders { get; set; } = new WeakDictionary<string, string>();
 
-		#region Constructor
+        IRestService RestService => new RestService(BaseUrl, DefaultHeaders);
 
-		public ApiService(IHttpService httpService)
+        async public Task<ModelType> Get(KeyType id)
         {
-			HttpService = httpService;
-		}
-
-		#endregion
-
-		#region Static Constructor
-
-		static ApiService()
-		{
-			// Initialize common json configuration
-			JsonExtensions.IgnoreErrors();
-		}
-
-        #endregion
-
-        #region Public Methods
-
-        /// <summary>
-        /// Performs GET calls to get an individual resource.
-        /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <param name="param">The endpoint parameters</param>
-        /// <returns>The requested model</returns>
-        async public virtual Task<HttpBody<ResponseType>> Get<ResponseType>(string resource, object param = null)
-            where ResponseType : class, new()
-        {
-            return await Get<ResponseType>(resource, param);
-        }
-
-        /// <summary>
-        /// Performs GET calls to get a list of resources.
-        /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <param name="param">The endpoint parameters</param>
-        /// <returns>The requested model list</returns>
-        async public Task<HttpBody<ResponseType[]>> List<ResponseType>(string resource, object param = null)
-            where ResponseType : class
-        {
-            return await GetApi<ResponseType[]>(resource, param);
-		}
-
-        /// <summary>
-        /// Performs POST calls to add a new resource.
-        /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
-        /// <typeparam name="BodyType">The body type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <param name="body">The body data</param>
-        /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Post<ResponseType, BodyType>(string resource, HttpBody<BodyType> body)
-			where ResponseType : class
-			where BodyType : class
-		{
-			return await PostApi<ResponseType, BodyType>(resource, body);
-		}
-
-        /// <summary>
-        /// Performs POST calls to add a new resource.
-        /// </summary>
-        /// <typeparam name="BodyType">The body type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <param name="body">The body data</param>
-        /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Post<ResponseType>(string resource, HttpBody<ResponseType> body)
-			where ResponseType : class
-		{
-			return await Post<ResponseType, ResponseType>(resource, body);
-		}
-
-        /// <summary>
-        /// Performs PUT calls to add an existing resource.
-        /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
-        /// <typeparam name="BodyType">The body type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <param name="body">The body data</param>
-        /// <returns>The requested response</returns>
-		async public virtual Task<HttpBody<ResponseType>> Put<ResponseType, BodyType>(string resource, HttpBody<BodyType> body)
-            where ResponseType : class
-            where BodyType : class
-        {
-            return await PutApi<ResponseType>(resource, body?.Content);
-        }
-
-        /// <summary>
-        /// Performs PUT calls to add an existing resource.
-        /// </summary>
-        /// <typeparam name="BodyType">The body type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <param name="body">The body data</param>
-        /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Put<ResponseType>(string resource, HttpBody<ResponseType> body)
-            where ResponseType : class
-        {
-            return await Put<ResponseType, ResponseType>(resource, body);
-        }
-
-        /// <summary>
-        /// Performs DELETE calls to remove an existing resource.
-        /// </summary>
-        /// <typeparam name="BodyType">The body type</typeparam>
-        /// <param name="resource">The relative endpoint Url</param>
-        /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Delete<ResponseType>(string resource)
-            where ResponseType : class
-        {
-            return await DeleteApi<ResponseType>(resource);
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        async Task<HttpBody<ResponseType>> GetApi<ResponseType>(string resourceOrUrl, object param)
-            where ResponseType : class
-        {
-			var result = new HttpBody<ResponseType>();
-			
-			try
-            {
-				// Builds the url
-				string url = param.ToQueryString(resourceOrUrl);
-
-                // Gets JSON and parse the result
-                StringBody response = await HttpService.Get(url);
-				ResponseType data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-				result = new HttpBody<ResponseType>(data, response.Cookies);
-			}
-			catch (HttpException ex)
-            {
-                // Parse the error result
-                CheckRule(ex);
-				throw ex;
-			}
-            catch (Exception ex)
-            {
-				throw new HttpException(ex);
-			}
-			
-            return result;
-        }
-
-		async Task<HttpBody<ResponseType>> PostApi<ResponseType, BodyType>(string url, HttpBody<BodyType> input)
-			where ResponseType : class
-			where BodyType: class
-		{
-			var result = new HttpBody<ResponseType>();
-			HttpBody<string> response = null;
-			try
-			{
-				if (input.IsForm)
-				{
-                    // Post FORM and parse the result
-                    var dic = input.ToFormDictionaty();
-					response = await HttpService.Post(url, dic);
-				}
-				else
-				{
-                    // Post JSON and parse the result
-                    var json = JsonConvert.SerializeObject(input);
-
-                    if (input.GetType() == typeof(string))
-                        json = input as string;
-
-					response = await HttpService.Post(url, json);
-				}
-
-				var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-				result = new HttpBody<ResponseType>(data, response.Cookies);
-			}
-			catch (HttpException ex)
-            {
-                // Parse the error result
-                CheckRule(ex);
-				throw ex;
-			}
-            catch (Exception ex)
-			{
-				throw new HttpException(ex);
-			}
-
-			return result;
-		}
-
-        async Task<HttpBody<ResponseType>> PutApi<ResponseType>(string url, object input)
-            where ResponseType : class
-        {
-            var result = new HttpBody<ResponseType>();
-
             try
             {
-                // Posta o JSON no servidor, e realiza parse do retorno
-                var json = JsonConvert.SerializeObject(input);
-                var response = await HttpService.Put(url, json);
-                var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-                result = new HttpBody<ResponseType>(data, response.Cookies);
+                if (string.IsNullOrWhiteSpace(ResourceName))
+                    throw new ArgumentNullException("ResourceName");
+
+                var url = $"{ResourceName}/{id}";
+                var body = await RestService.Get<ModelType>(url);
+                return body?.Content;
             }
             catch (HttpException ex)
             {
-                // Parse the error result
-                CheckRule(ex);
-				throw ex;
-            }
-            catch (Exception ex)
-            {
-                throw new HttpException(ex);
-            }
+                if (ex.StatusCode == HttpStatusCode.NotFound)
+                    return null;
 
-            return result;
+                ex.CheckRule();
+                throw;
+            }
         }
 
-
-        async Task<HttpBody<ResponseType>> DeleteApi<ResponseType>(string url)
-            where ResponseType : class
+        async public Task<PagedList<ModelType>> List(QueryRequest<ModelType> query = null)
         {
-            var result = new HttpBody<ResponseType>();
-
             try
             {
-                // Recupera o JSON no servidor, e realiza parse do retorno
-                var response = await HttpService.Delete(url);
-                var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-                result = new HttpBody<ResponseType>(data, response.Cookies);
+                if (string.IsNullOrWhiteSpace(ResourceName))
+                    throw new ArgumentNullException("ResourceName");
+
+                var body = await RestService.List<ModelType>(ResourceName, query);
+                var result = new PagedList<ModelType>(body?.Content)
+                {
+                    PageSize = query?.PageSize ?? 0,
+                    PageNumber = query?.PageNumber ?? 1,
+                    PageCount = body.Headers["X-Page-Count"]?.ToInt() ?? 0,
+                    RecordCount = body.Headers["X-Page-Records"]?.ToInt() ?? 0
+                };
+
+                return result;
             }
             catch (HttpException ex)
             {
-				// Parse the error result
-				CheckRule(ex);
-				throw ex;
-            }
-            catch (Exception ex)
-            {
-                throw new HttpException(ex);
-            }
+                if (ex.StatusCode == HttpStatusCode.NotFound)
+                    return null;
 
-            return result;
+                ex.CheckRule();
+                throw;
+            }
         }
 
-        void CheckRule(HttpException ex)
-		{
-			RuleValidation rule = ex.ParseData<RuleValidation>();
+        async public Task<ModelType> Add(ModelType model)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(ResourceName))
+                    throw new ArgumentNullException("ResourceName");
 
-			if (rule != null)
-				throw new RuleException(ex.Message, rule);
-		} 
+                if (model == null)
+                    throw new ArgumentNullException("model");
 
-        #endregion
+                var request = new HttpBody<ModelType>(model);
+                var response = await RestService.Post(ResourceName, request);
+                return response?.Content;
+            }
+            catch (HttpException ex)
+            {
+                if (ex.StatusCode == HttpStatusCode.NotFound)
+                    return null;
+
+                ex.CheckRule();
+                throw;
+            }
+        }
+
+        async public Task<ModelType> Update(ModelType model)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(ResourceName))
+                    throw new ArgumentNullException("ResourceName");
+
+                if (model == null)
+                    throw new ArgumentNullException("model");
+
+                var url = $"{ResourceName}/{model.Id}";
+                var request = new HttpBody<ModelType>(model);
+                var response = await RestService.Put(url, request);
+                return response?.Content;
+            }
+            catch (HttpException ex)
+            {
+                if (ex.StatusCode == HttpStatusCode.NotFound)
+                    return null;
+
+                ex.CheckRule();
+                throw;
+            }
+        }
+
+        async public Task Delete(KeyType id)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(ResourceName))
+                    throw new ArgumentNullException("ResourceName");
+
+                var url = $"{ResourceName}/{id}";
+                await RestService.Delete<object>(url);
+            }
+            catch (HttpException ex)
+            {
+                if (ex.StatusCode == HttpStatusCode.NotFound)
+                    return;
+
+                ex.CheckRule();
+                throw;
+            }
+        }
+    }
+
+    public abstract class ApiService<ModelType> : ApiService<ModelType, int>
+        where ModelType : Model, new()
+    {
     }
 }

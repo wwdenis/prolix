@@ -4,8 +4,6 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Security.Principal;
-using System.Threading;
 
 using Wwa.Core.Data;
 using Wwa.Core.Domain;
@@ -55,11 +53,6 @@ namespace Wwa.Core.Logic
         #endregion
 
         #region Properties
-
-        /// <summary>
-        /// The main thread principal
-        /// </summary>
-        protected static IPrincipal Principal => Thread.CurrentPrincipal;
 
         /// <summary>
         /// The database context

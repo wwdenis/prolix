@@ -15,7 +15,7 @@ namespace Wwa.Ioc.Autofac
     /// <summary>
     /// Autofac generic Ioc Container
     /// </summary>
-    public class AutofacResolver : IResolver
+    internal class AutofacResolver : IResolver
     {
         bool _disposed;
         ILifetimeScope _container;
@@ -47,11 +47,8 @@ namespace Wwa.Ioc.Autofac
                 case DepedencyLifetime.PerLifetime:
                     _builder.RegisterType<ConcreteType>().InstancePerLifetimeScope();
                     break;
-                case DepedencyLifetime.PerHttpRequest:
-                    _builder.RegisterType<ConcreteType>().InstancePerRequest();
-                    break;
                 default:
-                    throw new ArgumentOutOfRangeException("type");
+                    throw new ArgumentOutOfRangeException("lifetime");
             }
         }
 
@@ -64,13 +61,10 @@ namespace Wwa.Ioc.Autofac
                     _builder.RegisterInstance(instance).InstancePerDependency();
                     break;
                 case DepedencyLifetime.PerLifetime:
-                    _builder.RegisterInstance(instance).InstancePerLifetimeScope();
-                    break;
-                case DepedencyLifetime.PerHttpRequest:
-                    _builder.RegisterInstance(instance).InstancePerRequest();
+                    _builder.RegisterInstance(instance).SingleInstance();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("type");
+                    throw new ArgumentOutOfRangeException("lifetime");
             }
         }
 
@@ -94,29 +88,29 @@ namespace Wwa.Ioc.Autofac
                 case DepedencyLifetime.PerLifetime:
                     _builder.RegisterType<ConcreteType>().As<AbstractType>().InstancePerLifetimeScope();
                     break;
-                case DepedencyLifetime.PerHttpRequest:
-                    _builder.RegisterType<ConcreteType>().As<AbstractType>().InstancePerRequest();
-                    break;
                 default:
-                    throw new ArgumentOutOfRangeException("type");
+                    throw new ArgumentOutOfRangeException("lifetime");
             }
         }
 
-        public void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null)
         {
             switch (lifetime)
             {
                 case DepedencyLifetime.PerDependency:
-                    _builder.RegisterType(concreteType).As(abstractType).InstancePerDependency();
+                    if (string.IsNullOrWhiteSpace(name))
+                        _builder.RegisterType(concreteType).As(abstractType).InstancePerDependency();
+                    else
+                        _builder.RegisterType(concreteType).Named(name, abstractType).As(abstractType).InstancePerDependency();
                     break;
                 case DepedencyLifetime.PerLifetime:
-                    _builder.RegisterType(concreteType).As(abstractType).InstancePerLifetimeScope();
-                    break;
-                case DepedencyLifetime.PerHttpRequest:
-                    _builder.RegisterType(concreteType).As(abstractType).InstancePerRequest();
+                    if (string.IsNullOrWhiteSpace(name))
+                        _builder.RegisterType(concreteType).As(abstractType).InstancePerLifetimeScope();
+                    else
+                        _builder.RegisterType(concreteType).Named(name, abstractType).As(abstractType).InstancePerLifetimeScope();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("type");
+                    throw new ArgumentOutOfRangeException("lifetime");
             }
         }
 
@@ -130,11 +124,8 @@ namespace Wwa.Ioc.Autofac
                 case DepedencyLifetime.PerLifetime:
                     _builder.RegisterType(concreteType).InstancePerLifetimeScope();
                     break;
-                case DepedencyLifetime.PerHttpRequest:
-                    _builder.RegisterType(concreteType).InstancePerRequest();
-                    break;
                 default:
-                    throw new ArgumentOutOfRangeException("type");
+                    throw new ArgumentOutOfRangeException("lifetime");
             }
         }
 
@@ -176,9 +167,6 @@ namespace Wwa.Ioc.Autofac
 
         public IEnumerable<object> ResolveAll(Type abstractType)
         {
-            if (!_container.IsRegistered(abstractType))
-                return Enumerable.Empty<object>();
-
             var enumerableType = typeof(IEnumerable<>).MakeGenericType(abstractType);
             var all = _container.Resolve(enumerableType);
             return all as IEnumerable<object>;
