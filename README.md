@@ -8,10 +8,12 @@ WWA is a starting point for building modern RESTful applications. It is intended
 
 ### Architecture
 
-WWA is a application framework built on top of __.NET Framework__ and __ASP .NET Web API__, using modern practices (SOLID, IoC, etc.) and known tools for developers. It  implements a very simple (but powerful) layered architecture (Domain, Data, Logic, App) allowing developers focus on the solution itself.  
+WWA is a application framework built on top of __.NET Framework__, __.NET Standard__ , __Xamarin__ and __ASP .NET Web API__, using modern practices (SOLID, IoC, etc.) and known tools for developers. It  implements a very simple (but powerful) layered architecture (Domain, Data, Logic, App) allowing developers focus on the solution itself.
 
 ### Technologies
 
+- Xamarin Forms
+- .NET Standard
 - .NET Framework 4.6.1
 - ASP .NET Web API
 - Entity Framework
@@ -31,20 +33,21 @@ WWA is a application framework built on top of __.NET Framework__ and __ASP .NET
 - __Wwa.Ioc.Autofac__: Dependency injection implementation using Autofac
 - __Wwa.Ioc.Unity__: Dependency injection implementation using Microsoft Unity
 - __Wwa.Angular__: TypeScript infrastructure code for consuming Wwa-powered RESTful apps
+- __Wwa.Xam__: Core components for Xamarin Forms
 
 Links
 -----
 
 * Twitter: http://twitter.com/wwdenis
-* Linked In: http://linkedin.com/in/denis81
+* LinkedIn: http://linkedin.com/in/denis81
 
 Future
 -----
-- Support .NET Standard
-- Support ASP .NET Core
-- Support nHibernate, Dapper
-- Xamarin Forms sample project
-- Rewrite core components in NodeJS
+- .NET Standard (In Progress)
+- ASP .NET Core
+- More data access components (nHibernate, Dapper, etc.)
+- Xamarin Forms sample project (In Progress)
+- More languages (Ruby, Node, Python, etc.)
 
 Sample Project
 -----
@@ -58,6 +61,10 @@ The Marketplace project demonstrate how WWA can be used in building RESTful appl
 - __Marketplace.Api__: App layer (Controllers, Models)
 - __Marketplace.Web__: Single page application using Angular 1, TypeScript and Bootstrap
 - __Marketplace.Tests__: Unit test project
+- __Marketplace.Xam__: Xamarin Forms PCL project
+- __Marketplace.Models__: Models shared between API and mobile (.NET Standart)
+- __Marketplace.Db.Schema__: Application database schema (SQL Server Database Project)
+- __Marketplace.Db.Identity__: Authetication entine schema (Microsoft Identity, SQL Server Database Project)
 
 ### Running the Sample Project
 
