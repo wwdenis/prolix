@@ -60,20 +60,13 @@ namespace Marketplace.Logic.Services.Security
             // Start a transaction
             Context.Start();
 
-            var user = new User
-            {
-                Email = request.Email,
-                Name = request.FullName,
-                RoleId = customerRoleId
-            };
-
-            // Adds the user
-            await UserService.Add(user);
-
             string token = string.Empty;
+            IdentityAccount account = null;
+
             try
             {
                 token = await Manager.Register(request.Email, request.Password);
+                account = await Manager.Get(null, request.Email);
             }
             catch (IdentityException ex)
             {
@@ -82,6 +75,17 @@ namespace Marketplace.Logic.Services.Security
                 string message = ex.TranslatedReason();
                 throw new RuleException(message);
             }
+
+            var user = new User
+            {
+                Email = request.Email,
+                Name = request.FullName,
+                RoleId = customerRoleId,
+                IdentityId = account?.Id
+            };
+
+            // Adds the user
+            await UserService.Add(user);
 
             // Commmit the transaction
             Context.Commit();
@@ -102,12 +106,7 @@ namespace Marketplace.Logic.Services.Security
             rule.Check();
 
             string token = string.Empty;
-
-            var user = UserService.Get(request.UserName);
-
-            if (user == null)
-                return null;
-
+            
             try
             {
                 token = await Manager.Login(request.UserName, request.Password);
@@ -117,6 +116,8 @@ namespace Marketplace.Logic.Services.Security
                 string message = ex.TranslatedReason();
                 throw new RuleException(message);
             }
+
+            var user = UserService.Get(request.UserName);
 
             var result = new Access
             {
