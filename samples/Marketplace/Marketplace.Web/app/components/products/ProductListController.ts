@@ -83,7 +83,7 @@ module App.Controllers {
             var promise = this.ProductService.Delete(id);
 
             promise
-                .then((result: boolean) => {
+                .then((result: any) => {
                     this.ToastService.Deleted();
                     this.Search();
                 })

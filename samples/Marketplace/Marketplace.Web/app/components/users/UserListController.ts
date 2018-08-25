@@ -83,7 +83,7 @@ module App.Controllers {
             var promise = this.UserService.Delete(id);
 
             promise
-                .then((result: boolean) => {
+                .then((result: any) => {
                     this.ToastService.Info("User excluído com sucesso!");
                     this.Search();
                 })

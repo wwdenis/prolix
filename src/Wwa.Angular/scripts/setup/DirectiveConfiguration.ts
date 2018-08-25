@@ -6,6 +6,6 @@ module App.Setup {
 
     export interface DirectiveConfiguration {
         Name: string;
-        Directive: ng.IDirective
+        Directive: Function;
     }
 }

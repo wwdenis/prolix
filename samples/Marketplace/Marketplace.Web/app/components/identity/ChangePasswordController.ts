@@ -41,7 +41,7 @@ module App.Controllers {
             var promise = this.IdentityService.ChangePassword(scope.Input);
 
             promise
-                .then((result: boolean) => {
+                .then((result: any) => {
                     location.url('/');
                 })
                 .catch((error: Models.ErrorResult) => {

@@ -10,7 +10,7 @@ module App.Directives {
         return {
             link: ($scope: ng.IScope, element: ng.IAugmentedJQuery, attributes: ng.IAttributes) => {
                 element.bind('blur', () => {
-                    $scope.$apply(attributes['stBlur']);
+                    $scope.$apply(attributes['waBlur']);
                 });
 
                 $scope.$on('$destroy', () => {

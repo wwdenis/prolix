@@ -7,21 +7,22 @@ module App.Services {
     "use strict";
 
     export abstract class PageRestService<ModelType extends Models.Model, FilterType extends Queries.QueryRequest> extends RestService<ModelType> {
-        static $inject = ["$http", "Application"];
+        static $inject = ["$http", "$q", "Application"];
 
         constructor(
             protected $http: ng.IHttpService,
+            protected $q: ng.IQService,
             protected Application: IApplication) {
-            super($http, Application);
+            super($http, $q, Application);
         }
 
-        public Search(filter?: FilterType): ng.IHttpPromise<Queries.PagedList<ModelType>> {
+        public Search(filter?: FilterType): ng.IPromise<Queries.PagedList<ModelType>> {
 
             var query = super.ToQueryString(filter);
             var url = super.BuildUrl(this.ApiController, query);
 
             var config = this.BuildConfig();
-            var promise = this.$http.get(url, config);
+            var promise = super.HttpGet<Queries.PagedList<ModelType>>(url, config);
 
             return promise;
         }

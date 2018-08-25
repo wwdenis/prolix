@@ -7,10 +7,10 @@ module App.Services {
     "use strict";
 
     export class UserService extends UpdateRestService<Models.User, Queries.UserQuery> {
-        static $inject = ["$http", "Application"];
+        static $inject = ["$http", "$q", "Application"];
 
-        constructor(public $http: ng.IHttpService, public Application: IApplication) {
-            super($http, Application);
+        constructor(public $http: ng.IHttpService, $q: ng.IQService, public Application: IApplication) {
+            super($http, $q, Application);
 
             this.ApiController = "User";
         }
