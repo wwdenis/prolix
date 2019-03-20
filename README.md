@@ -1,10 +1,14 @@
-Word Wide Architecture
+Prolix: A footprint for a Clean Architecture
 ===================
 
 What is Prolix?
 ------------
 
-Prolix is a starting point for building modern RESTful applications. It is intended to help .NET developers on REST architecture, facilitating migration from ASP .NET Web Forms and MVC to Web API.
+According [Orford Dictionary](https://en.oxforddictionaries.com/definition/prolix), Prolix means "using or containing too many words; tediously lengthy".
+
+Many developers have the same problems everyday, and most of then try to recreate the solutions instead , causing repetitive, boring and tedious code.
+
+Prolix is a starting point for building modern RESTful applications. It is intended to help developers to write clean, maintenable and less code.
 
 ### Architecture
 
@@ -25,15 +29,17 @@ Prolix is a application framework built on top of __.NET Framework__, __.NET Sta
 
 ### Structure
 
-- __Prolix.Core__: Common components and interfaces 
-- __Prolix.Api__: Api layer components implemeted on top of
-- __Prolix.Http__: Http client components for consuming Prolix-powered RESTful apps
-- __Prolix.Data.EF__: Data layer implementation using Entity Framework
-- __Prolix.Identity.AspNet__: Authentication layer implenentation using ASP .NET Identity
-- __Prolix.Ioc.Autofac__: Dependency injection implementation using Autofac
-- __Prolix.Ioc.Unity__: Dependency injection implementation using Microsoft Unity
-- __Prolix.Angular__: TypeScript infrastructure code for consuming Prolix-powered RESTful apps
-- __Prolix.Xam__: Core components for Xamarin Forms
+|Component|Description|
+|:-:|-|
+|__Prolix.Core__|Common components and interfaces| 
+|__Prolix.Api__|Api layer components implemeted on top of ASP .NET Web API|
+|__Prolix.Http__|Http client components for consuming Prolix-powered RESTful apps|
+|__Prolix.Data.EF__|Data layer implementation using Entity Framework|
+|__Prolix.Identity.AspNet__|Authentication layer implenentation using ASP .NET Identity|
+|__Prolix.Ioc.Autofac__|Dependency injection implementation using Autofac|
+|__Prolix.Ioc.Unity__|Dependency injection implementation using Microsoft Unity|
+|__Prolix.Angular__|TypeScript infrastructure code for consuming Prolix-powered RESTful apps|
+|__Prolix.Xam__|Core components for Xamarin Forms|
 
 Links
 -----
@@ -41,10 +47,11 @@ Links
 * Twitter: http://twitter.com/wwdenis
 * LinkedIn: http://linkedin.com/in/denis81
 
-Future
+Roadmap
 -----
 - .NET Standard (In Progress)
 - ASP .NET Core
+- Angular CLI Support
 - More data access components (nHibernate, Dapper, etc.)
 - Xamarin Forms sample project (In Progress)
 - More languages (Ruby, Node, Python, etc.)
@@ -55,16 +62,18 @@ The Marketplace project demonstrate how Prolix can be used in building RESTful a
 
 ### Structure
 
-- __Marketplace.Domain__: Domaain objects (POCO classes) 
-- __Marketplace.Data__: Data layer (Data context and mappings logic)
-- __Marketplace.Logic__: Business layer
-- __Marketplace.Api__: App layer (Controllers, Models)
-- __Marketplace.Web__: Single page application using Angular 1, TypeScript and Bootstrap
-- __Marketplace.Tests__: Unit test project
-- __Marketplace.Xam__: Xamarin Forms PCL project
-- __Marketplace.Models__: Models shared between API and mobile (.NET Standart)
-- __Marketplace.Db.Schema__: Application database schema (SQL Server Database Project)
-- __Marketplace.Db.Identity__: Authetication entine schema (Microsoft Identity, SQL Server Database Project)
+|Component|Description|
+|:-:|-|
+|__Marketplace.Domain__|Domain objects (POCO classes)|
+|__Marketplace.Data__|Data layer (Data context and mappings logic)|
+|__Marketplace.Logic__|Business layer (Services)|
+|__Marketplace.Api__|App layer (Controllers, Models)|
+|__Marketplace.Web__|Single page application using AngularJS, TypeScript and Bootstrap|
+|__Marketplace.Tests__|Unit test project|
+|__Marketplace.Xam__|Xamarin Forms PCL project|
+|__Marketplace.Models__|Models shared between API and mobile (.NET Standard)|
+|__Marketplace.Db.Schema__|Application database schema (SQL Server Database Project)|
+|__Marketplace.Db.Identity__|Authetication entine schema (Microsoft Identity, SQL Server Database Project)|
 
 ### Running the Sample Project
 
