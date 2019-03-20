@@ -17,19 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Data", "Marketp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Logic", "Marketplace.Logic\Marketplace.Logic.csproj", "{BBFE8436-E5D6-49CB-8EA7-138047597DAE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Core", "..\..\src\Wwa.Core\Wwa.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Core", "..\..\src\Prolix.Core\Prolix.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Identity.AspNet", "..\..\src\Wwa.Identity.AspNet\Wwa.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Identity.AspNet", "..\..\src\Prolix.Identity.AspNet\Prolix.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Data.EF", "..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Data.EF", "..\..\src\Prolix.Data.EF\Prolix.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Http", "..\..\src\Wwa.Http\Wwa.Http.csproj", "{9D8EB14B-61F0-44E6-9905-2389A9F0AC37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Http", "..\..\src\Prolix.Http\Prolix.Http.csproj", "{9D8EB14B-61F0-44E6-9905-2389A9F0AC37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Api", "..\..\src\Wwa.Api\Wwa.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Api", "..\..\src\Prolix.Api\Prolix.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwa.Ioc.Unity", "..\..\src\Wwa.Ioc.Unity\Wwa.Ioc.Unity.csproj", "{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Ioc.Unity", "..\..\src\Prolix.Ioc.Unity\Prolix.Ioc.Unity.csproj", "{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Ioc.Autofac", "..\..\src\Wwa.Ioc.Autofac\Wwa.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0AD2EB32-32A4-40CC-B148-FCAFFC458B85}"
 	ProjectSection(SolutionItems) = preProject
@@ -46,7 +46,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETStandard", "NETStandard"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETFramework", "NETFramework", "{48536B01-4EF9-4CA7-9F0B-4B0436ABD32C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wwa.Xam", "..\..\src\Wwa.Xam\Wwa.Xam.csproj", "{78D2DD1C-BF69-4ED6-9495-8A7998681F79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Xam", "..\..\src\Prolix.Xam\Prolix.Xam.csproj", "{78D2DD1C-BF69-4ED6-9495-8A7998681F79}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}"
 EndProject
@@ -138,5 +138,8 @@ Global
 		{48536B01-4EF9-4CA7-9F0B-4B0436ABD32C} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
 		{78D2DD1C-BF69-4ED6-9495-8A7998681F79} = {B2E7643B-E8CC-4872-93D5-EBA38B8AC7FE}
 		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416} = {5047C670-02D3-4FD4-B991-B9D66AADB23E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B62758BD-5BAF-4003-A6D0-F44159267F77}
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Security;
-using Wwa.Core.Collections;
+using Prolix.Core.Collections;
 
 namespace Marketplace.Logic.Queries.Security
 {

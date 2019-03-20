@@ -1,8 +1,8 @@
 // Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
-using Wwa.Core.Domain;
-using Wwa.Core.Logic;
+using Prolix.Core.Domain;
+using Prolix.Core.Logic;
 using Marketplace.Data;
 using Marketplace.Domain.Security;
 

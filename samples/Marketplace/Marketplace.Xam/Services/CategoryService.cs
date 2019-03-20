@@ -1,6 +1,6 @@
 ﻿using Marketplace.Models.Configuration;
 using Marketplace.Xam.Models;
-using Wwa.Http.Client;
+using Prolix.Http.Client;
 
 namespace Marketplace.Xam.Services
 {

@@ -75,13 +75,13 @@
       <Project>{378b69c4-3aef-4221-ac6d-846017986e0b}</Project>
       <Name>Marketplace.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Wwa.Core</Name>
+      <Name>Prolix.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Data.EF\Prolix.Data.EF.csproj">
       <Project>{20bca77b-b073-4ee1-a147-28223242a6fe}</Project>
-      <Name>Wwa.Data.EF</Name>
+      <Name>Prolix.Data.EF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
-using Wwa.Core.Mobile.Navigation;
-using Wwa.Xam.Navigation;
+using Prolix.Core.Mobile.Navigation;
+using Prolix.Xam.Navigation;
 using Xamarin.Forms;
 
 namespace Marketplace.Xam.ViewModels

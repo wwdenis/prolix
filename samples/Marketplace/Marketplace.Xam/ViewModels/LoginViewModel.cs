@@ -7,8 +7,8 @@ using Marketplace.Models.Security;
 using Marketplace.Xam.Models;
 using Marketplace.Xam.Services;
 
-using Wwa.Core.Logic;
-using Wwa.Core.Mobile.Navigation;
+using Prolix.Core.Logic;
+using Prolix.Core.Mobile.Navigation;
 
 namespace Marketplace.Xam.ViewModels
 {

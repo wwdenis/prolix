@@ -82,9 +82,9 @@
     <Compile Include="Services\Trading\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Wwa.Core</Name>
+      <Name>Prolix.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">
       <Project>{2fbef665-972a-42c3-ae58-2861f684cdd6}</Project>

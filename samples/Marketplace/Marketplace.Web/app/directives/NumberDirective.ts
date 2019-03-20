@@ -10,7 +10,7 @@ module App.Directives {
         return {
             require: "ngModel",
             restrict: "A",
-            link: ($scope: ng.IScope, element: ng.IAugmentedJQuery, attributes: ng.IAttributes, controller: ng.INgModelController) => {
+            link: ($scope: ng.IScope, element: ng.IAugmentedJQuery, attributes: ng.IAttributes, controller: any /*ng.INgModelController*/) => {
 
                 var inputValue = (value: string) => {
                     if (value) {

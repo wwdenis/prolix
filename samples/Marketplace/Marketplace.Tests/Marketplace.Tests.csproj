@@ -56,13 +56,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Wwa.Core</Name>
+      <Name>Prolix.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Ioc.Autofac\Wwa.Ioc.Autofac.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj">
       <Project>{371594c7-3e8b-48fa-98f8-0c86cba27b5b}</Project>
-      <Name>Wwa.Ioc.Autofac</Name>
+      <Name>Prolix.Ioc.Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">
       <Project>{85fa7714-354b-4d9c-86a1-2435d788a36a}</Project>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:v="clr-namespace:Marketplace.Xam.Views"
-			 xmlns:b="clr-namespace:Wwa.Xam.Behaviors;assembly=Wwa.Xam"
+			 xmlns:b="clr-namespace:Prolix.Xam.Behaviors;assembly=Prolix.Xam"
              x:Class="Marketplace.Xam.Views.MainPage">
 
     <Grid Padding="5,0,0,0">

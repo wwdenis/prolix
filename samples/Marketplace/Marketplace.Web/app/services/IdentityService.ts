@@ -7,36 +7,40 @@ module App.Services {
     "use strict";
 
     export class IdentityService extends Service {
-        static $inject = ["$http", "Application", "$cookies"];
+        static $inject = ["$http", "$q", "Application", "$cookies"];
 
         private _context: Models.SecurityContext;
 
-        constructor(public $http: ng.IHttpService, public Application: IApplication, private $cookies: angular.cookies.ICookiesService) {
-            super($http, Application);
+        constructor(
+            protected $http: ng.IHttpService,
+            protected $q: ng.IQService,
+            protected Application: IApplication,
+            protected $cookies: angular.cookies.ICookiesService) {
+            super($http, $q, Application);
             this.LoadContext();
         }
 
-        public Login(data: Models.Login): ng.IHttpPromise<Models.Access> {
+        public Login(data: Models.Login): ng.IPromise<Models.Access> {
             var url = this.BuildUrl("Login");
-            var promise = this.$http.post(url, data);
+            var promise = super.HttpPost<Models.Access>(url, data);
             return promise;
         }
 
-        public Logout(): ng.IHttpPromise<boolean> {
+        public Logout(): ng.IPromise<boolean> {
             var url = this.BuildUrl("Logout");
-            var promise = this.$http.post(url, {});
+            var promise = super.HttpPost<boolean>(url, {});
             return promise;
         }
 
-        public ChangePassword(data: Models.PasswordChange): ng.IHttpPromise<boolean> {
+        public ChangePassword(data: Models.PasswordChange): ng.IPromise<boolean> {
             var url = this.BuildUrl("ChangePassword");
-            var promise = this.$http.post(url, data);
+            var promise = super.HttpPost<boolean>(url, data);
             return promise;
         }
 
-        public Register(data: Models.Register): ng.IHttpPromise<Models.Access> {
+        public Register(data: Models.Register): ng.IPromise<Models.Access> {
             var url = this.BuildUrl("Register");
-            var promise = this.$http.post(url, data);
+            var promise = super.HttpPost<Models.Access>(url, data);
             return promise;
         }
 

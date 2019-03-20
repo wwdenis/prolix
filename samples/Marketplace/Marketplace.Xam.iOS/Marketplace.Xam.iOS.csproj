@@ -113,21 +113,21 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
       <Project>{79194299-8de2-473e-b786-2b7c14e451b2}</Project>
-      <Name>Wwa.Core</Name>
+      <Name>Prolix.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Http\Wwa.Http.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Http\Prolix.Http.csproj">
       <Project>{5b6cb662-e54b-4bb9-8458-2981e6a6a031}</Project>
-      <Name>Wwa.Http</Name>
+      <Name>Prolix.Http</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Ioc.Autofac\Wwa.Ioc.Autofac.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj">
       <Project>{29ca4322-739a-44d3-aec1-012e4c65e64e}</Project>
-      <Name>Wwa.Ioc.Autofac</Name>
+      <Name>Prolix.Ioc.Autofac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Xam\Wwa.Xam.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Xam\Prolix.Xam.csproj">
       <Project>{b60466d1-0a0c-4431-8ae5-e823dc64070e}</Project>
-      <Name>Wwa.Xam</Name>
+      <Name>Prolix.Xam</Name>
     </ProjectReference>
     <ProjectReference Include="..\Marketplace.Xam\Marketplace.Xam.csproj">
       <Project>{6cb5e4f4-0ecf-4ed2-80a7-b6861d5fbd6a}</Project>

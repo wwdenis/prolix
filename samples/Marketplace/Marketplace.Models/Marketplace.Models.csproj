@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj" />
+    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj" />
   </ItemGroup>
 
 </Project>

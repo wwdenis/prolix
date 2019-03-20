@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 
-using Wwa.Core.Domain;
+using Prolix.Core.Domain;
 
 namespace Marketplace.Domain.Models.Security
 {

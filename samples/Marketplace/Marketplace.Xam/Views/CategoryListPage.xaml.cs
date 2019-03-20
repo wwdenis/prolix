@@ -4,7 +4,7 @@ using Marketplace.Xam.Models;
 using Marketplace.Xam.ViewModels;
 
 using Xamarin.Forms;
-using Wwa.Xam.Navigation;
+using Prolix.Xam.Navigation;
 
 namespace Marketplace.Xam.Views
 {

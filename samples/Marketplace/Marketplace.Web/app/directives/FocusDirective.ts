@@ -9,7 +9,7 @@ module App.Directives {
     export function FocusDirective($timeout: ng.ITimeoutService): ng.IDirective {
         return {
             link: ($scope: ng.IScope, element: ng.IAugmentedJQuery, attributes: ng.IAttributes) => {
-                $scope.$watch("stFocus", function (newValue: string, oldValue: string, scope: ng.IScope) {
+                $scope.$watch("waFocus", function (newValue: string, oldValue: string, scope: ng.IScope) {
                     $timeout(() => element[0].focus(), 0, false);
                 });
             }

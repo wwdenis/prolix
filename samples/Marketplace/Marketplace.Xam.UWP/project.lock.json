@@ -2508,20 +2508,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -2529,30 +2529,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -5096,20 +5096,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -5117,30 +5117,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -7723,20 +7723,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -7744,30 +7744,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -10320,20 +10320,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -10341,30 +10341,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -12956,20 +12956,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -12977,30 +12977,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -15553,20 +15553,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -15574,30 +15574,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -18189,20 +18189,20 @@
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
       "Marketplace.Xam/1.0.0": {
         "type": "project",
         "dependencies": {
           "Marketplace.Models": "1.0.0",
-          "Wwa.Core": "1.0.0",
-          "Wwa.Http": "1.0.0",
-          "Wwa.Ioc.Autofac": "1.0.0",
-          "Wwa.Xam": "1.0.0"
+          "Prolix.Core": "1.0.0",
+          "Prolix.Http": "1.0.0",
+          "Prolix.Ioc.Autofac": "1.0.0",
+          "Prolix.Xam": "1.0.0"
         }
       },
-      "Wwa.Core/1.0.0": {
+      "Prolix.Core/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -18210,30 +18210,30 @@
           "System.Linq.Queryable": "4.3.0"
         }
       },
-      "Wwa.Http/1.0.0": {
+      "Prolix.Http/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "10.0.3",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Ioc.Autofac/1.0.0": {
+      "Prolix.Ioc.Autofac/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "Autofac": "4.6.0",
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0"
+          "Prolix.Core": "1.0.0"
         }
       },
-      "Wwa.Xam/1.0.0": {
+      "Prolix.Xam/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Wwa.Core": "1.0.0",
+          "Prolix.Core": "1.0.0",
           "Xam.Plugin.Geolocator": "4.0.1",
           "Xam.Plugin.Media": "3.0.1",
           "Xamarin.Forms": "2.3.5.256-pre6"
@@ -27244,25 +27244,25 @@
       "path": "../Marketplace.Xam/Marketplace.Xam.csproj",
       "msbuildProject": "../Marketplace.Xam/Marketplace.Xam.csproj"
     },
-    "Wwa.Core/1.0.0": {
+    "Prolix.Core/1.0.0": {
       "type": "project",
-      "path": "../../../src/Wwa.Core/Wwa.Core.csproj",
-      "msbuildProject": "../../../src/Wwa.Core/Wwa.Core.csproj"
+      "path": "../../../src/Prolix.Core/Prolix.Core.csproj",
+      "msbuildProject": "../../../src/Prolix.Core/Prolix.Core.csproj"
     },
-    "Wwa.Http/1.0.0": {
+    "Prolix.Http/1.0.0": {
       "type": "project",
-      "path": "../../../src/Wwa.Http/Wwa.Http.csproj",
-      "msbuildProject": "../../../src/Wwa.Http/Wwa.Http.csproj"
+      "path": "../../../src/Prolix.Http/Prolix.Http.csproj",
+      "msbuildProject": "../../../src/Prolix.Http/Prolix.Http.csproj"
     },
-    "Wwa.Ioc.Autofac/1.0.0": {
+    "Prolix.Ioc.Autofac/1.0.0": {
       "type": "project",
-      "path": "../../../src/Wwa.Ioc.Autofac/Wwa.Ioc.Autofac.csproj",
-      "msbuildProject": "../../../src/Wwa.Ioc.Autofac/Wwa.Ioc.Autofac.csproj"
+      "path": "../../../src/Prolix.Ioc.Autofac/Prolix.Ioc.Autofac.csproj",
+      "msbuildProject": "../../../src/Prolix.Ioc.Autofac/Prolix.Ioc.Autofac.csproj"
     },
-    "Wwa.Xam/1.0.0": {
+    "Prolix.Xam/1.0.0": {
       "type": "project",
-      "path": "../../../src/Wwa.Xam/Wwa.Xam.csproj",
-      "msbuildProject": "../../../src/Wwa.Xam/Wwa.Xam.csproj"
+      "path": "../../../src/Prolix.Xam/Prolix.Xam.csproj",
+      "msbuildProject": "../../../src/Prolix.Xam/Prolix.Xam.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -27277,28 +27277,28 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Dev\\Git\\wwa\\samples\\Marketplace\\Marketplace.Xam.UWP\\Marketplace.Xam.UWP.csproj",
+      "projectUniqueName": "C:\\Dev\\Git\\prolix\\samples\\Marketplace\\Marketplace.Xam.UWP\\Marketplace.Xam.UWP.csproj",
       "projectName": "Marketplace.Xam.UWP",
-      "projectPath": "C:\\Dev\\Git\\wwa\\samples\\Marketplace\\Marketplace.Xam.UWP\\Marketplace.Xam.UWP.csproj",
-      "projectJsonPath": "C:\\Dev\\Git\\wwa\\samples\\Marketplace\\Marketplace.Xam.UWP\\project.json",
+      "projectPath": "C:\\Dev\\Git\\prolix\\samples\\Marketplace\\Marketplace.Xam.UWP\\Marketplace.Xam.UWP.csproj",
+      "projectJsonPath": "C:\\Dev\\Git\\prolix\\samples\\Marketplace\\Marketplace.Xam.UWP\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "C:\\Dev\\Git\\wwa\\src\\Wwa.Core\\Wwa.Core.csproj": {
-              "projectPath": "C:\\Dev\\Git\\wwa\\src\\Wwa.Core\\Wwa.Core.csproj"
+            "C:\\Dev\\Git\\prolix\\src\\Prolix.Core\\Prolix.Core.csproj": {
+              "projectPath": "C:\\Dev\\Git\\prolix\\src\\Prolix.Core\\Prolix.Core.csproj"
             },
-            "C:\\Dev\\Git\\wwa\\src\\Wwa.Http\\Wwa.Http.csproj": {
-              "projectPath": "C:\\Dev\\Git\\wwa\\src\\Wwa.Http\\Wwa.Http.csproj"
+            "C:\\Dev\\Git\\prolix\\src\\Prolix.Http\\Prolix.Http.csproj": {
+              "projectPath": "C:\\Dev\\Git\\prolix\\src\\Prolix.Http\\Prolix.Http.csproj"
             },
-            "C:\\Dev\\Git\\wwa\\src\\Wwa.Ioc.Autofac\\Wwa.Ioc.Autofac.csproj": {
-              "projectPath": "C:\\Dev\\Git\\wwa\\src\\Wwa.Ioc.Autofac\\Wwa.Ioc.Autofac.csproj"
+            "C:\\Dev\\Git\\prolix\\src\\Prolix.Ioc.Autofac\\Prolix.Ioc.Autofac.csproj": {
+              "projectPath": "C:\\Dev\\Git\\prolix\\src\\Prolix.Ioc.Autofac\\Prolix.Ioc.Autofac.csproj"
             },
-            "C:\\Dev\\Git\\wwa\\src\\Wwa.Xam\\Wwa.Xam.csproj": {
-              "projectPath": "C:\\Dev\\Git\\wwa\\src\\Wwa.Xam\\Wwa.Xam.csproj"
+            "C:\\Dev\\Git\\prolix\\src\\Prolix.Xam\\Prolix.Xam.csproj": {
+              "projectPath": "C:\\Dev\\Git\\prolix\\src\\Prolix.Xam\\Prolix.Xam.csproj"
             },
-            "C:\\Dev\\Git\\wwa\\samples\\Marketplace\\Marketplace.Xam\\Marketplace.Xam.csproj": {
-              "projectPath": "C:\\Dev\\Git\\wwa\\samples\\Marketplace\\Marketplace.Xam\\Marketplace.Xam.csproj"
+            "C:\\Dev\\Git\\prolix\\samples\\Marketplace\\Marketplace.Xam\\Marketplace.Xam.csproj": {
+              "projectPath": "C:\\Dev\\Git\\prolix\\samples\\Marketplace\\Marketplace.Xam\\Marketplace.Xam.csproj"
             }
           }
         }

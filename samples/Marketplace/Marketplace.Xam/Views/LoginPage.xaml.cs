@@ -1,6 +1,6 @@
 ﻿
 using Marketplace.Xam.ViewModels;
-using Wwa.Xam.Navigation;
+using Prolix.Xam.Navigation;
 using Xamarin.Forms;
 
 namespace Marketplace.Xam.Views
