@@ -3,7 +3,7 @@
 
 using System;
 using Marketplace.Domain.Models.Security;
-using Wwa.Core.Ioc;
+using Prolix.Core.Ioc;
 
 namespace Marketplace.Domain.Security
 {

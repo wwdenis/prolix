@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using System;
 using System.Web;
-using Wwa.Core.Ioc;
+using Prolix.Core.Ioc;
 
 namespace Marketplace.Api.Core.Identity
 {

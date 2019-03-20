@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wwa.Core.Ioc;
+using Prolix.Core.Ioc;
 
 namespace Marketplace.Xam.Models
 {

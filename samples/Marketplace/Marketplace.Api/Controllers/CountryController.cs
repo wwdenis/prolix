@@ -8,8 +8,8 @@ using Marketplace.Domain.Models.Geography;
 using Marketplace.Logic.Contracts.Geography;
 using Marketplace.Logic.Queries.Geography;
 
-using Wwa.Api.Controllers;
-using Wwa.Api.Extensions;
+using Prolix.Api.Controllers;
+using Prolix.Api.Extensions;
 using Marketplace.Logic.Services.Geography;
 
 namespace Marketplace.Api.Controllers

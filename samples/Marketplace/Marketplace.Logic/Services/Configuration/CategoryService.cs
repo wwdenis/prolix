@@ -10,7 +10,7 @@ using Marketplace.Domain.Models.Configuration;
 using Marketplace.Logic.Contracts.Configuration;
 using Marketplace.Logic.Queries.Configuration;
 
-using Wwa.Core.Collections;
+using Prolix.Core.Collections;
 
 namespace Marketplace.Logic.Services.Configuration
 {

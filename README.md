@@ -1,14 +1,14 @@
 Word Wide Architecture
 ===================
 
-What is WWA?
+What is Prolix?
 ------------
 
-WWA is a starting point for building modern RESTful applications. It is intended to help .NET developers on REST architecture, facilitating migration from ASP .NET Web Forms and MVC to Web API.
+Prolix is a starting point for building modern RESTful applications. It is intended to help .NET developers on REST architecture, facilitating migration from ASP .NET Web Forms and MVC to Web API.
 
 ### Architecture
 
-WWA is a application framework built on top of __.NET Framework__, __.NET Standard__ , __Xamarin__ and __ASP .NET Web API__, using modern practices (SOLID, IoC, etc.) and known tools for developers. It  implements a very simple (but powerful) layered architecture (Domain, Data, Logic, App) allowing developers focus on the solution itself.
+Prolix is a application framework built on top of __.NET Framework__, __.NET Standard__ , __Xamarin__ and __ASP .NET Web API__, using modern practices (SOLID, IoC, etc.) and known tools for developers. It  implements a very simple (but powerful) layered architecture (Domain, Data, Logic, App) allowing developers focus on the solution itself.
 
 ### Technologies
 
@@ -25,15 +25,15 @@ WWA is a application framework built on top of __.NET Framework__, __.NET Standa
 
 ### Structure
 
-- __Wwa.Core__: Common components and interfaces 
-- __Wwa.Api__: Api layer components implemeted on top of
-- __Wwa.Http__: Http client components for consuming Wwa-powered RESTful apps
-- __Wwa.Data.EF__: Data layer implementation using Entity Framework
-- __Wwa.Identity.AspNet__: Authentication layer implenentation using ASP .NET Identity
-- __Wwa.Ioc.Autofac__: Dependency injection implementation using Autofac
-- __Wwa.Ioc.Unity__: Dependency injection implementation using Microsoft Unity
-- __Wwa.Angular__: TypeScript infrastructure code for consuming Wwa-powered RESTful apps
-- __Wwa.Xam__: Core components for Xamarin Forms
+- __Prolix.Core__: Common components and interfaces 
+- __Prolix.Api__: Api layer components implemeted on top of
+- __Prolix.Http__: Http client components for consuming Prolix-powered RESTful apps
+- __Prolix.Data.EF__: Data layer implementation using Entity Framework
+- __Prolix.Identity.AspNet__: Authentication layer implenentation using ASP .NET Identity
+- __Prolix.Ioc.Autofac__: Dependency injection implementation using Autofac
+- __Prolix.Ioc.Unity__: Dependency injection implementation using Microsoft Unity
+- __Prolix.Angular__: TypeScript infrastructure code for consuming Prolix-powered RESTful apps
+- __Prolix.Xam__: Core components for Xamarin Forms
 
 Links
 -----
@@ -51,7 +51,7 @@ Future
 
 Sample Project
 -----
-The Marketplace project demonstrate how WWA can be used in building RESTful applications and consuming them.
+The Marketplace project demonstrate how Prolix can be used in building RESTful applications and consuming them.
 
 ### Structure
 

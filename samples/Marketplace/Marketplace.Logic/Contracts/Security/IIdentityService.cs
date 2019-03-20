@@ -4,7 +4,7 @@
 using Marketplace.Domain.Models.Security;
 using System.Threading.Tasks;
 
-using Wwa.Core.Ioc;
+using Prolix.Core.Ioc;
 
 namespace Marketplace.Logic.Contracts.Security
 {

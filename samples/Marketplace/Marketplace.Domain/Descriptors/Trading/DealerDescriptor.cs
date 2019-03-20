@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Trading;
-using Wwa.Core.Logic;
+using Prolix.Core.Logic;
 
 namespace Marketplace.Domain.Descriptors.Trading
 {

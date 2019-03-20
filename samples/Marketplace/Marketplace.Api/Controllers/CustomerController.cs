@@ -9,8 +9,8 @@ using Marketplace.Domain.Models.Trading;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;
 
-using Wwa.Api.Controllers;
-using Wwa.Api.Extensions;
+using Prolix.Api.Controllers;
+using Prolix.Api.Extensions;
 
 namespace Marketplace.Api.Controllers
 {

@@ -11,8 +11,8 @@ using Marketplace.Domain.Models.Geography;
 using Marketplace.Domain.Models.Security;
 using Marketplace.Domain.Models.Trading;
 
-using Wwa.Core.Data;
-using Wwa.Core.Tests;
+using Prolix.Core.Data;
+using Prolix.Core.Tests;
 
 namespace Marketplace.Tests.Mock
 {

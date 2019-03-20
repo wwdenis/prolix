@@ -4,10 +4,10 @@ using Xamarin.Forms.Xaml;
 using Marketplace.Xam.Services;
 using Marketplace.Xam.ViewModels;
 
-using Wwa.Http.Client;
-using Wwa.Ioc.Autofac;
-using Wwa.Xam.App;
-using Wwa.Xam.Navigation;
+using Prolix.Http.Client;
+using Prolix.Ioc.Autofac;
+using Prolix.Xam.App;
+using Prolix.Xam.Navigation;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Marketplace.Xam

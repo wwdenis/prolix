@@ -10,8 +10,8 @@ using Marketplace.Domain.Security;
 using Marketplace.Logic.Contracts.Security;
 using Marketplace.Logic.Queries.Security;
 
-using Wwa.Core.Collections;
-using Wwa.Core.Identity;
+using Prolix.Core.Collections;
+using Prolix.Core.Identity;
 
 namespace Marketplace.Logic.Services.Security
 {

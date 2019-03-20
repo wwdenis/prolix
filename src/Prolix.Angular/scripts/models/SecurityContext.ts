@@ -1,0 +1,18 @@
+// Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
+// See License.txt in the project root for license information.
+
+module App.Models {
+    'use strict';
+
+    export class SecurityContext {
+        constructor() {
+            this.UserName = "";
+            this.Name = "";
+            this.Token = "";
+        }
+
+        UserName: string;
+        Name: string;
+        Token: string;
+    }
+}  

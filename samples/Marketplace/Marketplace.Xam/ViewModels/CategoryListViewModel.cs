@@ -7,10 +7,10 @@ using Xamarin.Forms;
 using Marketplace.Models.Configuration;
 using Marketplace.Xam.Services;
 
-using Wwa.Core.Collections;
-using Wwa.Core.Logic;
-using Wwa.Core.Mobile.Navigation;
-using Wwa.Xam.Navigation;
+using Prolix.Core.Collections;
+using Prolix.Core.Logic;
+using Prolix.Core.Mobile.Navigation;
+using Prolix.Xam.Navigation;
 
 namespace Marketplace.Xam.ViewModels
 {

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Marketplace.Models.Security;
 using Marketplace.Xam.Models;
 
-using Wwa.Core.Http;
-using Wwa.Http.Client;
-using Wwa.Http.Extensions;
+using Prolix.Core.Http;
+using Prolix.Http.Client;
+using Prolix.Http.Extensions;
 
 namespace Marketplace.Xam.Services
 {

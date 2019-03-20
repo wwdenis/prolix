@@ -3,8 +3,8 @@
 
 using System.Diagnostics;
 
-using Wwa.Core.Data;
-using Wwa.Data.EF;
+using Prolix.Core.Data;
+using Prolix.Data.EF;
 
 using Marketplace.Domain.Models.Configuration;
 using Marketplace.Domain.Models.Trading;

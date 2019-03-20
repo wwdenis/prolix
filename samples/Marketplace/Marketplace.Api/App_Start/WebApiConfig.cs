@@ -15,16 +15,16 @@ using Marketplace.Data;
 using Marketplace.Domain.Security;
 using Marketplace.Logic.Services.Configuration;
 
-using Wwa.Api.Cors;
-using Wwa.Api.Extensions;
-using Wwa.Api.Filters;
-using Wwa.Api.Formatters;
-using Wwa.Api.Handlers;
-using Wwa.Api.Ioc;
-using Wwa.Api.Providers;
-using Wwa.Core.Ioc;
-using Wwa.Identity.AspNet;
-using Wwa.Ioc.Autofac;
+using Prolix.Api.Cors;
+using Prolix.Api.Extensions;
+using Prolix.Api.Filters;
+using Prolix.Api.Formatters;
+using Prolix.Api.Handlers;
+using Prolix.Api.Ioc;
+using Prolix.Api.Providers;
+using Prolix.Core.Ioc;
+using Prolix.Identity.AspNet;
+using Prolix.Ioc.Autofac;
 
 namespace Marketplace.Api
 {

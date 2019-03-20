@@ -169,25 +169,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Wwa.Api\Wwa.Api.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Api\Prolix.Api.csproj">
       <Project>{90da4af3-94c6-4e24-8c70-0a4f2ae18e3f}</Project>
-      <Name>Wwa.Api</Name>
+      <Name>Prolix.Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Wwa.Core</Name>
+      <Name>Prolix.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Data.EF\Wwa.Data.EF.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Data.EF\Prolix.Data.EF.csproj">
       <Project>{20bca77b-b073-4ee1-a147-28223242a6fe}</Project>
-      <Name>Wwa.Data.EF</Name>
+      <Name>Prolix.Data.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Identity.AspNet\Wwa.Identity.AspNet.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Identity.AspNet\Prolix.Identity.AspNet.csproj">
       <Project>{8c2cd2e8-7140-4768-a3eb-1743e3c80da7}</Project>
-      <Name>Wwa.Identity.AspNet</Name>
+      <Name>Prolix.Identity.AspNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Wwa.Ioc.Autofac\Wwa.Ioc.Autofac.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj">
       <Project>{371594c7-3e8b-48fa-98f8-0c86cba27b5b}</Project>
-      <Name>Wwa.Ioc.Autofac</Name>
+      <Name>Prolix.Ioc.Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">
       <Project>{2fbef665-972a-42c3-ae58-2861f684cdd6}</Project>

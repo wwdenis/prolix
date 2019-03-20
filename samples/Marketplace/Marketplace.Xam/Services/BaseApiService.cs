@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wwa.Core.Domain;
-using Wwa.Http.Client;
+using Prolix.Core.Domain;
+using Prolix.Http.Client;
 
 namespace Marketplace.Xam.Services
 {

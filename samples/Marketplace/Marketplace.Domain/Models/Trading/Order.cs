@@ -4,7 +4,7 @@
 using Marketplace.Domain.Models.Configuration;
 using System;
 using System.Collections.Generic;
-using Wwa.Core.Domain;
+using Prolix.Core.Domain;
 
 namespace Marketplace.Domain.Models.Trading
 {

@@ -11,6 +11,6 @@
 /// <reference path="../scripts/typings/angular-ui-bootstrap/angular-ui-bootstrap.d.ts" />
 
 /*
- * Wwa.Angular Components
+ * Prolix.Angular Components
  */
-/// <reference path="../Scripts/wwa-angular/_references.ts" />
+/// <reference path="../Scripts/prolix-angular/_references.ts" />
