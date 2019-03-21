@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Marketplace.Db.Identity</Name>
+    <Name>Marketplace.Sql</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{bc6fcdaa-934d-4344-8926-3965fb1b6761}</ProjectGuid>
+    <ProjectGuid>{7a30f299-4891-439a-bf27-a56e00f90ce3}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Marketplace.Db.Identity</RootNamespace>
-    <AssemblyName>Marketplace.Db.Identity</AssemblyName>
+    <RootNamespace>Marketplace.Sql</RootNamespace>
+    <AssemblyName>Marketplace.Sql</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -59,8 +59,26 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Publish" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Tables\AuditChanges.sql" />
+    <Build Include="Tables\AuditLogs.sql" />
+    <Build Include="Tables\Categories.sql" />
+    <Build Include="Tables\Countries.sql" />
+    <Build Include="Tables\Customers.sql" />
+    <Build Include="Tables\Dealers.sql" />
+    <Build Include="Tables\Features.sql" />
+    <Build Include="Tables\OrderItems.sql" />
+    <Build Include="Tables\Orders.sql" />
+    <Build Include="Tables\Permissions.sql" />
+    <Build Include="Tables\Products.sql" />
+    <Build Include="Tables\Provinces.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\Settings.sql" />
+    <Build Include="Tables\StatusTypes.sql" />
+    <Build Include="Tables\Users.sql" />
+    <PostDeploy Include="Scripts\SetupData.sql" />
     <Build Include="Tables\AspNetRoles.sql" />
     <Build Include="Tables\AspNetUserClaims.sql" />
     <Build Include="Tables\AspNetUserLogins.sql" />
