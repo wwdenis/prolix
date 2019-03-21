@@ -24,7 +24,7 @@ module App.Controllers {
 
         public Init() {
             // Called on page load
-            this.IdentityService.Logout();
+            // this.IdentityService.Logout();
 
             var model = new Models.Register();
             this.$scope.Input = model;

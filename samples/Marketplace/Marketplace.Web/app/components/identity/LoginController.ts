@@ -28,7 +28,7 @@ module App.Controllers {
                 this.$scope.Input.UserName = this.IdentityService.CurrentContext.UserName;
             }
 
-            this.IdentityService.Logout();
+            //this.IdentityService.Logout();
         }
 
         public Login() {
