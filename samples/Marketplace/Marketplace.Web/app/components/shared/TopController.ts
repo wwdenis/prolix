@@ -34,9 +34,7 @@ module App.Controllers {
             var scope = this.$scope;
             var location = this.$location;
 
-            // Don't wait for a response
-
-            var promise = this.IdentityService.Logout();
+            //var promise = this.IdentityService.Logout();
             this.IdentityService.ClearContext();
             location.url('/login');
         }

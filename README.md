@@ -72,8 +72,7 @@ The Marketplace project demonstrate how Prolix can be used in building RESTful a
 |__Marketplace.Tests__|Unit test project|
 |__Marketplace.Xam__|Xamarin Forms PCL project|
 |__Marketplace.Models__|Models shared between API and mobile (.NET Standard)|
-|__Marketplace.Db.Schema__|Application database schema (SQL Server Database Project)|
-|__Marketplace.Db.Identity__|Authetication entine schema (Microsoft Identity, SQL Server Database Project)|
+|__Marketplace.Sql__|Application database schema (SQL Server Database Project)|
 
 ### Running the Sample Project
 
