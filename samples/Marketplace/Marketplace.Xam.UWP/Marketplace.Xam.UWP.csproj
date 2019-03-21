@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{269BEDBB-1265-46A8-9F92-86A71BDA5240}</ProjectGuid>
+    <ProjectGuid>{FC8AF459-1E58-4508-9DDB-505E9A17E386}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Marketplace.Xam.UWP</RootNamespace>
     <AssemblyName>Marketplace.Xam.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -89,50 +89,6 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="Assets\EmptyPhoto_Gray.png" />
-    <Content Include="Assets\IconAddCompany.png" />
-    <Content Include="Assets\IconAddCompany_Gray.png" />
-    <Content Include="Assets\IconBackArrow.png" />
-    <Content Include="Assets\IconBusinessExperience.png" />
-    <Content Include="Assets\IconBusinessExperience_Gray.png" />
-    <Content Include="Assets\IconCamera.png" />
-    <Content Include="Assets\IconCamera_Gray.png" />
-    <Content Include="Assets\IconDiagnostic.png" />
-    <Content Include="Assets\IconDiagnostic_Gray.png" />
-    <Content Include="Assets\IconEmptyPhoto_Gray.png" />
-    <Content Include="Assets\IconExitRed.png" />
-    <Content Include="Assets\IconFinances.png" />
-    <Content Include="Assets\IconFinances_Gray.png" />
-    <Content Include="Assets\IconForwardArrow.png" />
-    <Content Include="Assets\IconMarket.png" />
-    <Content Include="Assets\IconMarket_Gray.png" />
-    <Content Include="Assets\IconOrganization.png" />
-    <Content Include="Assets\IconOrganization_Gray.png" />
-    <Content Include="Assets\IconPeople.png" />
-    <Content Include="Assets\IconPeople_Gray.png" />
-    <Content Include="Assets\IconPlanning.png" />
-    <Content Include="Assets\IconPlanning_Gray.png" />
-    <Content Include="Assets\IconRightArrow.png" />
-    <Content Include="Assets\IconSearch.png" />
-    <Content Include="Assets\IconSearch_Gray.png" />
-    <Content Include="Assets\IconSync.png" />
-    <Content Include="Assets\IconSync_Gray.png" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\Logo.scale-240.png" />
-    <Content Include="Assets\SmallLogo.scale-240.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-240.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\Square71x71Logo.scale-240.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\StoreLogo.scale-240.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -147,10 +103,34 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\WideLogo.scale-240.png" />
-    <Content Include="profile_generic.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="slideout.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -163,9 +143,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
-      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
-    </SDKReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
@@ -185,7 +164,7 @@
       <Name>Prolix.Xam</Name>
     </ProjectReference>
     <ProjectReference Include="..\Marketplace.Xam\Marketplace.Xam.csproj">
-      <Project>{fbd60f69-a0e2-4ffa-a6cc-b8e73dbeb9b0}</Project>
+      <Project>{C859FC9E-9429-4CA9-87A4-3C9426535088}</Project>
       <Name>Marketplace.Xam</Name>
     </ProjectReference>
   </ItemGroup>
@@ -193,11 +172,4 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
