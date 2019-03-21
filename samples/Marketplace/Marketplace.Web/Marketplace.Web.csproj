@@ -169,7 +169,6 @@
     <Content Include="css\toastr.custom.css" />
     <Content Include="css\view.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\ajax-loader.gif" />
     <Content Include="img\back_modal.png" />
     <Content Include="img\logo.png" />
@@ -200,10 +199,6 @@
     <Content Include="Scripts\angular-ui\ui-utils.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
