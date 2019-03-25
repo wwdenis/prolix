@@ -13,10 +13,20 @@ COPY ..\node_modules\angular-ui-utils\modules\utils.js
 COPY ..\node_modules\angular-resource\angular-resource.min.js
 COPY ..\node_modules\angular-sanitize\angular-sanitize.min.js
 COPY ..\node_modules\angular-touch\angular-touch.min.js
-COPY ..\node_modules\bootstrap\dist\js\bootstrap.min.js
 COPY ..\node_modules\toastr\toastr.js
 COPY ..\node_modules\awesome-bootstrap-checkbox\awesome-bootstrap-checkbox.css
 COPY ..\node_modules\angular-ui-utils\modules\mask\mask.js
+
+COPY ..\node_modules\dcjqaccordion\js\jquery.dcjqaccordion.2.7.js
+COPY ..\node_modules\jquery.nicescroll\jquery.nicescroll.js
+COPY ..\node_modules\jquery.scrollto\jquery.scrollto.js
+
+MD bootstrap
+XCOPY ..\node_modules\bootstrap\dist bootstrap\ /S
+
+MD font-awesome
+XCOPY ..\node_modules\font-awesome font-awesome\ /S
+
 
 :: Prolix Core TS files
 XCOPY ..\..\..\..\src\Prolix.Angular\scripts prolix-angular\ /S
