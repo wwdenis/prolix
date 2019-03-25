@@ -4,13 +4,14 @@
 /*
  * Libraries
  */
-/// <reference path="../scripts/typings/jquery/jquery.d.ts" />
-/// <reference path="../scripts/typings/angularjs/angular.d.ts" />
-/// <reference path="../scripts/typings/angularjs/angular-route.d.ts" />
-/// <reference path="../scripts/typings/angular-ui-router/index.d.ts" />
-/// <reference path="../scripts/typings/angular-ui-bootstrap/angular-ui-bootstrap.d.ts" />
+/// <reference path="../node_modules/@types/jquery/index.d.ts" />
+/// <reference path="../node_modules/@types/angular/index.d.ts" />
+/// <reference path="../node_modules/@types/angular-cookies/index.d.ts" />
+/// <reference path="../node_modules/@types/angular-route/index.d.ts" />
+/// <reference path="../node_modules/@types/angular-ui-router/index.d.ts" />
+/// <reference path="../node_modules/@types/angular-ui-bootstrap/index.d.ts" />
 
 /*
  * Prolix.Angular Components
  */
-/// <reference path="../Scripts/prolix-angular/_references.ts" />
+/// <reference path="../lib/prolix-angular/_references.ts" />

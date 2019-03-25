@@ -1,4 +1,4 @@
-// Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
+﻿// Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
 using System.Reflection;
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("30d181ae-8b2d-4397-8cd9-e62caddd7ec7")]
+[assembly: Guid("557014ab-75f1-42b4-a8a2-99072fe933a6")]
 
 // Version information for an assembly consists of the following four values:
 //
