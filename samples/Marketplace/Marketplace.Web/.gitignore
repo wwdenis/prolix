@@ -6,3 +6,5 @@ app/app.js.map
 /content
 /fonts
 /scripts
+/lib
+/node_modules

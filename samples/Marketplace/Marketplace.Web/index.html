@@ -7,23 +7,18 @@
 
     <title>Marketplace App</title>
 
-    <!-- Legacy: CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/style-responsive.css" rel="stylesheet" />
-    <link href="assets/css/theme.blue.css" rel="stylesheet" />
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/js/gritter/css/jquery.gritter.css" rel="stylesheet" />
-    <link href="assets/lineicons/style.css" rel="stylesheet" />
+    <!-- Inject: CSS -->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="lib/awesome-bootstrap-checkbox.css" rel="stylesheet" />
 
     <!-- App: CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="css/theme.blue.css" rel="stylesheet" />    
     <link href="css/modal.css" rel="stylesheet" />
     <link href="css/view.css" rel="stylesheet" />
-    <link href="css/bootstrap.custom.css" rel="stylesheet" />
-
-    <!-- inject:css -->
     <link href="css/toastr.custom.css" rel="stylesheet" />
-    <link href="content/awesome-bootstrap-checkbox.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,7 +34,7 @@
             <!-- Partial view rendering -->
         </div>
         <!--sidebar end-->
-        
+
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
@@ -49,7 +44,7 @@
             </section>
         </section>
         <!--main content end-->
-        
+
         <!--footer start-->
         <footer class="site-footer">
             <div class="text-center" style="height: 20px;">
@@ -63,37 +58,30 @@
     </section>
 
     <!-- Dependencies -->
-    <script src="scripts/jquery-3.1.1.min.js"></script>
-    <script src="scripts/angular.js"></script>
-    <script src="scripts/angular-route.min.js"></script>
-    <script src="scripts/angular-ui-router.min.js"></script>
-    <script src="scripts/angular-cookies.min.js"></script>
-    <script src="scripts/angular-animate.min.js"></script>
-    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <script src="scripts/angular-ui/ui-utils.min.js"></script>
-    <script src="scripts/angular-resource.min.js"></script>
-    <script src="scripts/angular-sanitize.min.js"></script>
-    <script src="scripts/angular-touch.js"></script>
-    
-    <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/toastr.min.js"></script>
-    
-    <!-- Legacy: Plugins -->
-    <script src="assets/js/jquery.dcjqaccordion.2.7.js" class="include"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js"></script>
-    <script src="assets/js/jquery.sparkline.js"></script>
-    <script src="assets/js/jquery.tablesorter.min.js"></script>
-    <script src="assets/js/common-scripts.js"></script>
-    <script src="assets/js/gritter/js/jquery.gritter.js"></script>
-    <script src="assets/js/gritter-conf.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="lib/angular-cookies.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls.js"></script>
+    <script src="lib/utils.js"></script>
+    <script src="lib/angular-resource.min.js"></script>
+    <script src="lib/angular-sanitize.min.js"></script>
+    <script src="lib/angular-touch.min.js"></script>
 
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.js"></script>
-    <![endif]-->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/toastr.js"></script>
+    <script src="lib/mask.js"></script>
 
-    <!-- App logic -->
+    <script src="lib/jquery.dcjqaccordion.2.7.js" class="include"></script>
+    <script src="lib/jquery.scrollTo.js"></script>
+    <script src="lib/jquery.nicescroll.js"></script>
+    
+    <!-- Nav bar -->
+    <script src="css/nav-bar.js"></script>
+
+    <!-- AngularJS App -->
     <script src="app/app.js"></script>
 
 </body>

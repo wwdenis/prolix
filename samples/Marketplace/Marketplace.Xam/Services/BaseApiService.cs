@@ -9,7 +9,7 @@ using Prolix.Http.Client;
 
 namespace Marketplace.Xam.Services
 {
-    public class BaseApiService<ModelType> : ApiService<ModelType>
+    public abstract class BaseApiService<ModelType> : ApiService<ModelType>
         where ModelType : Model, new()
     {
         public BaseApiService(ApplicationContext context)

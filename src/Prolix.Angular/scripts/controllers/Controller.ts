@@ -83,7 +83,7 @@ module App.Controllers {
 
             angular.forEach(rule.Errors, (item, index) => {
                 if (item.Name == field) {
-                    style = "field-validation-error msg-val";
+                    style = "field-validation-error invalid-field";
                     return;
                 }
             });

@@ -78,10 +78,10 @@ The Marketplace project demonstrate how Prolix can be used in building RESTful a
 
 Open the solution Marketplace.sln in the [samples] folder in Visual Studio 2015 (or greater).
 
-The first time you ron the project, Visual Studio will warn about mising files on the Marketplace.Web project. This happens because all nuget script files must be copied to the project folder.
+The first time you run the project, Visual Studio will try restore the NPM packages from the Marketplace.Web project.
 
-When you see this warning, enter the following command in the package Manager Console:
+If you see missing dependency errors (e.g. np.Controller), enter the following command in the Command-Line:
 
 ```
-Update-Package -Reinstall -ProjectName Marketplace.Web
+C:\Dev\Git\prolix\samples\Marketplace\Marketplace.Web> npm i
 ```
