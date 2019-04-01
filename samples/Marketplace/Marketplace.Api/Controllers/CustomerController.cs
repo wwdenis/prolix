@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 
-using Marketplace.Models.Trading;
+using Marketplace.Client.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;

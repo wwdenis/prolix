@@ -38,11 +38,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1DC672EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Tests", "Marketplace.Tests\Marketplace.Tests.csproj", "{F3C40CB8-F8CB-495A-AA95-C8C81A04E1AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Client", "Marketplace.Client\Marketplace.Client.csproj", "{5EA3BEBB-E0EB-43BE-9B85-666C448C7416}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{DCAFDB95-E0E3-4774-9001-1C9FB4D20C12}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Marketplace.Sql", "Marketplace.Sql\Marketplace.Sql.sqlproj", "{7A30F299-4891-439A-BF27-A56E00F90CE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Http", "..\..\src\Prolix.Http\Prolix.Http.csproj", "{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,6 +106,10 @@ Global
 		{7A30F299-4891-439A-BF27-A56E00F90CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A30F299-4891-439A-BF27-A56E00F90CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A30F299-4891-439A-BF27-A56E00F90CE3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{F3C40CB8-F8CB-495A-AA95-C8C81A04E1AA} = {1DC672EF-06F9-4F74-A1FC-169C2230F167}
 		{5EA3BEBB-E0EB-43BE-9B85-666C448C7416} = {5047C670-02D3-4FD4-B991-B9D66AADB23E}
 		{7A30F299-4891-439A-BF27-A56E00F90CE3} = {DCAFDB95-E0E3-4774-9001-1C9FB4D20C12}
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B62758BD-5BAF-4003-A6D0-F44159267F77}

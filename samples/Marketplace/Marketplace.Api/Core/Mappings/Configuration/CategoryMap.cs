@@ -3,7 +3,7 @@
 
 using AutoMapper;
 
-using Marketplace.Models.Configuration;
+using Marketplace.Client.Models.Configuration;
 using Marketplace.Domain.Models.Configuration;
 
 namespace Marketplace.Api.Core.Mapping.Configuration

@@ -3,7 +3,7 @@
 
 using AutoMapper;
 
-using Marketplace.Models.Geography;
+using Marketplace.Client.Models.Geography;
 using Marketplace.Domain.Models.Geography;
 
 namespace Marketplace.Api.Core.Mapping.Geography

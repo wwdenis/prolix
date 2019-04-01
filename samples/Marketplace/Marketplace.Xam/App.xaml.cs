@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using Marketplace.Xam.Services;
+using Marketplace.Client.Services;
 using Marketplace.Xam.ViewModels;
 
 using Prolix.Http.Client;

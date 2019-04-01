@@ -71,7 +71,7 @@ The Marketplace project demonstrate how Prolix can be used in building RESTful a
 |__Marketplace.Web__|Single page application using AngularJS, TypeScript and Bootstrap|
 |__Marketplace.Tests__|Unit test project|
 |__Marketplace.Xam__|Xamarin Forms PCL project|
-|__Marketplace.Models__|Models shared between API and mobile (.NET Standard)|
+|__Marketplace.Client__|Client and Models shared between API and mobile (.NET Standard)|
 |__Marketplace.Sql__|Application database schema (SQL Server Database Project)|
 
 ### Running the Sample Project
