@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-using Marketplace.Models.Configuration;
-using Marketplace.Xam.Services;
+using Marketplace.Client.Models.Configuration;
+using Marketplace.Client.Services;
 
 using Prolix.Core.Collections;
 using Prolix.Core.Logic;

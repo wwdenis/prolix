@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-using Marketplace.Models.Security;
-using Marketplace.Xam.Models;
-using Marketplace.Xam.Services;
+using Marketplace.Client.Models.Security;
+using Marketplace.Client.Models;
+using Marketplace.Client.Services;
 
 using Prolix.Core.Logic;
 using Prolix.Core.Mobile.Navigation;

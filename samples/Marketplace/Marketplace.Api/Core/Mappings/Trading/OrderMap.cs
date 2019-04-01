@@ -3,7 +3,7 @@
 
 using AutoMapper;
 
-using Marketplace.Models.Trading;
+using Marketplace.Client.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 
 namespace Marketplace.Api.Core.Mapping.Trading

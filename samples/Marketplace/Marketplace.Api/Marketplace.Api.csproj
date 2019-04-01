@@ -201,9 +201,9 @@
       <Project>{b31f4582-37de-479e-8337-8364963685a9}</Project>
       <Name>Marketplace.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Marketplace.Models\Marketplace.Models.csproj">
+    <ProjectReference Include="..\Marketplace.Client\Marketplace.Client.csproj">
       <Project>{5ea3bebb-e0eb-43be-9b85-666c448c7416}</Project>
-      <Name>Marketplace.Models</Name>
+      <Name>Marketplace.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

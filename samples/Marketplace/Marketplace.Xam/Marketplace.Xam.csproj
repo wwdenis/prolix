@@ -18,6 +18,6 @@
     <ProjectReference Include="..\..\..\src\Prolix.Http\Prolix.Http.csproj" />
     <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj" />
     <ProjectReference Include="..\..\..\src\Prolix.Xam\Prolix.Xam.csproj" />
-    <ProjectReference Include="..\Marketplace.Models\Marketplace.Models.csproj" />
+    <ProjectReference Include="..\Marketplace.Client\Marketplace.Client.csproj" />
   </ItemGroup>
 </Project>

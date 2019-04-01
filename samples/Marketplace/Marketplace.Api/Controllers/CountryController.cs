@@ -3,7 +3,7 @@
 
 using System.Web.Http;
 
-using Marketplace.Models.Geography;
+using Marketplace.Client.Models.Geography;
 using Marketplace.Domain.Models.Geography;
 using Marketplace.Logic.Contracts.Geography;
 using Marketplace.Logic.Queries.Geography;

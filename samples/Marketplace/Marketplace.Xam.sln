@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "..\..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Xam", "..\..\src\Prolix.Xam\Prolix.Xam.csproj", "{B60466D1-0A0C-4431-8AE5-E823DC64070E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{27EA3772-AA4F-425D-BB2F-1F0182B0358D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Client", "Marketplace.Client\Marketplace.Client.csproj", "{27EA3772-AA4F-425D-BB2F-1F0182B0358D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

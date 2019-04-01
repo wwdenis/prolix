@@ -1,4 +1,4 @@
-﻿using Marketplace.Xam.Models;
+﻿using Marketplace.Client.Models;
 using Prolix.Core.Mobile.Navigation;
 using Prolix.Xam.Navigation;
 

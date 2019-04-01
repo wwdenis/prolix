@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Marketplace.Xam.Models;
+using Marketplace.Client.Models;
 using Marketplace.Xam.ViewModels;
 
 using Xamarin.Forms;
