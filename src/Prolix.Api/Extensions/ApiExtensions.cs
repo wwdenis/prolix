@@ -1,17 +1,17 @@
 // Copyright 2017 (c) [Denis Da Silva]. All rights reserved.
 // See License.txt in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
-using System.Web.Http.Routing;
+using System.Web.Http.ExceptionHandling;
+using System.Web.Http.Filters;
+
+using Prolix.Api.Handlers;
+using Prolix.Api.Providers;
 
 namespace Prolix.Api.Extensions
 {
-    public static class HttpExtensions
+    public static class ApiExtensions
     {
         const string DefaultRouteKey = "DefaultRouteName";
         /// <summary>
@@ -50,6 +50,20 @@ namespace Prolix.Api.Extensions
             );
 
             config.Properties[DefaultRouteKey] = name;
+        }
+
+        /// <summary>
+        /// Replaces default handers with Prolix default ones (e.g. Exception Habndling, Filter Provider, etc.)
+        /// </summary>
+        /// <param name="config">The server configuration.</param>
+        public static void UseGlobalHandlers(this HttpConfiguration config)
+        {
+            // Global Services/Handlers
+            config.Services.Replace(typeof(IFilterProvider), new GlobalFilterProvider());
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
+
+            // Route interceptor
+            config.MessageHandlers.Insert(0, new RouteHandler());
         }
 
         /// <summary>

@@ -7,8 +7,6 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Web.Http.ExceptionHandling;
-using System.Web.Http.Filters;
 
 using Marketplace.Api.Core.Filters;
 using Marketplace.Data;
@@ -19,10 +17,7 @@ using Prolix.Api.Cors;
 using Prolix.Api.Extensions;
 using Prolix.Api.Filters;
 using Prolix.Api.Formatters;
-using Prolix.Api.Handlers;
 using Prolix.Api.Ioc;
-using Prolix.Api.Providers;
-using Prolix.Core.Ioc;
 using Prolix.Identity.AspNet;
 using Prolix.Ioc.Autofac;
 
@@ -76,11 +71,7 @@ namespace Marketplace.Api
         static void ConfigureHandlers(HttpConfiguration config)
         {
             // Global Services/Handlers
-            config.Services.Replace(typeof(IFilterProvider), new GlobalFilterProvider());
-            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
-
-            // Route interceptor
-            config.MessageHandlers.Insert(0, new RouteHandler());
+            config.UseGlobalHandlers();
         }
 
         static void ConfigureRoutes(HttpConfiguration config)
