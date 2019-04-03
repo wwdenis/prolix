@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{344386B1-12FB-4FAA-8E22-F5BA6ACD0077}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Core", "Prolix.Core\Prolix.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Identity.AspNet", "Prolix.Identity.AspNet\Prolix.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Data.EF", "Prolix.Data.EF\Prolix.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Api", "Prolix.Api\Prolix.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0AD2EB32-32A4-40CC-B148-FCAFFC458B85}"
+	ProjectSection(SolutionItems) = preProject
+		..\samples\Marketplace\nuget.config = ..\samples\Marketplace\nuget.config
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Http", "Prolix.Http\Prolix.Http.csproj", "{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{D1B77DE7-F10F-4AC4-A5D0-EB46F235D923}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{FE43419C-E325-469E-AD07-A023685790FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{D031A445-C4B3-4A56-B14D-482F9E9D24A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{F6A17C4B-9D73-4F41-9339-800B5AA2B47E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Xam", "Prolix.Xam\Prolix.Xam.csproj", "{1B49FF26-641A-4A3C-9E9F-C7F663885C7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Ioc.Unity", "Prolix.Ioc.Unity\Prolix.Ioc.Unity.csproj", "{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72F5A057-3F26-4068-9346-89492A062907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F5A057-3F26-4068-9346-89492A062907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F5A057-3F26-4068-9346-89492A062907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F5A057-3F26-4068-9346-89492A062907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20BCA77B-B073-4EE1-A147-28223242A6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BCA77B-B073-4EE1-A147-28223242A6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BCA77B-B073-4EE1-A147-28223242A6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BCA77B-B073-4EE1-A147-28223242A6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B49FF26-641A-4A3C-9E9F-C7F663885C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B49FF26-641A-4A3C-9E9F-C7F663885C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B49FF26-641A-4A3C-9E9F-C7F663885C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B49FF26-641A-4A3C-9E9F-C7F663885C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E843464-5DCC-4988-B32E-0DB2B4FD19FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{72F5A057-3F26-4068-9346-89492A062907} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
+		{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7} = {D031A445-C4B3-4A56-B14D-482F9E9D24A6}
+		{20BCA77B-B073-4EE1-A147-28223242A6FE} = {FE43419C-E325-469E-AD07-A023685790FE}
+		{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
+		{371594C7-3E8B-48FA-98F8-0C86CBA27B5B} = {D1B77DE7-F10F-4AC4-A5D0-EB46F235D923}
+		{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB} = {344386B1-12FB-4FAA-8E22-F5BA6ACD0077}
+		{1B49FF26-641A-4A3C-9E9F-C7F663885C7F} = {F6A17C4B-9D73-4F41-9339-800B5AA2B47E}
+		{1E843464-5DCC-4988-B32E-0DB2B4FD19FD} = {D1B77DE7-F10F-4AC4-A5D0-EB46F235D923}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B62758BD-5BAF-4003-A6D0-F44159267F77}
+	EndGlobalSection
+EndGlobal
