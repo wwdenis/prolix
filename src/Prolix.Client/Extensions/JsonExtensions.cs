@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Prolix.Http.Extensions
+namespace Prolix.Client.Extensions
 {
 	public static class JsonExtensions
 	{

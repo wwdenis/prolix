@@ -9,9 +9,9 @@ using Prolix.Core.Collections;
 using Prolix.Core.Domain;
 using Prolix.Core.Extensions.Parsing;
 using Prolix.Core.Http;
-using Prolix.Http.Extensions;
+using Prolix.Client.Extensions;
 
-namespace Prolix.Http.Client
+namespace Prolix.Client.Services
 {
     public abstract class ApiService<ModelType, KeyType> : IApiService<ModelType, KeyType>
         where ModelType : Model<KeyType>, new()

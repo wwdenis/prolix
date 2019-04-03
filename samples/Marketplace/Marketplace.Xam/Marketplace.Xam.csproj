@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj" />
-    <ProjectReference Include="..\..\..\src\Prolix.Http\Prolix.Http.csproj" />
+    <ProjectReference Include="..\..\..\src\Prolix.Client\Prolix.Client.csproj" />
     <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj" />
     <ProjectReference Include="..\..\..\src\Prolix.Xam\Prolix.Xam.csproj" />
     <ProjectReference Include="..\Marketplace.Client\Marketplace.Client.csproj" />

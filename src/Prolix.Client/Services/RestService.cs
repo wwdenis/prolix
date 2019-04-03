@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Prolix.Core.Collections;
 using Prolix.Core.Http;
-using Prolix.Http.Extensions;
+using Prolix.Client.Extensions;
 
-namespace Prolix.Http.Client
+namespace Prolix.Client.Services
 {
     /// <summary>
     /// Generic REST Client Service

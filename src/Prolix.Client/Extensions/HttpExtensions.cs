@@ -11,9 +11,9 @@ using System.Reflection;
 using System.Text;
 using Prolix.Core.Http;
 using Prolix.Core.Logic;
-using Prolix.Http.Client;
+using Prolix.Client.Services;
 
-namespace Prolix.Http.Extensions
+namespace Prolix.Client.Extensions
 {
 	public static class HttpExtensions
 	{

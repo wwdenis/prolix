@@ -6,8 +6,8 @@ using Marketplace.Client.Models.Security;
 using Marketplace.Client.Models;
 
 using Prolix.Core.Http;
-using Prolix.Http.Client;
-using Prolix.Http.Extensions;
+using Prolix.Client.Services;
+using Prolix.Client.Extensions;
 
 namespace Marketplace.Client.Services
 {

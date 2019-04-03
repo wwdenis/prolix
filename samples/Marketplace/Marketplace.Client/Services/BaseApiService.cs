@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Prolix.Core.Domain;
-using Prolix.Http.Client;
+using Prolix.Client.Services;
 
 namespace Marketplace.Client.Services
 {

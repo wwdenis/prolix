@@ -4,9 +4,9 @@
 using Newtonsoft.Json;
 using System;
 using System.Net;
-using Prolix.Http.Extensions;
+using Prolix.Client.Extensions;
 
-namespace Prolix.Http.Client
+namespace Prolix.Client.Services
 {
 	/// <summary>
 	/// Represent errors related to HTTP calls

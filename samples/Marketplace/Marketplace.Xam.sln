@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Core", "_Core", "{26D05A32
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Core", "..\..\src\Prolix.Core\Prolix.Core.csproj", "{79194299-8DE2-473E-B786-2B7C14E451B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Http", "..\..\src\Prolix.Http\Prolix.Http.csproj", "{5B6CB662-E54B-4BB9-8458-2981E6A6A031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Client", "..\..\src\Prolix.Client\Prolix.Client.csproj", "{5B6CB662-E54B-4BB9-8458-2981E6A6A031}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj", "{29CA4322-739A-44D3-AEC1-012E4C65E64E}"
 EndProject

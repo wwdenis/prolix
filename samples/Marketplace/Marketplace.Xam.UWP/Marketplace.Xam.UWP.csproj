@@ -151,9 +151,9 @@
       <Project>{79194299-8de2-473e-b786-2b7c14e451b2}</Project>
       <Name>Prolix.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Prolix.Http\Prolix.Http.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.Client\Prolix.Client.csproj">
       <Project>{5b6cb662-e54b-4bb9-8458-2981e6a6a031}</Project>
-      <Name>Prolix.Http</Name>
+      <Name>Prolix.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj">
       <Project>{29ca4322-739a-44d3-aec1-012e4c65e64e}</Project>

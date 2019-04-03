@@ -14,9 +14,9 @@ using System.Threading.Tasks;
 using Prolix.Core.Collections;
 using Prolix.Core.Extensions.Collections;
 using Prolix.Core.Http;
-using Prolix.Http.Extensions;
+using Prolix.Client.Extensions;
 
-namespace Prolix.Http.Client
+namespace Prolix.Client.Services
 {
     public class HttpService : IHttpService
 	{
