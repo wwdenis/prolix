@@ -49,23 +49,23 @@ namespace Marketplace.Api
         static void ConfigureDependencies(HttpConfiguration config)
         {
             // IoC container
-            var manager = new AutofacDependencyManager();
+            var resolver = new AutofacResolver();
 
             // Map app dependencies
-            manager.MapAssembly<SecurityContext>();     // Domain
-            manager.MapAssembly<DataContext>();         // Data
-            manager.MapAssembly<CategoryService>();     // Logic
-            manager.MapAssembly<PermissionAttribute>(); // Api
+            resolver.ScanAssembly<SecurityContext>();     // Domain
+            resolver.ScanAssembly<DataContext>();         // Data
+            resolver.ScanAssembly<CategoryService>();     // Logic
+            resolver.ScanAssembly<PermissionAttribute>(); // Api
 
             // Map code dependencies
-            manager.MapAssembly<GlobalAuthorizeAttribute>();// Filters
-            manager.MapAssembly<IdentityManager>();         // Identity
+            resolver.ScanAssembly<GlobalAuthorizeAttribute>();// Filters
+            resolver.ScanAssembly<IdentityManager>();         // Identity
             
             // Map all controllers
-            manager.MapType<IHttpController>(Assembly.GetExecutingAssembly());
+            resolver.ScanTypes<IHttpController>(Assembly.GetExecutingAssembly());
 
             // Setting the Resolver
-            config.DependencyResolver = manager.GetHttpResolver();
+            config.DependencyResolver = resolver.GetHttpResolver();
         }
         
         static void ConfigureHandlers(HttpConfiguration config)

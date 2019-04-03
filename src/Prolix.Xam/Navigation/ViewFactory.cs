@@ -24,13 +24,13 @@ namespace Prolix.Xam.Navigation
 		#region Fields
 
 		readonly IDictionary<Type, ViewMapAttribute> _mappings = new Dictionary<Type, ViewMapAttribute>();
-		readonly IResolver _resolver;
+		readonly Resolver _resolver;
 
 		#endregion
 
 		#region Constructors
 
-		public ViewFactory(IResolver resolver)
+		public ViewFactory(Resolver resolver)
 		{
 			_resolver = resolver;
 		}

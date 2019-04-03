@@ -13,7 +13,7 @@ namespace Prolix.Core.Logic
     /// <summary>
     /// Business service for read-only repository with numeric Id.
     /// This service works with <seealso cref="IDbContext"/> from the data layer. 
-    /// Most of times the database context is managed by an Ioc container, implemented from <see cref="Ioc.IResolver" />
+    /// Most of times the database context is managed by an Ioc container, implemented from <see cref="Resolver" />
     /// </summary>
     /// <typeparam name="ModelType">The model type</typeparam>
     public interface IRepositoryService<ModelType> : IRepositoryService<ModelType, int>
@@ -24,7 +24,7 @@ namespace Prolix.Core.Logic
     /// <summary>
     /// Business service for read-only repository with generic Id.
     /// This service works with <seealso cref="IDbContext"/> from the data layer. 
-    /// Most of times the database context is managed by an Ioc container, implemented from <see cref="Ioc.IResolver" />
+    /// Most of times the database context is managed by an Ioc container, implemented from <see cref="Resolver" />
     /// </summary>
     /// <typeparam name="ModelType">The model type</typeparam>
     /// <typeparam name="KeyType">The model Id type</typeparam>

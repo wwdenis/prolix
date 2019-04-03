@@ -8,10 +8,10 @@ namespace Prolix.Api.Ioc
 {
     public static class ResolverExtensions
     {
-        public static IDependencyResolver GetHttpResolver(this IDependencyManager manager)
+        public static IDependencyResolver GetHttpResolver(this Resolver resolver)
         {
-            manager.Build();
-            return new IocDependencyResolver(manager.Resolver);
+            resolver.Build();
+            return new IocDependencyResolver(resolver);
         }
     }
 }

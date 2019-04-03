@@ -20,24 +20,24 @@ namespace Marketplace.Tests
     [TestClass]
     public class CategoryServiceTest
     {
-        IResolver _resolver;
+        Resolver _resolver = null;
 
         [TestInitialize]
         public void Initialize()
         {
-            var manager = new AutofacDependencyManager();
+            var resolver = new AutofacResolver();
 
             // Map all assemblies
-            manager.MapAssembly<CategoryService>(); // Services
-            manager.MapAssembly<SecurityContext>(); // Domain
+            resolver.ScanAssembly<CategoryService>(); // Services
+            resolver.ScanAssembly<SecurityContext>(); // Domain
 
             // Mocking the data context
-            manager.MapAssembly<MockDataContext>(); // Mock: Data
+            resolver.ScanAssembly<MockDataContext>(); // Mock: Data
 
             // Builds the IoC container
-            manager.Build();
+            resolver.Build();
 
-            _resolver = manager.Resolver;
+            this._resolver = resolver;
         }
         
         [TestMethod]

@@ -4,6 +4,7 @@
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
+
 using Prolix.Core.Ioc;
 
 namespace Prolix.Ioc.Unity
@@ -11,9 +12,8 @@ namespace Prolix.Ioc.Unity
     /// <summary>
     /// Unity generic Ioc Container
     /// </summary>
-    internal class UnityResolver : IResolver
+    public sealed class UnityResolver : Resolver
     {
-        bool _disposed;
         IUnityContainer _container;
 
         public UnityResolver() : this(new UnityContainer())
@@ -30,8 +30,7 @@ namespace Prolix.Ioc.Unity
             Dispose(false);
         }
 
-        public void Register<ConcreteType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-            where ConcreteType : class
+        public override void Register<ConcreteType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -44,8 +43,7 @@ namespace Prolix.Ioc.Unity
             }
         }
 
-        public void Register<AbstractType>(AbstractType instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-            where AbstractType : class
+        public override void Register<AbstractType>(AbstractType instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -58,15 +56,12 @@ namespace Prolix.Ioc.Unity
             }
         }
 
-        public void Register<AbstractType>(Func<AbstractType> builder)
-            where AbstractType : class
+        public override void Register<AbstractType>(Func<AbstractType> builder)
         {
             _container.RegisterType<AbstractType>(new InjectionFactory(c => builder()));
         }
 
-        public void Register<ConcreteType, AbstractType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-            where ConcreteType : class, AbstractType
-            where AbstractType : class
+        public override void Register<ConcreteType, AbstractType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -79,7 +74,7 @@ namespace Prolix.Ioc.Unity
             }
         }
 
-        public void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null)
+        public override void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null)
         {
             switch (lifetime)
             {
@@ -98,7 +93,7 @@ namespace Prolix.Ioc.Unity
             }
         }
 
-        public void Register(Type concreteType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public override void Register(Type concreteType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -111,69 +106,54 @@ namespace Prolix.Ioc.Unity
             }
         }
 
-        public void Register(Type abstractType, Func<object> builder)
+        public override void Register(Type abstractType, Func<object> builder)
         {
             _container.RegisterType(abstractType, new InjectionFactory(c => builder()));
         }
 
-        public AbstractType Resolve<AbstractType>()
-            where AbstractType : class
+        public override AbstractType Resolve<AbstractType>()
         {
             return _container.Resolve<AbstractType>();
         }
 
-        public IEnumerable<AbstractType> ResolveAll<AbstractType>()
-            where AbstractType : class
+        public override IEnumerable<AbstractType> ResolveAll<AbstractType>()
         {
             return _container.ResolveAll<AbstractType>();
         }
 
-        public object Resolve(Type abstractType)
+        public override object Resolve(Type abstractType)
         {
             return _container.Resolve(abstractType);
         }
 
-        public IEnumerable<object> ResolveAll(Type abstractType)
+        public override IEnumerable<object> ResolveAll(Type abstractType)
         {
             return _container.ResolveAll(abstractType);
         }
 
-        public bool IsRegistered<AbstractType>()
-            where AbstractType : class
+        public override bool IsRegistered<AbstractType>()
         {
             return _container.IsRegistered<AbstractType>();
         }
 
-        public bool IsRegistered(Type abstractType)
+        public override bool IsRegistered(Type abstractType)
         {
             return _container.IsRegistered(abstractType);
         }
 
-        public void Finish()
+        public override void Finish()
         {
             // Do nothing
         }
 
-        public IResolver CreateChild()
+        public override void Release()
+        {
+            _container?.Dispose();
+        }
+
+        public override Resolver CreateChild()
         {
             return new UnityResolver(_container);
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this); // Shut FxCop up
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                    _container.Dispose();
-
-                _disposed = true;
-            }
         }
     }
 }
