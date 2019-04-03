@@ -9,7 +9,7 @@ using Marketplace.Client.Services;
 
 using Prolix.Core.Collections;
 using Prolix.Core.Logic;
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 using Prolix.Xam.Navigation;
 
 namespace Marketplace.Xam.ViewModels

@@ -1,6 +1,6 @@
 ﻿using Prolix.Core.Extensions.Reflection;
 using Prolix.Core.Ioc;
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 using Prolix.Xam.Navigation;
 
 using Xamarin.Forms;
@@ -14,17 +14,17 @@ namespace Prolix.Xam.App
 	{
 		#region Constructors
 
-        public FormsManager(Application formsApp, IDependencyManager resolverManager)
+        public FormsManager(Application formsApp, Resolver resolver)
 		{
 			FormsApp = formsApp;
-            ResolverManager = resolverManager;
+            Resolver = resolver;
 		}
 
         #endregion
 
         #region Properties
 
-        IDependencyManager ResolverManager { get; }
+        Resolver Resolver { get; }
         Application FormsApp { get; }
 
         #endregion
@@ -38,23 +38,21 @@ namespace Prolix.Xam.App
         public void Run<StartViewModel>()
             where StartViewModel : class, IViewModel
         {
-            var resolver = ResolverManager.Resolver;
-            
             // IOC container and ViewFactory
-            var viewFactory = new ViewFactory(resolver);
+            var viewFactory = new ViewFactory(Resolver);
 
             // Views and view models
             var coreAssembly = FormsApp.GetAssembly();
             viewFactory.Register(coreAssembly);
 
             // Register instance dependencies
-            resolver.Register<IXamViewFactory>(viewFactory, DepedencyLifetime.PerLifetime);
+            Resolver.Register<IXamViewFactory>(viewFactory, DepedencyLifetime.PerLifetime);
 
             // Finish the ioc continer
-            ResolverManager.Build();
+            Resolver.Build();
 
 			// Setting the BindingContext for later use
-			FormsApp.BindingContext = resolver;
+			FormsApp.BindingContext = Resolver;
 
 			// Set the start page
 			var launchPage = viewFactory.Launch<StartViewModel>();

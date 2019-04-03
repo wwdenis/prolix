@@ -78,7 +78,7 @@
     <Compile Include="Ioc\IocDependencyResolver.cs" />
     <Compile Include="Ioc\IocDependencyScope.cs" />
     <Compile Include="Ioc\ResolverExtensions.cs" />
-    <Compile Include="Extensions\HttpExtensions.cs" />
+    <Compile Include="Extensions\ApiExtensions.cs" />
     <Compile Include="Extensions\MapperExtensions.cs" />
     <Compile Include="Filters\GlobalAuthorizeAttribute.cs" />
     <Compile Include="Filters\IDependencyFilter.cs" />

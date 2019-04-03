@@ -29,4 +29,4 @@ XCOPY ..\node_modules\font-awesome font-awesome\ /S
 
 
 :: Prolix Core TS files
-XCOPY ..\..\..\..\src\Prolix.Angular\scripts prolix-angular\ /S
+XCOPY ..\..\..\..\src\Prolix.AngularJS prolix-angularjs\ /S

@@ -5,7 +5,7 @@ namespace Prolix.Core.Ioc
 {
     /// <summary>
     /// Generic service definition.
-    /// Used for service lookup: <see cref="Ioc.ResolverManager{ResolverType}"/>
+    /// Used for service lookup: <see cref="Resolver"/>
     /// </summary>
     public interface IService
     {

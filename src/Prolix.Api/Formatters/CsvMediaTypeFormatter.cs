@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Prolix.Core.Extensions.Collections;
+using Prolix.Core.Extensions.IO;
 
 namespace Prolix.Api.Formatters
 {
@@ -32,41 +33,15 @@ namespace Prolix.Api.Formatters
 
         async public override Task WriteToStreamAsync(Type type, object value, Stream writeStream, HttpContent content, TransportContext transportContext)
         {
-            var entityType = value.GetType();
+            IEnumerable data = value.ToEnumerable();
+            string output = data?.ToCsv();
 
-            if (value != null)
-            {
-                IEnumerable data = null;
-
-                if (value is IEnumerable)
-                {
-                    data = ((IEnumerable)value);
-                }
-                else
-                {
-                    data = new[] { value };
-                }
-
-                var result = data?.ToCsv();
-
-                if (!string.IsNullOrWhiteSpace(result))
-                {
-                    using (var writer = new StreamWriter(writeStream))
-                    {
-                        await writer.WriteAsync(result);
-                    }
-                }
-            }
+            // Write to the stream if not empty
+            await writeStream.TryWriteText(output);
         }
 
-        public override bool CanReadType(Type type)
-        {
-            return false;
-        }
+        public override bool CanReadType(Type type) => false;
 
-        public override bool CanWriteType(Type type)
-        {
-            return true;
-        }
+        public override bool CanWriteType(Type type) => true;
     }
 }

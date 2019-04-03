@@ -23,5 +23,16 @@ namespace Prolix.Core.Extensions.IO
 				return ms.ToArray();
 			}
 		}
+
+        async public static Task TryWriteText(this Stream stream, string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return;
+
+            using (var writer = new StreamWriter(stream))
+            {
+                await writer.WriteAsync(text);
+            }
+        }
 	}
 }

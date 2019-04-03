@@ -44,7 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{DC
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Marketplace.Sql", "Marketplace.Sql\Marketplace.Sql.sqlproj", "{7A30F299-4891-439A-BF27-A56E00F90CE3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Http", "..\..\src\Prolix.Http\Prolix.Http.csproj", "{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Client", "..\..\src\Prolix.Client\Prolix.Client.csproj", "{6FF28268-EDD0-4C1B-8A87-B7FDA181F4BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

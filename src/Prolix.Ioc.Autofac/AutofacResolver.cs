@@ -15,9 +15,8 @@ namespace Prolix.Ioc.Autofac
     /// <summary>
     /// Autofac generic Ioc Container
     /// </summary>
-    internal class AutofacResolver : IResolver
+    public class AutofacResolver : Resolver
     {
-        bool _disposed;
         ILifetimeScope _container;
         readonly ContainerBuilder _builder;
 
@@ -36,8 +35,7 @@ namespace Prolix.Ioc.Autofac
             Dispose(false);
         }
 
-        public void Register<ConcreteType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-            where ConcreteType : class
+        public override void Register<ConcreteType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -52,8 +50,7 @@ namespace Prolix.Ioc.Autofac
             }
         }
 
-        public void Register<AbstractType>(AbstractType instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-            where AbstractType : class
+        public override void Register<AbstractType>(AbstractType instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -68,17 +65,14 @@ namespace Prolix.Ioc.Autofac
             }
         }
 
-        public void Register<AbstractType>(Func<AbstractType> builder)
-            where AbstractType : class
+        public override void Register<AbstractType>(Func<AbstractType> builder)
         {
             _builder
                 .Register<AbstractType>(context => builder())
                 .InstancePerLifetimeScope();
         }
 
-        public void Register<ConcreteType, AbstractType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-            where ConcreteType : class, AbstractType
-            where AbstractType : class
+        public override void Register<ConcreteType, AbstractType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -93,7 +87,7 @@ namespace Prolix.Ioc.Autofac
             }
         }
 
-        public void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null)
+        public override void Register(Type concreteType, Type abstractType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency, string name = null)
         {
             switch (lifetime)
             {
@@ -114,7 +108,7 @@ namespace Prolix.Ioc.Autofac
             }
         }
 
-        public void Register(Type concreteType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public override void Register(Type concreteType, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -129,7 +123,7 @@ namespace Prolix.Ioc.Autofac
             }
         }
 
-        public void Register(Type abstractType, Func<object> builder)
+        public override void Register(Type abstractType, Func<object> builder)
         {
             _builder
                 .Register(context => builder())
@@ -137,8 +131,7 @@ namespace Prolix.Ioc.Autofac
                 .InstancePerLifetimeScope();
         }
 
-        public AbstractType Resolve<AbstractType>()
-            where AbstractType : class
+        public override AbstractType Resolve<AbstractType>()
         {
             if (!IsRegistered<AbstractType>())
                 return null;
@@ -146,8 +139,7 @@ namespace Prolix.Ioc.Autofac
             return _container.Resolve<AbstractType>();
         }
 
-        public IEnumerable<AbstractType> ResolveAll<AbstractType>()
-            where AbstractType : class
+        public override IEnumerable<AbstractType> ResolveAll<AbstractType>()
         {
             if (!IsRegistered<AbstractType>())
                 return Enumerable.Empty<AbstractType>();
@@ -157,7 +149,7 @@ namespace Prolix.Ioc.Autofac
             return all as IEnumerable<AbstractType>;
         }
 
-        public object Resolve(Type abstractType)
+        public override object Resolve(Type abstractType)
         {
             if (!IsRegistered(abstractType))
                 return null;
@@ -165,50 +157,37 @@ namespace Prolix.Ioc.Autofac
             return _container.Resolve(abstractType);
         }
 
-        public IEnumerable<object> ResolveAll(Type abstractType)
+        public override IEnumerable<object> ResolveAll(Type abstractType)
         {
             var enumerableType = typeof(IEnumerable<>).MakeGenericType(abstractType);
             var all = _container.Resolve(enumerableType);
             return all as IEnumerable<object>;
         }
 
-        public bool IsRegistered<AbstractType>()
-            where AbstractType : class
+        public override bool IsRegistered<AbstractType>()
         {
             return _container.IsRegistered<AbstractType>();
         }
 
-        public bool IsRegistered(Type abstractType)
+        public override bool IsRegistered(Type abstractType)
         {
             return _container.IsRegistered(abstractType);
         }
 
-        public void Finish()
+        public override void Finish()
         {
             _container = _builder.Build();
         }
 
-        public IResolver CreateChild()
+        public override void Release()
+        {
+            _container?.Dispose();
+        }
+
+        public override Resolver CreateChild()
         {
             var child = _container.BeginLifetimeScope(MatchingScopeLifetimeTags.RequestLifetimeScopeTag);
             return new AutofacResolver(child);
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this); // Shut FxCop up
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                    _container.Dispose();
-
-                _disposed = true;
-            }
         }
     }
 }

@@ -4,8 +4,7 @@ using Plugin.Geolocator.Abstractions;
 using System;
 using System.Threading.Tasks;
 
-using Prolix.Core.Mobile;
-using Prolix.Core.Mobile.Location;
+using Prolix.Client.Services;
 
 namespace Prolix.Xam.Location
 {

@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 using Marketplace.Client.Services;
 using Marketplace.Xam.ViewModels;
 
-using Prolix.Http.Client;
+using Prolix.Client.Api;
 using Prolix.Ioc.Autofac;
 using Prolix.Xam.App;
 using Prolix.Xam.Navigation;
@@ -18,12 +18,12 @@ namespace Marketplace.Xam
         {
             InitializeComponent();
 
-            var dependency = new AutofacDependencyManager();
-            dependency.MapAssembly<CategoryService>();
-            dependency.MapAssembly<NavigationService>();
-            dependency.MapAssembly<RestService>();
+            var resolver = new AutofacResolver();
+            resolver.ScanAssembly<CategoryService>();   // Marketplacxe.Client
+            resolver.ScanAssembly<NavigationService>(); // Prolix.Xam
+            resolver.ScanAssembly<RestService>();       // Prolix.Client
 
-            var forms = new FormsManager(this, dependency);
+            var forms = new FormsManager(this, resolver);
 
             // Init the application and the Main page
             forms.Run<LoginViewModel>();

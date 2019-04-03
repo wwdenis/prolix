@@ -224,5 +224,11 @@ namespace Prolix.Core.Extensions.Collections
 
             return builder.ToString();
         }
+
+        public static IEnumerable ToEnumerable(this object value)
+        {
+            if (value == null) return null;
+            return value as IEnumerable ?? new[] { value };
+        }
     }
 }

@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 using Prolix.Core.Extensions.Reflection;
 using Prolix.Core.Ioc;
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 
 namespace Prolix.Xam.Navigation
 {
@@ -24,13 +24,13 @@ namespace Prolix.Xam.Navigation
 		#region Fields
 
 		readonly IDictionary<Type, ViewMapAttribute> _mappings = new Dictionary<Type, ViewMapAttribute>();
-		readonly IResolver _resolver;
+		readonly Resolver _resolver;
 
 		#endregion
 
 		#region Constructors
 
-		public ViewFactory(IResolver resolver)
+		public ViewFactory(Resolver resolver)
 		{
 			_resolver = resolver;
 		}

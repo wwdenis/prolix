@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dependencies;
 
@@ -13,9 +12,9 @@ namespace Prolix.Api.Ioc
 {
     public class IocDependencyScope : IDependencyScope
     {
-        protected IResolver Resolver { get; }
+        protected Resolver Resolver { get; }
 
-        public IocDependencyScope(IResolver resolver)
+        public IocDependencyScope(Resolver resolver)
         {
             Resolver = resolver ?? throw new ArgumentNullException("resolver");
         }

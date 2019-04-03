@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 
 namespace Prolix.Xam.Navigation
 {
