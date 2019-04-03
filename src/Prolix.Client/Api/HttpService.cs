@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 using Prolix.Core.Collections;
 using Prolix.Core.Extensions.Collections;
-using Prolix.Core.Http;
+using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 
-namespace Prolix.Client.Services
+namespace Prolix.Client.Api
 {
     public class HttpService : IHttpService
 	{

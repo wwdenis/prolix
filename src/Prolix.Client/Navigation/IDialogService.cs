@@ -1,7 +1,7 @@
 ﻿using Prolix.Core.Ioc;
 using System.Threading.Tasks;
 
-namespace Prolix.Core.Mobile.Navigation
+namespace Prolix.Client.Navigation
 {
 	/// <summary>
 	/// Simple dialog service

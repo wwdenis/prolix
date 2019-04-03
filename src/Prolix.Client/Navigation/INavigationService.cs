@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Prolix.Core.Ioc;
 
-namespace Prolix.Core.Mobile.Navigation
+namespace Prolix.Client.Navigation
 {
 	/// <summary>
 	/// Navigation service

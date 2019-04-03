@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Prolix.Core.Mobile.Navigation
+namespace Prolix.Client.Navigation
 {
     /// <summary>
     /// View Factory

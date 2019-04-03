@@ -5,7 +5,7 @@ using Prolix.Core.Collections;
 using System;
 using System.Collections.Generic;
 
-namespace Prolix.Core.Http
+namespace Prolix.Client.Api
 {
 	public class HttpBody
     {

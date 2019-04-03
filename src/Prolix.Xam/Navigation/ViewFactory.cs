@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 using Prolix.Core.Extensions.Reflection;
 using Prolix.Core.Ioc;
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 
 namespace Prolix.Xam.Navigation
 {

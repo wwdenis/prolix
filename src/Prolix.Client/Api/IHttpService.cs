@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Prolix.Core.Ioc;
 
-namespace Prolix.Core.Http
+namespace Prolix.Client.Api
 {
     public interface IHttpService : IService
 	{

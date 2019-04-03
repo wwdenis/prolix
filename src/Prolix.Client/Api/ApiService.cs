@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using Prolix.Core.Collections;
 using Prolix.Core.Domain;
 using Prolix.Core.Extensions.Parsing;
-using Prolix.Core.Http;
+using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 
-namespace Prolix.Client.Services
+namespace Prolix.Client.Api
 {
     public abstract class ApiService<ModelType, KeyType> : IApiService<ModelType, KeyType>
         where ModelType : Model<KeyType>, new()

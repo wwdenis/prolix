@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Prolix.Core.Mobile.Navigation
+namespace Prolix.Client.Navigation
 {
     /// <summary>
     /// Generic View model

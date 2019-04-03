@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Prolix.Client\Prolix.Client.csproj" />
     <ProjectReference Include="..\Prolix.Core\Prolix.Core.csproj" />
   </ItemGroup>
 

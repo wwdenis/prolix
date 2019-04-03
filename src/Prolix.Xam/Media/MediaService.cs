@@ -5,8 +5,7 @@ using System;
 using System.Threading.Tasks;
 
 using Prolix.Core.Extensions.IO;
-using Prolix.Core.Mobile;
-using Prolix.Core.Mobile.Media;
+using Prolix.Client.Services;
 
 namespace Prolix.Xam.Media
 {

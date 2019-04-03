@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Prolix.Core.Ioc;
 
-namespace Prolix.Core.Mobile.Location
+namespace Prolix.Client.Services
 {
     /// <summary>
     /// Geolocation Service

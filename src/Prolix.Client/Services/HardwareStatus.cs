@@ -1,4 +1,4 @@
-﻿namespace Prolix.Core.Mobile
+﻿namespace Prolix.Client.Services
 {
     /// <summary>
     /// List

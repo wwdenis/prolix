@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 using Marketplace.Client.Services;
 using Marketplace.Xam.ViewModels;
 
-using Prolix.Client.Services;
+using Prolix.Client.Api;
 using Prolix.Ioc.Autofac;
 using Prolix.Xam.App;
 using Prolix.Xam.Navigation;

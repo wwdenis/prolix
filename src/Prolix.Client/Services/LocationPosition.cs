@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prolix.Core.Mobile.Location
+namespace Prolix.Client.Services
 {
 	/// <summary>
 	/// Geolocation positioning information

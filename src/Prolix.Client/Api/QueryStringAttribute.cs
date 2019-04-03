@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prolix.Core.Http
+namespace Prolix.Client.Api
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	public class FormParameterAttribute : Attribute
+	public class QueryStringAttribute : Attribute
 	{
-		public FormParameterAttribute()
+		public QueryStringAttribute()
 		{
 		}
 
-		public FormParameterAttribute(string name)
+		public QueryStringAttribute(string name)
 		{
 			Name = name;
 		}

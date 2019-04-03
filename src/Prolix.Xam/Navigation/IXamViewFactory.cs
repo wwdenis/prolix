@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Prolix.Core.Mobile.Navigation;
+
 using Xamarin.Forms;
+
+using Prolix.Client.Navigation;
 
 namespace Prolix.Xam.Navigation
 {

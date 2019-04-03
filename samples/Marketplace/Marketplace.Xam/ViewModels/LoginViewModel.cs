@@ -8,7 +8,7 @@ using Marketplace.Client.Models;
 using Marketplace.Client.Services;
 
 using Prolix.Core.Logic;
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 
 namespace Marketplace.Xam.ViewModels
 {

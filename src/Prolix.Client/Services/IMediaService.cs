@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prolix.Core.Mobile.Media
+namespace Prolix.Client.Services
 {
 	/// <summary>
 	/// Media Service

@@ -7,17 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prolix.Core.Http
+namespace Prolix.Client.Api
 {
-	public class StringBody : HttpBody<string>
+	[AttributeUsage(AttributeTargets.Property)]
+	public class ApiIgnoreAttribute : Attribute
 	{
-		public StringBody() : base(string.Empty)
-		{
-		}
-
-        public StringBody(string content) : base(content)
-        {
-
-        }
 	}
 }

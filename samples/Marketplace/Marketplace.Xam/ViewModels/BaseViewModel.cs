@@ -1,5 +1,5 @@
 ﻿using Marketplace.Client.Models;
-using Prolix.Core.Mobile.Navigation;
+using Prolix.Client.Navigation;
 using Prolix.Xam.Navigation;
 
 namespace Marketplace.Xam.ViewModels

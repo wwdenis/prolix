@@ -6,7 +6,7 @@ using System;
 using System.Net;
 using Prolix.Client.Extensions;
 
-namespace Prolix.Client.Services
+namespace Prolix.Client.Api
 {
 	/// <summary>
 	/// Represent errors related to HTTP calls

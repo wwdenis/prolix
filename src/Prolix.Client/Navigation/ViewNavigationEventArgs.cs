@@ -1,4 +1,4 @@
-﻿namespace Prolix.Core.Mobile.Navigation
+﻿namespace Prolix.Client.Navigation
 {
     public delegate void ViewNavigationEventHandler(object sender, ViewNavigationEventArgs e);
 

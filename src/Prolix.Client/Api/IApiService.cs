@@ -9,7 +9,7 @@ using Prolix.Core.Collections;
 using Prolix.Core.Domain;
 using Prolix.Core.Ioc;
 
-namespace Prolix.Core.Http
+namespace Prolix.Client.Api
 {
     /// <summary>
     /// REST Client for Prolix-powered Api's

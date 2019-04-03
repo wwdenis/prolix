@@ -6,10 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Prolix.Core.Collections;
-using Prolix.Core.Http;
+using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 
-namespace Prolix.Client.Services
+namespace Prolix.Client.Api
 {
     /// <summary>
     /// Generic REST Client Service
