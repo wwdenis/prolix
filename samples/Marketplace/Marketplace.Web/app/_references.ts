@@ -12,6 +12,6 @@
 /// <reference path="../node_modules/@types/angular-ui-bootstrap/index.d.ts" />
 
 /*
- * Prolix.Angular Components
+ * Prolix.AngularJS Components
  */
-/// <reference path="../lib/prolix-angular/_references.ts" />
+/// <reference path="../lib/prolix-angularjs/_references.ts" />
