@@ -21,8 +21,8 @@ namespace Prolix.Data.EF
 
         public EntitySet(IDbSet<ModelType> set, DbContext context)
         {
-            _set = set ?? throw new ArgumentNullException("set");
-            _context = context ?? throw new ArgumentNullException("context");
+            _set = set ?? throw new ArgumentNullException(nameof(set));
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public IQueryProvider Provider => _set.Provider;
@@ -42,7 +42,7 @@ namespace Prolix.Data.EF
         public void Remove(ModelType model)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
 
             var entry = _context.Entry(model);
 

@@ -27,7 +27,7 @@ namespace Marketplace.Client.Services
             try
             {
                 if (model == null)
-                    throw new ArgumentNullException("model");
+                    throw new ArgumentNullException(nameof(model));
 
                 var body = new HttpBody<LoginModel>();
                 var response = await RestService.Post<AccessModel, LoginModel>("Login", body);

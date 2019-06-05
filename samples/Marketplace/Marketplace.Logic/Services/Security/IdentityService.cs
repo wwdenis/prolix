@@ -132,7 +132,7 @@ namespace Marketplace.Logic.Services.Security
         async public Task<bool> ChangePassword(PasswordChange request)
         {
             if (string.IsNullOrWhiteSpace(request?.IdentityId))
-                throw new ArgumentNullException("IdentityId");
+                throw new ArgumentNullException(nameof(PasswordChange.IdentityId));
 
             var rule = DescriptorManager.Validate(request);
             rule.Check();
@@ -153,7 +153,7 @@ namespace Marketplace.Logic.Services.Security
         async public Task<bool> ResetPassword(PasswordReset request)
         {
             if (string.IsNullOrWhiteSpace(request?.IdentityId))
-                throw new ArgumentNullException("IdentityId");
+                throw new ArgumentNullException(nameof(PasswordChange.IdentityId));
 
             var rule = DescriptorManager.Validate(request);
             rule.Check();

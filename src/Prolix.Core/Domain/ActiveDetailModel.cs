@@ -26,7 +26,7 @@ namespace Prolix.Core.Domain
         }
 
         /// <summary>
-        /// Instancia uma nova entidade
+        /// Creates a new instance
         /// </summary>
         /// <param name="name">Model name</param>
         /// <param name="detail">Model detail</param>

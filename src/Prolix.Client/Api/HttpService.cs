@@ -204,7 +204,7 @@ namespace Prolix.Client.Api
 			if (!Uri.TryCreate(url, UriKind.Absolute, out uri))
 			{
 				if (string.IsNullOrWhiteSpace(BaseUrl))
-					throw new ArgumentNullException("BaseUrl");
+					throw new ArgumentNullException(nameof(BaseUrl));
 
 				uri = new Uri(BaseUrl);
 			}

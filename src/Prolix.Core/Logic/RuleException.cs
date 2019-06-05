@@ -37,7 +37,7 @@ namespace Prolix.Core.Logic
 
         public RuleException(string message, RuleValidation rule, Exception innerException) : base(message, innerException)
         {
-            Rule = rule ?? throw new ArgumentNullException("rule"); ;
+            Rule = rule ?? throw new ArgumentNullException(nameof(rule));
 
             if (!string.IsNullOrWhiteSpace(message))
                 Rule.Message = message;

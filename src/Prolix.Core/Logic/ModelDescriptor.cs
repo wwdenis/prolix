@@ -17,7 +17,7 @@ namespace Prolix.Core.Logic
         #region Properties
 
         /// <summary>
-        /// Nome da entidade
+        /// Model name
         /// </summary>
         public string Name { get; set; }
 
