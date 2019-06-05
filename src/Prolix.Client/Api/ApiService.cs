@@ -29,7 +29,7 @@ namespace Prolix.Client.Api
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
-                    throw new ArgumentNullException("ResourceName");
+                    throw new ArgumentNullException(nameof(ResourceName));
 
                 var url = $"{ResourceName}/{id}";
                 var body = await RestService.Get<ModelType>(url);
@@ -50,7 +50,7 @@ namespace Prolix.Client.Api
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
-                    throw new ArgumentNullException("ResourceName");
+                    throw new ArgumentNullException(nameof(ResourceName));
 
                 var body = await RestService.List<ModelType>(ResourceName, query);
                 var result = new PagedList<ModelType>(body?.Content)
@@ -78,10 +78,10 @@ namespace Prolix.Client.Api
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
-                    throw new ArgumentNullException("ResourceName");
+                    throw new ArgumentNullException(nameof(ResourceName));
 
                 if (model == null)
-                    throw new ArgumentNullException("model");
+                    throw new ArgumentNullException(nameof(model));
 
                 var request = new HttpBody<ModelType>(model);
                 var response = await RestService.Post(ResourceName, request);
@@ -102,10 +102,10 @@ namespace Prolix.Client.Api
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
-                    throw new ArgumentNullException("ResourceName");
+                    throw new ArgumentNullException(nameof(ResourceName));
 
                 if (model == null)
-                    throw new ArgumentNullException("model");
+                    throw new ArgumentNullException(nameof(model));
 
                 var url = $"{ResourceName}/{model.Id}";
                 var request = new HttpBody<ModelType>(model);
@@ -127,7 +127,7 @@ namespace Prolix.Client.Api
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
-                    throw new ArgumentNullException("ResourceName");
+                    throw new ArgumentNullException(nameof(ResourceName));
 
                 var url = $"{ResourceName}/{id}";
                 await RestService.Delete<object>(url);

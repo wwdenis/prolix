@@ -60,7 +60,7 @@ namespace Prolix.Core.Logic
         async public virtual Task Add(ModelType model)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
 
             Set.Add(model);
 
@@ -75,12 +75,12 @@ namespace Prolix.Core.Logic
         async public virtual Task<bool> Update(ModelType model)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
 
             var existing = Get(model.Id);
 
             if (existing == null)
-                throw new ArgumentOutOfRangeException("A entidade nÃ£o existe no banco de dados.");
+                throw new ArgumentOutOfRangeException("The model does not exists in the database.");
 
             Set.Update(model, existing);
 
@@ -108,7 +108,7 @@ namespace Prolix.Core.Logic
         async public virtual Task<bool> Delete(ModelType model)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
 
             Set.Remove(model);
 

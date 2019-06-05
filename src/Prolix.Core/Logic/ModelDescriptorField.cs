@@ -26,7 +26,7 @@ namespace Prolix.Core.Logic
         public ModelDescriptorField(LambdaExpression propertyExpression)
         {
             if (propertyExpression == null)
-                throw new ArgumentNullException("propertyExpression");
+                throw new ArgumentNullException(nameof(propertyExpression));
 
             // Hack EF object expressions
             Property = propertyExpression.Normalize();

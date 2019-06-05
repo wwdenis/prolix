@@ -27,9 +27,9 @@ namespace Marketplace.Domain.Models.Security
                 detail = null;
 
             Date = DateTime.Now;
-            Feature = feature ?? throw new ArgumentOutOfRangeException("feature");
-            User = user ?? throw new ArgumentNullException("user");
-            Detail = detail ?? throw new ArgumentNullException("detail");
+            Feature = feature ?? throw new ArgumentOutOfRangeException(nameof(feature));
+            User = user ?? throw new ArgumentNullException(nameof(user));
+            Detail = detail ?? throw new ArgumentNullException(nameof(detail));
         }
 
         #endregion

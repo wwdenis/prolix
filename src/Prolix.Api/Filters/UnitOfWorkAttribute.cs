@@ -16,7 +16,7 @@ namespace Prolix.Api.Filters
         
         public UnitOfWorkAttribute(Type contextType)
         {
-            _contextType = contextType ?? throw new ArgumentNullException("contextType");
+            _contextType = contextType ?? throw new ArgumentNullException(nameof(contextType));
         }
 
         public UnitOfWorkAttribute() : this(typeof(IDbContext))

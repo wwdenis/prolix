@@ -18,7 +18,7 @@ namespace Prolix.Api.Results
 
         public RuleValidationResult(HttpRequestMessage request, RuleValidation rule) : base(request)
         {
-            Rule = rule ?? throw new ArgumentNullException("rule"); 
+            Rule = rule ?? throw new ArgumentNullException(nameof(rule)); 
         }
 
         async public override Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)

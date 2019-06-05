@@ -30,7 +30,7 @@ namespace Prolix.Core.Collections
         public TwoWayEnumerator(IEnumerator<T> enumerator)
         {
             if (enumerator == null)
-                throw new ArgumentNullException("enumerator");
+                throw new ArgumentNullException(nameof(enumerator));
 
             SetCount(enumerator);
 

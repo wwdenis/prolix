@@ -27,7 +27,7 @@ namespace Prolix.Ioc.Autofac
 
         AutofacResolver(ILifetimeScope container)
         {
-            _container = container ?? throw new ArgumentNullException("container");
+            _container = container ?? throw new ArgumentNullException(nameof(container));
         }
 
         ~AutofacResolver()
@@ -46,7 +46,7 @@ namespace Prolix.Ioc.Autofac
                     _builder.RegisterType<ConcreteType>().InstancePerLifetimeScope();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("lifetime");
+                    throw new ArgumentOutOfRangeException(nameof(lifetime));
             }
         }
 
@@ -61,7 +61,7 @@ namespace Prolix.Ioc.Autofac
                     _builder.RegisterInstance(instance).SingleInstance();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("lifetime");
+                    throw new ArgumentOutOfRangeException(nameof(lifetime));
             }
         }
 
@@ -83,7 +83,7 @@ namespace Prolix.Ioc.Autofac
                     _builder.RegisterType<ConcreteType>().As<AbstractType>().InstancePerLifetimeScope();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("lifetime");
+                    throw new ArgumentOutOfRangeException(nameof(lifetime));
             }
         }
 
@@ -104,7 +104,7 @@ namespace Prolix.Ioc.Autofac
                         _builder.RegisterType(concreteType).Named(name, abstractType).As(abstractType).InstancePerLifetimeScope();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("lifetime");
+                    throw new ArgumentOutOfRangeException(nameof(lifetime));
             }
         }
 
@@ -119,7 +119,7 @@ namespace Prolix.Ioc.Autofac
                     _builder.RegisterType(concreteType).InstancePerLifetimeScope();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("lifetime");
+                    throw new ArgumentOutOfRangeException(nameof(lifetime));
             }
         }
 

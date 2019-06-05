@@ -16,7 +16,7 @@ namespace Prolix.Core.Logic
         public ModelDescriptorRule(Expression<Func<ModelType, bool>> expression)
         {
             if (expression == null)
-                throw new ArgumentNullException("expression");
+                throw new ArgumentNullException(nameof(expression));
 
             Condition = expression;
         }

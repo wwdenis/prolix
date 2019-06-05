@@ -20,7 +20,7 @@ namespace Prolix.Data.EF
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = true;
 
-            _senderType = sender?.GetType() ?? throw new ArgumentNullException("sender");
+            _senderType = sender?.GetType() ?? throw new ArgumentNullException(nameof(sender));
 
             DisableInitializer();
         }

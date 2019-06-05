@@ -50,7 +50,7 @@ namespace Prolix.Identity.AspNet
         async public Task Add(IdentityAccount account)
         {
             if (account == null)
-                throw new ArgumentNullException("account");
+                throw new ArgumentNullException(nameof(account));
 
             var user = new IdentityUser
             {
@@ -67,7 +67,7 @@ namespace Prolix.Identity.AspNet
         async public Task Update(IdentityAccount account)
         {
             if (account == null)
-                throw new ArgumentNullException("account");
+                throw new ArgumentNullException(nameof(account));
 
             var user = new IdentityUser
             {
@@ -84,7 +84,7 @@ namespace Prolix.Identity.AspNet
         async public Task Delete(IdentityAccount account)
         {
             if (account == null)
-                throw new ArgumentNullException("account");
+                throw new ArgumentNullException(nameof(account));
 
             var user = new IdentityUser
             {
@@ -101,10 +101,10 @@ namespace Prolix.Identity.AspNet
         async public Task<string> Register(string userName, string password)
         {
             if (string.IsNullOrWhiteSpace(userName))
-                throw new ArgumentNullException("userName");
+                throw new ArgumentNullException(nameof(userName));
 
             if (string.IsNullOrWhiteSpace(password))
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
 
             var user = new IdentityUser
             {
@@ -127,10 +127,10 @@ namespace Prolix.Identity.AspNet
         async public Task<string> Login(string userName, string password)
         {
             if (string.IsNullOrWhiteSpace(userName))
-                throw new ArgumentNullException("userName");    
+                throw new ArgumentNullException(nameof(userName));    
                     
             if (string.IsNullOrWhiteSpace(password))
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
 
             var user = await UserManager.FindByNameAsync(userName);
 
@@ -194,7 +194,7 @@ namespace Prolix.Identity.AspNet
         async public Task Lock(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentNullException("id");
+                throw new ArgumentNullException(nameof(id));
 
             await UserManager.ResetAccessFailedCountAsync(id);
             await UserManager.SetLockoutEnabledAsync(id, true);
@@ -203,7 +203,7 @@ namespace Prolix.Identity.AspNet
         async public Task Unlock(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentNullException("id");
+                throw new ArgumentNullException(nameof(id));
 
             await UserManager.ResetAccessFailedCountAsync(id);
             await UserManager.SetLockoutEnabledAsync(id, false);
@@ -212,13 +212,13 @@ namespace Prolix.Identity.AspNet
         async public Task ChangePassword(string id, string oldPassword, string newPassword)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentNullException("id");
+                throw new ArgumentNullException(nameof(id));
 
             if (string.IsNullOrWhiteSpace(oldPassword))
-                throw new ArgumentNullException("oldPassword");
+                throw new ArgumentNullException(nameof(oldPassword));
 
             if (string.IsNullOrWhiteSpace(newPassword))
-                throw new ArgumentNullException("newPassword");
+                throw new ArgumentNullException(nameof(newPassword));
             
             if (string.Equals(oldPassword, newPassword))
                 throw new IdentityException(IdentityError.InvalidPassword);
@@ -234,10 +234,10 @@ namespace Prolix.Identity.AspNet
         async public Task ResetPassword(string id, string newPassword)
         {
             if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentNullException("id");
+                throw new ArgumentNullException(nameof(id));
 
             if (string.IsNullOrWhiteSpace(newPassword))
-                throw new ArgumentNullException("newPassword");
+                throw new ArgumentNullException(nameof(newPassword));
 
             var user = await UserManager.FindByIdAsync(id);
 

@@ -31,10 +31,10 @@ namespace Marketplace.Logic.Services.Security
         async public override Task Add(AuditLog model)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
 
             if (string.IsNullOrWhiteSpace(model.Detail))
-                throw new ArgumentOutOfRangeException("description");
+                throw new ArgumentOutOfRangeException(nameof(AuditLog.Detail));
 
             model.Active = true;
             

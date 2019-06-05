@@ -16,7 +16,7 @@ namespace Prolix.Api.Ioc
 
         public IocDependencyScope(Resolver resolver)
         {
-            Resolver = resolver ?? throw new ArgumentNullException("resolver");
+            Resolver = resolver ?? throw new ArgumentNullException(nameof(resolver));
         }
 
         public object GetService(Type serviceType)
