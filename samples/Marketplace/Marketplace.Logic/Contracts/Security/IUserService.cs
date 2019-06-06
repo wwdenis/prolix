@@ -8,7 +8,7 @@ using Marketplace.Logic.Queries.Security;
 
 namespace Marketplace.Logic.Contracts.Security
 {
-    public interface IUserService : IUpdatableService<User>
+    public interface IUserService : IRepositoryService<User>
     {
         User Get(string userName);
 

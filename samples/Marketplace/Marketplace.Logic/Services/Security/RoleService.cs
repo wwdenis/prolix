@@ -11,7 +11,7 @@ using Marketplace.Logic.Contracts.Security;
 
 namespace Marketplace.Logic.Services.Security
 {
-    public sealed class RoleService : UpdatableService<Role>, IRoleService
+    public sealed class RoleService : RepositoryService<Role>, IRoleService
     {
         #region Constructors
 

@@ -7,7 +7,7 @@ using Marketplace.Domain.Models.Security;
 
 namespace Marketplace.Logic.Contracts.Security
 {
-    public interface IRoleService : IUpdatableService<Role>
+    public interface IRoleService : IRepositoryService<Role>
     {
     }
 }

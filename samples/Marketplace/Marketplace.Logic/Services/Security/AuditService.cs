@@ -16,7 +16,7 @@ using Prolix.Core.Logic;
 
 namespace Marketplace.Logic.Services.Security
 {
-    public class AuditService : UpdatableService<AuditLog>, IAuditService
+    public class AuditService : RepositoryService<AuditLog>, IAuditService
     {
         #region Constructors
 

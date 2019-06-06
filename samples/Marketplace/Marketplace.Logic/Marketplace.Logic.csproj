@@ -56,7 +56,6 @@
     <Compile Include="Contracts\Trading\IProductService.cs" />
     <Compile Include="Contracts\Trading\IOrderService.cs" />
     <Compile Include="Services\RepositoryService.cs" />
-    <Compile Include="Services\UpdatableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Configuration\CategoryQuery.cs" />
     <Compile Include="Queries\Geography\CountryQuery.cs" />

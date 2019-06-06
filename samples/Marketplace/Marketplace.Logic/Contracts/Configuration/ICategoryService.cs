@@ -8,7 +8,7 @@ using Marketplace.Logic.Queries.Configuration;
 
 namespace Marketplace.Logic.Contracts.Configuration
 {
-    public interface ICategoryService : IUpdatableService<Category>
+    public interface ICategoryService : IRepositoryService<Category>
     {
         PagedList<Category> List(CategoryQuery request);
     }

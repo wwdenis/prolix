@@ -15,7 +15,7 @@ using Prolix.Core.Identity;
 
 namespace Marketplace.Logic.Services.Security
 {
-    public class UserService : UpdatableService<User>, IUserService
+    public class UserService : RepositoryService<User>, IUserService
     {
         #region Constructor
 
