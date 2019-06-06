@@ -14,7 +14,7 @@ using Prolix.Core.Collections;
 
 namespace Marketplace.Logic.Services.Configuration
 {
-    public sealed class CategoryService : UpdatableService<Category>, ICategoryService
+    public sealed class CategoryService : RepositoryService<Category>, ICategoryService
     {
         public CategoryService(IDataContext context, SecurityContext security) : base(context, security)
         {

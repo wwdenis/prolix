@@ -18,7 +18,7 @@ using Prolix.Core.Extensions.Collections;
 
 namespace Marketplace.Logic.Services.Trading
 {
-    public sealed class OrderService : UpdatableService<Order>, IOrderService
+    public sealed class OrderService : RepositoryService<Order>, IOrderService
     {
         public OrderService(IDataContext context, SecurityContext security) : base(context, security)
         {

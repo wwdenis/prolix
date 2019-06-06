@@ -8,7 +8,7 @@ using Marketplace.Logic.Queries.Trading;
 
 namespace Marketplace.Logic.Contracts.Trading
 {
-    public interface IProductService : IUpdatableService<Product>
+    public interface IProductService : IRepositoryService<Product>
     {
         PagedList<Product> List(ProductQuery request);
     }

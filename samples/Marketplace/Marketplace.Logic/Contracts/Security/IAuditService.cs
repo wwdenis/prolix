@@ -7,7 +7,7 @@ using Prolix.Core.Domain;
 
 namespace Marketplace.Logic.Contracts.Security
 {
-    public interface IAuditService : IUpdatableService<AuditLog>
+    public interface IAuditService : IRepositoryService<AuditLog>
     {
         /// <summary>
         /// Creates an log based on model descriptor

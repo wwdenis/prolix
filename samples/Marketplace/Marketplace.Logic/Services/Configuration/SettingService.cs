@@ -12,7 +12,7 @@ using Marketplace.Logic.Contracts.Security;
 
 namespace Marketplace.Logic.Services.Configuration
 {
-    public sealed class SettingService : UpdatableService<Setting>, ISettingService
+    public sealed class SettingService : RepositoryService<Setting>, ISettingService
     {
         public SettingService(IDataContext context, SecurityContext security, IRoleService roleService) : base(context, security)
         {

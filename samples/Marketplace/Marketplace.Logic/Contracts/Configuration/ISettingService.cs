@@ -6,7 +6,7 @@ using Prolix.Core.Logic;
 
 namespace Marketplace.Logic.Contracts.Configuration
 {
-    public interface ISettingService : IUpdatableService<Setting>
+    public interface ISettingService : IRepositoryService<Setting>
     {
         ApplicationSetting Get();
     }
