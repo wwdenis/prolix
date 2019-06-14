@@ -75,9 +75,9 @@
       <Project>{378b69c4-3aef-4221-ac6d-846017986e0b}</Project>
       <Name>Marketplace.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix\Prolix.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Prolix.Core</Name>
+      <Name>Prolix</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Prolix.Data.EF\Prolix.Data.EF.csproj">
       <Project>{20bca77b-b073-4ee1-a147-28223242a6fe}</Project>

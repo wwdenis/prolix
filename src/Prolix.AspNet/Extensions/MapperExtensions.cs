@@ -4,8 +4,8 @@
 using AutoMapper;
 using System.Collections.Generic;
 
-using Prolix.Core.Collections;
-using Prolix.Core.Domain;
+using Prolix.Collections;
+using Prolix.Domain;
 
 namespace Prolix.AspNet.Extensions
 {

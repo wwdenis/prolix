@@ -11,8 +11,8 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-using Prolix.Core.Extensions.Collections;
-using Prolix.Core.Extensions.IO;
+using Prolix.Extensions.Collections;
+using Prolix.Extensions.IO;
 
 namespace Prolix.AspNet.Formatters
 {

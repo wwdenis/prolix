@@ -1,4 +1,4 @@
-﻿using Prolix.Core.Ioc;
+﻿using Prolix.Ioc;
 using System.Threading.Tasks;
 
 namespace Prolix.Client.Navigation

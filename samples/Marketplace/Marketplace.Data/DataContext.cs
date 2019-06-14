@@ -3,7 +3,7 @@
 
 using System.Diagnostics;
 
-using Prolix.Core.Data;
+using Prolix.Data;
 using Prolix.Data.EF;
 
 using Marketplace.Domain.Models.Configuration;

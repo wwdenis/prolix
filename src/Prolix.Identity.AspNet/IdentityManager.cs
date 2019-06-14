@@ -11,7 +11,7 @@ using Microsoft.Owin.Security.Cookies;
 using System;
 using System.Threading.Tasks;
 
-using Prolix.Core.Identity;
+using Prolix.Identity;
 
 namespace Prolix.Identity.AspNet
 {

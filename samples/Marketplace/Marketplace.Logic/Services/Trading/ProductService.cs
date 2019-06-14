@@ -10,7 +10,7 @@ using Marketplace.Domain.Models.Trading;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;
 
-using Prolix.Core.Collections;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Services.Trading
 {

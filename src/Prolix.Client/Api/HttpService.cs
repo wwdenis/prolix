@@ -11,8 +11,8 @@ using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-using Prolix.Core.Collections;
-using Prolix.Core.Extensions.Collections;
+using Prolix.Collections;
+using Prolix.Extensions.Collections;
 using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 

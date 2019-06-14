@@ -7,7 +7,7 @@ using System.Security.Principal;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-using Prolix.Core.Extensions.Parsing;
+using Prolix.Extensions.Parsing;
 
 namespace Prolix.AspNet.Filters
 {

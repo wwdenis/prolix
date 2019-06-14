@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dependencies;
 
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.AspNet.Ioc
 {

@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.Client.Api
 {

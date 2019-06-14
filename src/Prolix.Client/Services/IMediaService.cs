@@ -1,4 +1,4 @@
-﻿using Prolix.Core.Ioc;
+﻿using Prolix.Ioc;
 using System;
 using System.Collections.Generic;
 using System.Linq;

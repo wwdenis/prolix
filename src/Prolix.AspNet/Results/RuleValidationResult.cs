@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http.Results;
 
 using Prolix.AspNet.Extensions;
-using Prolix.Core.Logic;
+using Prolix.Logic;
 
 namespace Prolix.AspNet.Results
 {

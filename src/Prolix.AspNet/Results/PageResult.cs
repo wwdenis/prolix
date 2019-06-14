@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 
 using Prolix.AspNet.Extensions;
-using Prolix.Core.Collections;
+using Prolix.Collections;
 
 namespace Prolix.AspNet.Results
 {

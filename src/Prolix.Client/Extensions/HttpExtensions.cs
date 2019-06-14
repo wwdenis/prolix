@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
 using Prolix.Client.Api;
-using Prolix.Core.Logic;
+using Prolix.Logic;
 using Prolix.Client.Api;
 
 namespace Prolix.Client.Extensions

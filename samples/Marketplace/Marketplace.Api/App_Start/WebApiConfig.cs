@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-using Marketplace.Api.Core.Filters;
+using Marketplace.Api.Infrastructure.Filters;
 using Marketplace.Data;
 using Marketplace.Domain.Security;
 using Marketplace.Logic.Services.Configuration;

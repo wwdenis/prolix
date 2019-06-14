@@ -4,7 +4,7 @@ using Plugin.Media.Abstractions;
 using System;
 using System.Threading.Tasks;
 
-using Prolix.Core.Extensions.IO;
+using Prolix.Extensions.IO;
 using Prolix.Client.Services;
 
 namespace Prolix.Xam.Media

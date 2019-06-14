@@ -8,7 +8,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
 using Prolix.AspNet.Filters;
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.AspNet.Providers
 {

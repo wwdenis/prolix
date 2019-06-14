@@ -1,5 +1,5 @@
-﻿using Prolix.Core.Extensions.Reflection;
-using Prolix.Core.Ioc;
+﻿using Prolix.Extensions.Reflection;
+using Prolix.Ioc;
 using Prolix.Client.Navigation;
 using Prolix.Xam.Navigation;
 

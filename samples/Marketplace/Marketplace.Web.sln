@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Data", "Marketp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Logic", "Marketplace.Logic\Marketplace.Logic.csproj", "{BBFE8436-E5D6-49CB-8EA7-138047597DAE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Core", "..\..\src\Prolix.Core\Prolix.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix", "..\..\src\Prolix\Prolix.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Identity.AspNet", "..\..\src\Prolix.Identity.AspNet\Prolix.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
 EndProject

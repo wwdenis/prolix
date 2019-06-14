@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Trading;
-using Prolix.Core.Logic;
+using Prolix.Logic;
 using System;
 using System.Linq;
 

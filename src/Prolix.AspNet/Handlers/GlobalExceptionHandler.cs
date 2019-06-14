@@ -10,8 +10,8 @@ using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Results;
 
 using Prolix.AspNet.Results;
-using Prolix.Core.Data;
-using Prolix.Core.Logic;
+using Prolix.Data;
+using Prolix.Logic;
 
 namespace Prolix.AspNet.Handlers
 {

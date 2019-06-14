@@ -3,8 +3,8 @@ using System.Windows.Input;
 
 using Xamarin.Forms;
 
-using Prolix.Core.Domain;
-using Prolix.Core.Extensions.Reflection;
+using Prolix.Domain;
+using Prolix.Extensions.Reflection;
 using Prolix.Client.Navigation;
 
 namespace Prolix.Xam.Navigation

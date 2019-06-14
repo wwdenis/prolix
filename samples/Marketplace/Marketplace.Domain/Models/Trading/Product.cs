@@ -3,7 +3,7 @@
 
 using Marketplace.Domain.Models.Configuration;
 using System.Collections.Generic;
-using Prolix.Core.Domain;
+using Prolix.Domain;
 
 namespace Marketplace.Domain.Models.Trading
 {

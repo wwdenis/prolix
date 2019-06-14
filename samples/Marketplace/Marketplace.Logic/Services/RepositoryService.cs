@@ -2,8 +2,8 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Data;
-using Prolix.Core.Logic;
-using Prolix.Core.Domain;
+using Prolix.Logic;
+using Prolix.Domain;
 using Marketplace.Domain.Security;
 
 namespace Marketplace.Logic

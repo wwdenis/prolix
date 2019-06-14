@@ -3,7 +3,7 @@
 
 using System.Web.Http.Dependencies;
 
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.AspNet.Ioc
 {

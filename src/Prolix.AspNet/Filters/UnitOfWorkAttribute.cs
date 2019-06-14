@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dependencies;
 using System.Web.Http.Filters;
-using Prolix.Core.Data;
+using Prolix.Data;
 
 namespace Prolix.AspNet.Filters
 {

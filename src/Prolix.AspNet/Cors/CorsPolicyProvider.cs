@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Web.Cors;
 using System.Web.Http.Cors;
 
-using Prolix.Core.Extensions.Collections;
+using Prolix.Extensions.Collections;
 
 namespace Prolix.AspNet.Cors
 {

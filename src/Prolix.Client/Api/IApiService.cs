@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Prolix.Core.Collections;
-using Prolix.Core.Domain;
-using Prolix.Core.Ioc;
+using Prolix.Collections;
+using Prolix.Domain;
+using Prolix.Ioc;
 
 namespace Prolix.Client.Api
 {

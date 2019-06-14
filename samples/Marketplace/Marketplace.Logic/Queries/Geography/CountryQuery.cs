@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Geography;
-using Prolix.Core.Collections;
+using Prolix.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;

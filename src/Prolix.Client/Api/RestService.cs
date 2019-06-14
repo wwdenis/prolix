@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Prolix.Core.Collections;
+using Prolix.Collections;
 using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 

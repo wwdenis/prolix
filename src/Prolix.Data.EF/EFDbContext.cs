@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Prolix.Core.Data;
+using Prolix.Data;
 
 namespace Prolix.Data.EF
 {

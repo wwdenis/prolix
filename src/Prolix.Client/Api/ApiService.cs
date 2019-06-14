@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Prolix.Core.Collections;
-using Prolix.Core.Domain;
-using Prolix.Core.Extensions.Parsing;
+using Prolix.Collections;
+using Prolix.Domain;
+using Prolix.Extensions.Parsing;
 using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 

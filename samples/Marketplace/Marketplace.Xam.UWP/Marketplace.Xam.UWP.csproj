@@ -147,9 +147,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix\Prolix.csproj">
       <Project>{79194299-8de2-473e-b786-2b7c14e451b2}</Project>
-      <Name>Prolix.Core</Name>
+      <Name>Prolix</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Prolix.Client\Prolix.Client.csproj">
       <Project>{5b6cb662-e54b-4bb9-8458-2981e6a6a031}</Project>

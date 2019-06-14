@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using System.Web.Http.Filters;
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.AspNet.Filters
 {

@@ -3,8 +3,8 @@
 
 using Marketplace.Logic.Queries.Geography;
 using Marketplace.Domain.Models.Geography;
-using Prolix.Core.Logic;
-using Prolix.Core.Collections;
+using Prolix.Logic;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Contracts.Geography
 {

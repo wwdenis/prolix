@@ -5,7 +5,7 @@ using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.Ioc.Unity
 {
