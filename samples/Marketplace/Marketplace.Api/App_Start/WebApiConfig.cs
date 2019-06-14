@@ -2,6 +2,7 @@
 // See License.txt in the project root for license information.
 
 using AutoMapper;
+using Microsoft.Owin;
 using Newtonsoft.Json;
 
 using System.Reflection;
@@ -21,6 +22,9 @@ using Prolix.AspNet.Ioc;
 using Prolix.Identity.AspNet;
 using Prolix.Ioc.Autofac;
 
+// ASP .NET Identity Startup
+[assembly: OwinStartup(typeof(IdentityServer))]
+
 namespace Marketplace.Api
 {
     public static class WebApiConfig
@@ -28,7 +32,7 @@ namespace Marketplace.Api
         public static void Register(HttpConfiguration config)
         {
             // Dependency Resolver
-            ConfigureDependencies(config);
+            ConfigureServices(config);
 
             // Api Handlers/Services
             ConfigureHandlers(config);
@@ -46,7 +50,7 @@ namespace Marketplace.Api
             ConfigureMapper();
         }
 
-        static void ConfigureDependencies(HttpConfiguration config)
+        static void ConfigureServices(HttpConfiguration config)
         {
             // IoC container
             var resolver = new AutofacResolver();
