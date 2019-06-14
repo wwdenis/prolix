@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using Prolix.Core.Extensions.Parsing;
+using Prolix.Extensions.Parsing;
 using Xamarin.Forms;
 
 namespace Prolix.Xam.Controls

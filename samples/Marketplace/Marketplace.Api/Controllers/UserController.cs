@@ -9,8 +9,8 @@ using Marketplace.Domain.Models.Security;
 using Marketplace.Logic.Contracts.Security;
 using Marketplace.Logic.Queries.Security;
 
-using Prolix.Api.Controllers;
-using Prolix.Api.Extensions;
+using Prolix.AspNet.Controllers;
+using Prolix.AspNet.Extensions;
 
 namespace Marketplace.Api.Controllers
 {

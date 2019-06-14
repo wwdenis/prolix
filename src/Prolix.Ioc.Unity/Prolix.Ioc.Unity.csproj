@@ -56,9 +56,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Prolix.Core\Prolix.Core.csproj">
+    <ProjectReference Include="..\Prolix\Prolix.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Prolix.Core</Name>
+      <Name>Prolix</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

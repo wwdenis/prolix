@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix\Prolix.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Prolix.Core</Name>
+      <Name>Prolix</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj">
       <Project>{371594c7-3e8b-48fa-98f8-0c86cba27b5b}</Project>

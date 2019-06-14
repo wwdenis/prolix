@@ -17,13 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Data", "Marketp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Logic", "Marketplace.Logic\Marketplace.Logic.csproj", "{BBFE8436-E5D6-49CB-8EA7-138047597DAE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Core", "..\..\src\Prolix.Core\Prolix.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix", "..\..\src\Prolix\Prolix.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Identity.AspNet", "..\..\src\Prolix.Identity.AspNet\Prolix.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Data.EF", "..\..\src\Prolix.Data.EF\Prolix.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Api", "..\..\src\Prolix.Api\Prolix.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.AspNet", "..\..\src\Prolix.AspNet\Prolix.AspNet.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "..\..\src\Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
 EndProject

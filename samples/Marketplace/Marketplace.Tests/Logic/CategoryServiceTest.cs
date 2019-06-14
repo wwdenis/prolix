@@ -11,8 +11,8 @@ using Marketplace.Logic.Contracts.Configuration;
 using Marketplace.Logic.Services.Configuration;
 using Marketplace.Tests.Mock;
 
-using Prolix.Core.Logic;
-using Prolix.Core.Ioc;
+using Prolix.Logic;
+using Prolix.Ioc;
 using Prolix.Ioc.Autofac;
 
 namespace Marketplace.Tests

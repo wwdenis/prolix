@@ -11,8 +11,8 @@ using Marketplace.Domain.Security;
 using Marketplace.Domain.Models.Security;
 using Marketplace.Logic.Contracts.Security;
 
-using Prolix.Core.Domain;
-using Prolix.Core.Logic;
+using Prolix.Domain;
+using Prolix.Logic;
 
 namespace Marketplace.Logic.Services.Security
 {

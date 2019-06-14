@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{344386B1-12FB-4FAA-8E22-F5BA6ACD0077}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Core", "Prolix.Core\Prolix.Core.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix", "Prolix\Prolix.csproj", "{72F5A057-3F26-4068-9346-89492A062907}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Identity.AspNet", "Prolix.Identity.AspNet\Prolix.Identity.AspNet.csproj", "{8C2CD2E8-7140-4768-A3EB-1743E3C80DA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Data.EF", "Prolix.Data.EF\Prolix.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Api", "Prolix.Api\Prolix.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.AspNet", "Prolix.AspNet\Prolix.AspNet.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
 EndProject

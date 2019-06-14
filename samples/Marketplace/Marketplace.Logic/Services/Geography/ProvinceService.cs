@@ -9,7 +9,7 @@ using Marketplace.Domain.Models.Geography;
 using Marketplace.Logic.Contracts.Geography;
 using Marketplace.Logic.Queries.Geography;
 
-using Prolix.Core.Collections;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Services.Geography
 {

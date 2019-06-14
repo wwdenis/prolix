@@ -1,6 +1,6 @@
 ﻿using Marketplace.Client.Models;
 
-using Prolix.Core.Domain;
+using Prolix.Domain;
 using Prolix.Client.Api;
 
 namespace Marketplace.Client.Services

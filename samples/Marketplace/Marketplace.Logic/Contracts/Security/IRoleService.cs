@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using Prolix.Core.Logic;
+using Prolix.Logic;
 using Marketplace.Domain.Models.Security;
 
 namespace Marketplace.Logic.Contracts.Security

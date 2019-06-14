@@ -7,8 +7,8 @@ using Xamarin.Forms;
 using Marketplace.Client.Models.Configuration;
 using Marketplace.Client.Services;
 
-using Prolix.Core.Collections;
-using Prolix.Core.Logic;
+using Prolix.Collections;
+using Prolix.Logic;
 using Prolix.Client.Navigation;
 using Prolix.Xam.Navigation;
 

@@ -11,10 +11,10 @@ using Marketplace.Domain.Models.Trading;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;
 
-using Prolix.Core.Collections;
-using Prolix.Core.Extensions.Parsing;
-using Prolix.Core.Extensions.Reflection;
-using Prolix.Core.Extensions.Collections;
+using Prolix.Collections;
+using Prolix.Extensions.Parsing;
+using Prolix.Extensions.Reflection;
+using Prolix.Extensions.Collections;
 
 namespace Marketplace.Logic.Services.Trading
 {

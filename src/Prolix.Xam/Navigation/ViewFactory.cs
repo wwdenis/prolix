@@ -4,8 +4,8 @@ using System.Reflection;
 
 using Xamarin.Forms;
 
-using Prolix.Core.Extensions.Reflection;
-using Prolix.Core.Ioc;
+using Prolix.Extensions.Reflection;
+using Prolix.Ioc;
 using Prolix.Client.Navigation;
 
 namespace Prolix.Xam.Navigation

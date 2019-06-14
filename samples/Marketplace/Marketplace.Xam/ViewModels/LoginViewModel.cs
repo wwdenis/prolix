@@ -7,7 +7,7 @@ using Marketplace.Client.Models.Security;
 using Marketplace.Client.Models;
 using Marketplace.Client.Services;
 
-using Prolix.Core.Logic;
+using Prolix.Logic;
 using Prolix.Client.Navigation;
 
 namespace Marketplace.Xam.ViewModels

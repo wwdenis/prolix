@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Configuration;
-using Prolix.Core.Collections;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Queries.Configuration
 {

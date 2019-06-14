@@ -7,8 +7,8 @@ using Marketplace.Client.Models.Configuration;
 using Marketplace.Domain.Models.Configuration;
 using Marketplace.Logic.Contracts.Configuration;
 
-using Prolix.Api.Controllers;
-using Prolix.Api.Extensions;
+using Prolix.AspNet.Controllers;
+using Prolix.AspNet.Extensions;
 
 namespace Marketplace.Api.Controllers
 {

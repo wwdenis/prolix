@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using Prolix.Core.Ioc;
+using Prolix.Ioc;
 
 namespace Prolix.Ioc.Autofac
 {

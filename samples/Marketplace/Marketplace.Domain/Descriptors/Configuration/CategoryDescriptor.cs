@@ -2,7 +2,7 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Configuration;
-using Prolix.Core.Logic;
+using Prolix.Logic;
 
 namespace Marketplace.Domain.Descriptors.Configuration
 {

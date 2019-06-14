@@ -3,7 +3,7 @@
 
 using System;
 using Marketplace.Domain.Models.Trading;
-using Prolix.Core.Collections;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Queries.Trading
 {

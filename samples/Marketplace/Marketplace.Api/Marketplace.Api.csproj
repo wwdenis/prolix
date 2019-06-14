@@ -135,23 +135,23 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Core\Filters\PermissionAttribute.cs" />
-    <Compile Include="Core\Identity\OwinContextFactory.cs" />
-    <Compile Include="Core\Mappings\Configuration\StatusTypeMap.cs" />
-    <Compile Include="Core\Mappings\Configuration\CategoryMap.cs" />
-    <Compile Include="Core\Mappings\Geography\CountryMap.cs" />
-    <Compile Include="Core\Mappings\Geography\ProvinceMap.cs" />
-    <Compile Include="Core\Mappings\Security\RegisterMap.cs" />
-    <Compile Include="Core\Mappings\Security\AccessMap.cs" />
-    <Compile Include="Core\Mappings\Security\LoginMap.cs" />
-    <Compile Include="Core\Mappings\Security\PasswordChangeMap.cs" />
-    <Compile Include="Core\Mappings\Security\PasswordResetMap.cs" />
-    <Compile Include="Core\Mappings\Security\RoleMap.cs" />
-    <Compile Include="Core\Mappings\Security\UserMap.cs" />
-    <Compile Include="Core\Mappings\Trading\CustomerMap.cs" />
-    <Compile Include="Core\Mappings\Trading\DealerMap.cs" />
-    <Compile Include="Core\Mappings\Trading\ProductMap.cs" />
-    <Compile Include="Core\Mappings\Trading\OrderMap.cs" />
+    <Compile Include="Infrastructure\Filters\PermissionAttribute.cs" />
+    <Compile Include="Infrastructure\Identity\OwinContextFactory.cs" />
+    <Compile Include="Infrastructure\Mappings\Configuration\StatusTypeMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Configuration\CategoryMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Geography\CountryMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Geography\ProvinceMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\RegisterMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\AccessMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\LoginMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\PasswordChangeMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\PasswordResetMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\RoleMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Security\UserMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Trading\CustomerMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Trading\DealerMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Trading\ProductMap.cs" />
+    <Compile Include="Infrastructure\Mappings\Trading\OrderMap.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,13 +169,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Prolix.Api\Prolix.Api.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.AspNet\Prolix.AspNet.csproj">
       <Project>{90da4af3-94c6-4e24-8c70-0a4f2ae18e3f}</Project>
-      <Name>Prolix.Api</Name>
+      <Name>Prolix.AspNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix\Prolix.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Prolix.Core</Name>
+      <Name>Prolix</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Prolix.Data.EF\Prolix.Data.EF.csproj">
       <Project>{20bca77b-b073-4ee1-a147-28223242a6fe}</Project>
