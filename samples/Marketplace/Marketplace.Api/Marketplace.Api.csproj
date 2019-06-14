@@ -169,9 +169,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Prolix.Api\Prolix.Api.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix.AspNet\Prolix.AspNet.csproj">
       <Project>{90da4af3-94c6-4e24-8c70-0a4f2ae18e3f}</Project>
-      <Name>Prolix.Api</Name>
+      <Name>Prolix.AspNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Prolix.Core\Prolix.Core.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>

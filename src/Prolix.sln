@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Identity.AspNet", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Data.EF", "Prolix.Data.EF\Prolix.Data.EF.csproj", "{20BCA77B-B073-4EE1-A147-28223242A6FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.Api", "Prolix.Api\Prolix.Api.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prolix.AspNet", "Prolix.AspNet\Prolix.AspNet.csproj", "{90DA4AF3-94C6-4E24-8C70-0A4F2AE18E3F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prolix.Ioc.Autofac", "Prolix.Ioc.Autofac\Prolix.Ioc.Autofac.csproj", "{371594C7-3E8B-48FA-98F8-0C86CBA27B5B}"
 EndProject

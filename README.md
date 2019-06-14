@@ -32,7 +32,7 @@ Prolix is a application framework built on top of __.NET Framework__, __.NET Sta
 |Component|Description|
 |:-:|-|
 |__Prolix.Core__|Common components and interfaces| 
-|__Prolix.Api__|Api layer components implemeted on top of ASP .NET Web API|
+|__Prolix.AspNet__|Api layer components implemeted on top of ASP .NET Web API|
 |__Prolix.Http__|Http client components for consuming Prolix-powered RESTful apps|
 |__Prolix.Data.EF__|Data layer implementation using Entity Framework|
 |__Prolix.Identity.AspNet__|Authentication layer implenentation using ASP .NET Identity|

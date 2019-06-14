@@ -13,11 +13,11 @@ using Marketplace.Data;
 using Marketplace.Domain.Security;
 using Marketplace.Logic.Services.Configuration;
 
-using Prolix.Api.Cors;
-using Prolix.Api.Extensions;
-using Prolix.Api.Filters;
-using Prolix.Api.Formatters;
-using Prolix.Api.Ioc;
+using Prolix.AspNet.Cors;
+using Prolix.AspNet.Extensions;
+using Prolix.AspNet.Filters;
+using Prolix.AspNet.Formatters;
+using Prolix.AspNet.Ioc;
 using Prolix.Identity.AspNet;
 using Prolix.Ioc.Autofac;
 

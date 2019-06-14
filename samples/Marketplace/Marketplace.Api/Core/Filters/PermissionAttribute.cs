@@ -8,7 +8,7 @@ using Marketplace.Domain.Security;
 using Marketplace.Domain.Models.Security;
 using Marketplace.Logic.Contracts.Security;
 
-using Prolix.Api.Filters;
+using Prolix.AspNet.Filters;
 
 namespace Marketplace.Api.Core.Filters
 {
