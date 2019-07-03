@@ -62,8 +62,6 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\AuditChanges.sql" />
-    <Build Include="Tables\AuditLogs.sql" />
     <Build Include="Tables\Categories.sql" />
     <Build Include="Tables\Countries.sql" />
     <Build Include="Tables\Customers.sql" />
