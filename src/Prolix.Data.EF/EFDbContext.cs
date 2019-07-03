@@ -44,7 +44,7 @@ namespace Prolix.Data.EF
             where ModelType : class
         {
             var set = _db.Set<ModelType>();
-            return new EntitySet<ModelType>(set, _db);
+            return new EFEntitySet<ModelType>(set, _db);
         }
 
         async public Task<int> SaveChanges()

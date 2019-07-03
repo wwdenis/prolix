@@ -13,13 +13,13 @@ using Prolix.Data;
 namespace Prolix.Data.EF
 {
 
-    public sealed class EntitySet<ModelType> : IEntitySet<ModelType>
+    public sealed class EFEntitySet<ModelType> : IEntitySet<ModelType>
         where ModelType : class
     {
         readonly IDbSet<ModelType> _set;
         readonly DbContext _context;
 
-        public EntitySet(IDbSet<ModelType> set, DbContext context)
+        public EFEntitySet(IDbSet<ModelType> set, DbContext context)
         {
             _set = set ?? throw new ArgumentNullException(nameof(set));
             _context = context ?? throw new ArgumentNullException(nameof(context));
@@ -52,14 +52,14 @@ namespace Prolix.Data.EF
             _set.Remove(model);
         }
 
-        public void Update(ModelType source, ModelType destination)
+        public void Update(ModelType source, ModelType target)
         {
             var entry = _context.Entry(source);
 
             if (entry.State == EntityState.Detached)
                 throw new InvalidOperationException("Model does not exists in the collection");
 
-            entry.CurrentValues.SetValues(destination);
+            entry.CurrentValues.SetValues(target);
         }
 
         public bool IsSaved(ModelType model)
