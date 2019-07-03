@@ -181,7 +181,7 @@ namespace Prolix.Logic
             var existing = Get(model.Id);
 
             if (existing == null)
-                throw new ArgumentOutOfRangeException("The model does not exists in the database.");
+                throw new ArgumentOutOfRangeException(nameof(model), "The model does not exists in the database.");
 
             Set.Update(model, existing);
 

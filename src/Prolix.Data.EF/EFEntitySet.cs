@@ -34,7 +34,7 @@ namespace Prolix.Data.EF
             var entry = _context.Entry(model);
 
             if (entry.State != EntityState.Detached)
-                throw new ArgumentOutOfRangeException("Entity was alreaded added in the collection");
+                throw new ArgumentOutOfRangeException(nameof(model), "Model was already added in the collection");
 
             return _set.Add(model);
         }
@@ -57,7 +57,7 @@ namespace Prolix.Data.EF
             var entry = _context.Entry(source);
 
             if (entry.State == EntityState.Detached)
-                throw new InvalidOperationException("Entity does not exists in the collection");
+                throw new InvalidOperationException("Model does not exists in the collection");
 
             entry.CurrentValues.SetValues(destination);
         }

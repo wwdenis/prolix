@@ -224,7 +224,7 @@ namespace Prolix.Collections
                 if (Dictionary.Count > 0)
                 {
                     if (items.Keys.Any((k) => Dictionary.ContainsKey(k)))
-                        throw new ArgumentException("An item with the same key has already been added.");
+                        throw new ArgumentOutOfRangeException(nameof(items), "An item with the same key has already been added.");
                     else
                         foreach (var item in items) Dictionary.Add(item);
                 }
@@ -257,7 +257,8 @@ namespace Prolix.Collections
             TValue item;
             if (Dictionary.TryGetValue(key, out item))
             {
-                if (add) throw new ArgumentException("An item with the same key has already been added.");
+                if (add)
+                    throw new ArgumentOutOfRangeException(nameof(key), "An item with the same key has already been added.");
                 if (Equals(item, value)) return;
                 Dictionary[key] = value;
 
