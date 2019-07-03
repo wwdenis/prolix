@@ -27,43 +27,43 @@ namespace Prolix.Extensions.Collections
 			return parsed.ToList();
 		}
 
-        public static void AddRange<KeyType, ValueType>(this IDictionary<KeyType, ValueType> destination, IDictionary<KeyType, ValueType> source, bool validate = false)
+        public static void AddRange<KeyType, ValueType>(this IDictionary<KeyType, ValueType> target, IDictionary<KeyType, ValueType> source, bool validate = false)
         {
-            if (!source?.Any() ?? false || destination == null)
+            if (!source?.Any() ?? false || target == null)
                 return;
 
             foreach (var item in source)
             {
-                if (!validate || destination.ContainsKey(item.Key))
-                    destination.Add(item.Key, item.Value);
+                if (!validate || target.ContainsKey(item.Key))
+                    target.Add(item.Key, item.Value);
             }   
         }
 
-        public static void AddRange<ItemType>(this ObservableCollection<ItemType> destination, IEnumerable<ItemType> source, bool clear = false)
+        public static void AddRange<ItemType>(this ObservableCollection<ItemType> target, IEnumerable<ItemType> source, bool clear = false)
 		{
-			if (!source?.Any() ?? false || destination == null)
+            if (!source?.Any() ?? false || target == null)
 				return;
 
 			if (clear)
-				destination.Clear();
+				target.Clear();
 
 			foreach (var item in source)
-				destination.Add(item);
+				target.Add(item);
 		}
 
-        public static void AddRange<ItemType>(this ICollection<ItemType> destination, IEnumerable<ItemType> source)
+        public static void AddRange<ItemType>(this ICollection<ItemType> target, IEnumerable<ItemType> source)
         {
-            if (!source?.Any() ?? false || destination == null)
+            if (!source?.Any() ?? false || target == null)
                 return;
 
             foreach (var item in source)
-                destination.Add(item);
+                target.Add(item);
         }
 
         public static ItemType TryGet<ItemType>(this IEnumerable<ItemType> list, int index = 0)
 		{
 			if (list == null || index < 0 || index >= list.Count())
-				return default(ItemType);
+				return default;
 
 			return list.ElementAtOrDefault(index);
 		}

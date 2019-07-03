@@ -153,9 +153,9 @@ namespace Prolix.Client.Api
         async Task<HttpBody<ResponseType>> GetApi<ResponseType>(string resourceOrUrl, object param)
             where ResponseType : class
         {
-			var result = new HttpBody<ResponseType>();
-			
-			try
+            HttpBody<ResponseType> result;
+
+            try
             {
 				// Builds the url
 				string url = param.ToQueryString(resourceOrUrl);
@@ -181,10 +181,12 @@ namespace Prolix.Client.Api
 			where ResponseType : class
 			where BodyType: class
 		{
-			var result = new HttpBody<ResponseType>();
-			HttpBody<string> response = null;
+            HttpBody<ResponseType> result;
+
 			try
 			{
+                HttpBody<string> response;
+
 				if (body.IsForm)
 				{
                     // Post FORM and parse the result
@@ -225,11 +227,9 @@ namespace Prolix.Client.Api
         async Task<HttpBody<ResponseType>> PutApi<ResponseType>(string url, object input)
             where ResponseType : class
         {
-            var result = new HttpBody<ResponseType>();
-
+            HttpBody<ResponseType> result;
             try
             {
-                // Posta o JSON no servidor, e realiza parse do retorno
                 var json = JsonConvert.SerializeObject(input);
                 var response = await HttpService.Put(url, json);
                 var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
@@ -251,18 +251,16 @@ namespace Prolix.Client.Api
         async Task<HttpBody<ResponseType>> DeleteApi<ResponseType>(string url)
             where ResponseType : class
         {
-            var result = new HttpBody<ResponseType>();
-
+            HttpBody<ResponseType> result;
             try
             {
-                // Recupera o JSON no servidor, e realiza parse do retorno
                 var response = await HttpService.Delete(url);
                 var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
                 result = new HttpBody<ResponseType>(data, response);
             }
             catch (HttpException)
             {
-				throw;
+                throw;
             }
             catch (Exception ex)
             {

@@ -56,9 +56,9 @@ namespace Prolix.Tests
             _list.Remove(entity);
         }
 
-        public void Update(ModelType source, ModelType destination)
+        public void Update(ModelType source, ModelType target)
         {
-            var pos = _list.IndexOf(destination);
+            var pos = _list.IndexOf(target);
 
             if (pos < 0)
                 return;

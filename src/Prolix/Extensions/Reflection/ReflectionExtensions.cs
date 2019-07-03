@@ -146,9 +146,9 @@ namespace Prolix.Extensions.Reflection
             return type?.GetTypeInfo()?.ImplementedInterfaces?.Contains(interfaceType) ?? false;
         }
 
-        public static void CopyValues<ObjectType>(this ObjectType destination, ObjectType source, bool ignoreNulls = false) where ObjectType : class
+        public static void CopyValues<ObjectType>(this ObjectType target, ObjectType source, bool ignoreNulls = false) where ObjectType : class
         {
-            var props = from i in destination.GetType().GetRuntimeProperties()
+            var props = from i in target.GetType().GetRuntimeProperties()
                         where i.CanWrite
                         select i;
 
@@ -156,13 +156,13 @@ namespace Prolix.Extensions.Reflection
             {
                 var value = prop.GetValue(source);
                 if (!ignoreNulls || value != null)
-                    prop.SetValue(destination, value);
+                    prop.SetValue(target, value);
             }
         }
 
-        public static void CopyValues<ObjectType>(this ObjectType destination, ObjectType source, IEnumerable<string> ignoredProps, bool ignoreNulls = false) where ObjectType : class
+        public static void CopyValues<ObjectType>(this ObjectType target, ObjectType source, IEnumerable<string> ignoredProps, bool ignoreNulls = false) where ObjectType : class
         {
-            var props = from i in destination.GetType().GetRuntimeProperties()
+            var props = from i in target.GetType().GetRuntimeProperties()
                         where i.CanWrite && !ignoredProps.Contains(i.Name)
                         select i;
 
@@ -170,7 +170,7 @@ namespace Prolix.Extensions.Reflection
             {
                 var value = prop.GetValue(source);
                 if (!ignoreNulls || value != null)
-                    prop.SetValue(destination, value);
+                    prop.SetValue(target, value);
             }
         }
 
@@ -204,7 +204,9 @@ namespace Prolix.Extensions.Reflection
             if (type == null)
                 return null;
 
-            return type.Instantiate() as ObjectType;
+            args = args ?? new object[0];
+
+            return type.Instantiate(args) as ObjectType;
         }
 
         public static Assembly GetAssembly(this object obj)
@@ -231,7 +233,6 @@ namespace Prolix.Extensions.Reflection
 
         public static PropertyInfo GetProperty<SourceType, PropertyType>(this Expression<Func<SourceType, PropertyType>> lambda)
         {
-            Type type = typeof(SourceType);
             var body = lambda.Body;
             MemberExpression member = null;
 
@@ -245,12 +246,10 @@ namespace Prolix.Extensions.Reflection
                     break;
             }
 
-            PropertyInfo propInfo = member?.Member as PropertyInfo;
+            if (member?.Member is PropertyInfo prop)
+                return prop;
 
-            if (propInfo == null)
-                return null;
-
-            return propInfo;
+            return null;
         }
 
         public static MethodInfo GetMethod(this LambdaExpression expression)
@@ -369,9 +368,8 @@ namespace Prolix.Extensions.Reflection
         public static Type GetFirstGenericChild(this Type type, bool fromBase = false)
         {
             Type compositeType = fromBase ? type.GetTypeInfo().BaseType : type;
-
-            Type genericType = compositeType?.GetGenericTypeDefinition();
             Type genericChild = compositeType?.GenericTypeArguments?.FirstOrDefault();
+
             return genericChild;
         }
     }

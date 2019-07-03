@@ -33,8 +33,8 @@ namespace Prolix.Data
         /// Updates a existing record in the set
         /// </summary>
         /// <param name="source">The entity model which contains the new data</param>
-        /// <param name="destination">The model which will be updated in the set</param>
-        void Update(ModelType source, ModelType destination);
+        /// <param name="target">The model which will be updated in the set</param>
+        void Update(ModelType source, ModelType target);
 
         /// <summary>
         /// Verify if a entity model is exists in the database
