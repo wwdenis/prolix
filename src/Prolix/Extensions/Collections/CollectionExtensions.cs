@@ -17,59 +17,59 @@ namespace Prolix.Extensions.Collections
 {
     public static class CollectionExtensions
 	{
-		public static IList<ObjectType> ToList<ObjectType>(this IList list)
+		public static IList<T> ToList<T>(this IList list)
 		{
 			if (list == null)
-				return new List<ObjectType>();
+				return new List<T>();
 
-			var parsed = list.Cast<ObjectType>();
+			var parsed = list.Cast<T>();
 
 			return parsed.ToList();
 		}
 
-        public static void AddRange<KeyType, ValueType>(this IDictionary<KeyType, ValueType> destination, IDictionary<KeyType, ValueType> source, bool validate = false)
+        public static void AddRange<TK, TV>(this IDictionary<TK, TV> target, IDictionary<TK, TV> source, bool validate = false)
         {
-            if (!source?.Any() ?? false || destination == null)
+            if (!source?.Any() ?? false || target == null)
                 return;
 
             foreach (var item in source)
             {
-                if (!validate || destination.ContainsKey(item.Key))
-                    destination.Add(item.Key, item.Value);
+                if (!validate || target.ContainsKey(item.Key))
+                    target.Add(item.Key, item.Value);
             }   
         }
 
-        public static void AddRange<ItemType>(this ObservableCollection<ItemType> destination, IEnumerable<ItemType> source, bool clear = false)
+        public static void AddRange<T>(this ObservableCollection<T> target, IEnumerable<T> source, bool clear = false)
 		{
-			if (!source?.Any() ?? false || destination == null)
+            if (!source?.Any() ?? false || target == null)
 				return;
 
 			if (clear)
-				destination.Clear();
+				target.Clear();
 
 			foreach (var item in source)
-				destination.Add(item);
+				target.Add(item);
 		}
 
-        public static void AddRange<ItemType>(this ICollection<ItemType> destination, IEnumerable<ItemType> source)
+        public static void AddRange<T>(this ICollection<T> target, IEnumerable<T> source)
         {
-            if (!source?.Any() ?? false || destination == null)
+            if (!source?.Any() ?? false || target == null)
                 return;
 
             foreach (var item in source)
-                destination.Add(item);
+                target.Add(item);
         }
 
-        public static ItemType TryGet<ItemType>(this IEnumerable<ItemType> list, int index = 0)
+        public static T TryGet<T>(this IEnumerable<T> list, int index = 0)
 		{
 			if (list == null || index < 0 || index >= list.Count())
-				return default(ItemType);
+				return default;
 
 			return list.ElementAtOrDefault(index);
 		}
 
-        public static ItemType MoveNext<ItemType>(this IList<ItemType> list, ItemType current = null)
-			where ItemType : class
+        public static T MoveNext<T>(this IList<T> list, T current = null)
+			where T : class
 		{
 			if (!list?.Any() ?? false)
 				return null;
@@ -85,8 +85,8 @@ namespace Prolix.Extensions.Collections
 			return list[++index];
 		}
 
-		public static ItemType MovePrevious<ItemType>(this Collection<ItemType> list, ItemType current = null)
-			where ItemType : class
+		public static T MovePrevious<T>(this Collection<T> list, T current = null)
+			where T : class
 		{
 			if (!list?.Any() ?? false)
 				return null;
@@ -102,8 +102,8 @@ namespace Prolix.Extensions.Collections
 			return list[--index];
 		}
 
-		public static bool IsLast<ItemType>(this Collection<ItemType> list, ItemType current)
-			where ItemType : class
+		public static bool IsLast<T>(this Collection<T> list, T current)
+			where T : class
 		{
 			if (!list?.Any() ?? false)
 				return false;
@@ -119,8 +119,8 @@ namespace Prolix.Extensions.Collections
 			return false;
 		}
 
-		public static bool IsFirst<ItemType>(this Collection<ItemType> list, ItemType current)
-			where ItemType : class
+		public static bool IsFirst<T>(this Collection<T> list, T current)
+			where T : class
 		{
 			if (!list?.Any() ?? false)
 				return false;

@@ -16,13 +16,13 @@ namespace Prolix.Logic
     /// This service works with <seealso cref="IDbContext"/> from the data layer. 
     /// Most of times the database context is managed by an Ioc container, implemented from <see cref="Resolver" />
     /// </summary>
-    /// <typeparam name="ModelType">The model type</typeparam>
-    /// <typeparam name="ContextType">The daabase context type</typeparam>
-    public abstract class RepositoryService<ModelType, ContextType> : RepositoryService<ModelType, int, ContextType>
-        where ModelType : class, IIdentifiable
-        where ContextType : class, IDbContext
+    /// <typeparam name="TM">The model type</typeparam>
+    /// <typeparam name="TC">The daabase context type</typeparam>
+    public abstract class RepositoryService<TM, TC> : RepositoryService<TM, int, TC>
+        where TM : class, IIdentifiable
+        where TC : class, IDbContext
     {
-        public RepositoryService(ContextType context) : base(context)
+        public RepositoryService(TC context) : base(context)
         {
         }
     }
@@ -32,21 +32,21 @@ namespace Prolix.Logic
     /// This service works with <seealso cref="IDbContext"/> from the data layer. 
     /// Most of times the database context is managed by an Ioc container, implemented from <see cref="Resolver" />
     /// </summary>
-    /// <typeparam name="ModelType">The model type</typeparam>
-    /// <typeparam name="KeyType">The model Id type</typeparam>
-    /// <typeparam name="ContextType">The daabase context type</typeparam>
-    public abstract class RepositoryService<ModelType, KeyType, ContextType> : IRepositoryService<ModelType, KeyType> 
-        where ModelType : class, IIdentifiable<KeyType>
-        where KeyType : struct, IComparable<KeyType>, IEquatable<KeyType>
-        where ContextType : class, IDbContext
+    /// <typeparam name="TM">The model type</typeparam>
+    /// <typeparam name="TK">The model Id type</typeparam>
+    /// <typeparam name="TC">The database context type</typeparam>
+    public abstract class RepositoryService<TM, TK, TC> : IRepositoryService<TM, TK> 
+        where TM : class, IIdentifiable<TK>
+        where TK : struct, IComparable<TK>, IEquatable<TK>
+        where TC : class, IDbContext
     {
         #region Constructors
 
         /// <summary>
-        /// Creates a new <see cref="RepositoryService{ModelType, KeyType, ContextType}"/>
+        /// Creates a new <see cref="RepositoryService{TM, TK, TC}"/>
         /// </summary>
         /// <param name="context">The database context</param>
-        public RepositoryService(ContextType context)
+        public RepositoryService(TC context)
         {
             Context = context;
         }
@@ -58,12 +58,12 @@ namespace Prolix.Logic
         /// <summary>
         /// The database context
         /// </summary>
-        protected ContextType Context { get; }
+        protected TC Context { get; }
 
         /// <summary>
         /// The model entity set
         /// </summary>
-        protected IEntitySet<ModelType> Set => Context?.Set<ModelType>();
+        protected IEntitySet<TM> Set => Context?.Set<TM>();
 
         /// <summary>
         /// The rule validation instance
@@ -79,7 +79,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="criteria">Criteria expression.</param>
         /// <returns>The first ocurrence of the model, or null, if the criteria doesn't match.</returns>
-        public virtual ModelType Get(Expression<Func<ModelType, bool>> criteria)
+        public virtual TM Get(Expression<Func<TM, bool>> criteria)
         {
             return Set.FirstOrDefault(criteria);
         }
@@ -89,7 +89,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="id">The model Id</param>
         /// <returns>The first ocurrence of the model, or null, if the model doesn't exist.</returns>
-        public virtual ModelType Get(KeyType id)
+        public virtual TM Get(TK id)
         {
             return Set.FirstOrDefault(i => i.Id.Equals(id));
         }
@@ -97,7 +97,7 @@ namespace Prolix.Logic
         /// <summary>
         /// Gets all ocurrences of a model from the database.
         /// </summary>
-        public virtual IQueryable<ModelType> List()
+        public virtual IQueryable<TM> List()
         {
             return Set;
         }
@@ -107,7 +107,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="criteria">Criteria expression.</param>
         /// <returns>All ocurrences of the model, or a empty list, if the criteria doesn't match.</returns>
-        public virtual IQueryable<ModelType> Find(Expression<Func<ModelType, bool>> criteria)
+        public virtual IQueryable<TM> Find(Expression<Func<TM, bool>> criteria)
         {
             return Set.Where(criteria);
         }
@@ -117,7 +117,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="id">The model Id</param>
         /// <returns>TRUE if the model exists. Otherwise FALSE.</returns>
-        public virtual bool Exists(KeyType id)
+        public virtual bool Exists(TK id)
         {
             return Exists(i => id.Equals(i.Id));
         }
@@ -127,7 +127,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="criteria">Criteria expression.</param>
         /// <returns>TRUE if the model exists. Otherwise FALSE.</returns>
-        public virtual bool Exists(Expression<Func<ModelType, bool>> criteria)
+        public virtual bool Exists(Expression<Func<TM, bool>> criteria)
         {
             return Set.Any(criteria);
         }
@@ -137,16 +137,16 @@ namespace Prolix.Logic
         /// This method is useful when trying to query other models without instantiating other services.
         /// </summary>
         /// <param name="id">The model Id</param>
-        /// <typeparam name="ReferenceType">The target model type</typeparam>
+        /// <typeparam name="T">The target model type</typeparam>
         /// <returns>TRUE if the model exists. Otherwise FALSE.</returns>
-        public bool Exists<ReferenceType>(KeyType? id)
-            where ReferenceType : class, IIdentifiable
+        public bool Exists<T>(TK? id)
+            where T : class, IIdentifiable
         {
             if (id == null || !id.HasValue)
                 return false;
 
             var value = id.Value;
-            var set = Context.Set<ReferenceType>();
+            var set = Context.Set<T>();
 
             if (set == null)
                 return false;
@@ -158,7 +158,7 @@ namespace Prolix.Logic
         /// Adds a model to the database
         /// </summary>
         /// <param name="model">The model to be saved</param>
-        async public virtual Task Add(ModelType model)
+        async public virtual Task Add(TM model)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
@@ -173,7 +173,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="model">The model to be saved</param>
         /// <returns>True if data has been changed in the database.</returns>
-        async public virtual Task<bool> Update(ModelType model)
+        async public virtual Task<bool> Update(TM model)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
@@ -181,7 +181,7 @@ namespace Prolix.Logic
             var existing = Get(model.Id);
 
             if (existing == null)
-                throw new ArgumentOutOfRangeException("The model does not exists in the database.");
+                throw new ArgumentOutOfRangeException(nameof(model), "The model does not exists in the database.");
 
             Set.Update(model, existing);
 
@@ -194,7 +194,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="id">The Id of the model to be saved</param>
         /// <returns>True if data has been deleted in the database.</returns>
-        async public virtual Task<bool> Delete(KeyType id)
+        async public virtual Task<bool> Delete(TK id)
         {
             var model = Get(id);
 
@@ -206,7 +206,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="model">The model to be saved</param>
         /// <returns>True if data has been deleted in the database.</returns>
-        async public virtual Task<bool> Delete(ModelType model)
+        async public virtual Task<bool> Delete(TM model)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
@@ -246,10 +246,10 @@ namespace Prolix.Logic
         /// <param name="entity">The entity model</param>
         /// <param name="errorMessage">The error message to be displayed</param>
         /// <returns>True if no broken rules were found.</returns>
-        protected bool Validate(ModelType entity, string errorMessage = null)
+        protected bool Validate(TM entity, string errorMessage = null)
         {
             // Create a RuleValidation object
-            RuleValidation rule = Validate<ModelType>(entity);
+            RuleValidation rule = Validate<TM>(entity);
 
             Rule.Merge(rule);
 
@@ -264,16 +264,16 @@ namespace Prolix.Logic
         /// <summary>
         /// Validates an entity againt it's descriptor
         /// </summary>
-        /// <typeparam name="ChildType">The Model Model type</typeparam>
+        /// <typeparam name="T">The Model Model type</typeparam>
         /// <param name="entity">The entity model</param>
         /// <param name="errorMessage">The error message to be displayed</param>
         /// <returns>The resulting RuleValidation object</returns>
-        protected RuleValidation Validate<ChildType>(ChildType entity, string errorMessage = null)
-            where ChildType : class
+        protected RuleValidation Validate<T>(T entity, string errorMessage = null)
+            where T : class
         {
             RuleValidation result = new RuleValidation();
 
-            ModelDescriptor<ChildType> descriptor = DescriptorManager.Get<ChildType>();
+            ModelDescriptor<T> descriptor = DescriptorManager.Get<T>();
 
             if (descriptor == null)
                 return result;

@@ -54,8 +54,6 @@
     <Compile Include="Mappings\Configuration\StatusTypeMap.cs" />
     <Compile Include="Mappings\Geography\CountryMap.cs" />
     <Compile Include="Mappings\Geography\ProvinceMap.cs" />
-    <Compile Include="Mappings\Security\AuditChangeMap.cs" />
-    <Compile Include="Mappings\Security\AuditLogMap.cs" />
     <Compile Include="Mappings\Security\FeatureMap.cs" />
     <Compile Include="Mappings\Security\RoleMap.cs" />
     <Compile Include="Mappings\Security\UserMap.cs" />

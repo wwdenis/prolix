@@ -35,20 +35,20 @@ namespace Prolix.Client.Navigation
 		/// <summary>
 		/// Navigate to a page mapped to a specific ViewModel.
 		/// </summary>
-		/// <typeparam name="ViewModelType">The ViewModel</typeparam>
+		/// <typeparam name="T">The ViewModel</typeparam>
 		/// <param name="modal">Sets true if the Page will be show in a modal window.</param>
 		/// <param name="initAction">An expression to initialise the ViewModel.</param>
 		/// <returns>The desired ViewModel.</returns>
-		Task<ViewModelType> Push<ViewModelType>(bool modal = false, Action<ViewModelType> initAction = null) 
-			where ViewModelType : class, IViewModel;
+		Task<T> Push<T>(bool modal = false, Action<T> initAction = null) 
+			where T : class, IViewModel;
 
 		/// <summary>
 		/// Navigate to a page mapped to a specific ViewModel.
 		/// </summary>
-		/// <typeparam name="ViewModelType">The ViewModel</typeparam>
+		/// <typeparam name="T">The ViewModel</typeparam>
 		/// <param name="initAction">An expression to initialise the ViewModel.</param>
 		/// <returns>The desired ViewModel.</returns>
-		Task<ViewModelType> Push<ViewModelType>(Action<ViewModelType> initAction)
-			where ViewModelType : class, IViewModel;
+		Task<T> Push<T>(Action<T> initAction)
+			where T : class, IViewModel;
 	}
 }

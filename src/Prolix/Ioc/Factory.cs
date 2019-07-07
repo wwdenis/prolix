@@ -2,19 +2,15 @@
 // See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Prolix.Ioc
 {
-	public abstract class Factory<DependencyType> : IFactory
-		where DependencyType : class
+	public abstract class Factory<T> : IFactory
+		where T : class
 	{
 		public Factory() 
 		{
-			Type = typeof(DependencyType);
+			Type = typeof(T);
 		}
 
 		public Type Type
@@ -28,6 +24,6 @@ namespace Prolix.Ioc
 			return Create();
 		}
 
-		public abstract DependencyType Create();
+		public abstract T Create();
 	}
 }

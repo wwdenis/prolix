@@ -85,17 +85,17 @@ namespace Prolix.Client.Api
 		/// <summary>
 		///Try to parse the error body response to the <see cref="ErrorData"/> property
 		/// </summary>
-		/// <typeparam name="ResponseType">The expected response type</typeparam>
+		/// <typeparam name="T">The expected response type</typeparam>
 		/// <returns>The object </returns>
-		public ResponseType ParseData<ResponseType>()
-			where ResponseType : class
+		public T ParseData<T>()
+			where T : class
 		{
 			var content = ErrorData?.ToString();
 
             if (string.IsNullOrWhiteSpace(content))
                 return null;
 
-			var result = JsonConvert.DeserializeObject<ResponseType>(content);
+			var result = JsonConvert.DeserializeObject<T>(content);
 
 			if (result != null)
 				ErrorData = result;

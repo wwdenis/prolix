@@ -6,13 +6,13 @@ using AutoMapper;
 using Marketplace.Client.Models.Geography;
 using Marketplace.Domain.Models.Geography;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Geography
+namespace Marketplace.Api.Mappings.Geography
 {
-    public class ProvinceMap : Profile
+    public class CountryMap : Profile
     {
-        public ProvinceMap()
+        public CountryMap()
         {
-            CreateMap<Province, ProvinceModel>()
+            CreateMap<Country, CountryModel>()
                 .ReverseMap();
         }
     }

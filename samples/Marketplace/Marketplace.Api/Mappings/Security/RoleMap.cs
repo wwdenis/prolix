@@ -6,13 +6,13 @@ using AutoMapper;
 using Marketplace.Client.Models.Security;
 using Marketplace.Domain.Models.Security;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Security
+namespace Marketplace.Api.Mappings.Security
 {
-    public class RegisterMap : Profile
+    public class RoleMap : Profile
     {
-        public RegisterMap()
+        public RoleMap()
         {
-            CreateMap<Register, RegisterModel>()
+            CreateMap<Role, RoleModel>()
                 .ReverseMap();
         }
     }

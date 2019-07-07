@@ -59,9 +59,9 @@ namespace Marketplace.Tests.Mock
             return await Task.FromResult(1);
         }
 
-        public IEntitySet<ModelType> Set<ModelType>() where ModelType : class
+        public IEntitySet<T> Set<T>() where T : class
         {
-            return new MockEntitySet<ModelType>();
+            return new MockEntitySet<T>();
         }
 
         public void Start()

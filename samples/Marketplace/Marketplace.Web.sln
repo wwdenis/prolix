@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{5047C670-02D3-4FD4-B991-B9D66AADB23E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Core", "_Core", "{344386B1-12FB-4FAA-8E22-F5BA6ACD0077}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Prolix", "_Prolix", "{344386B1-12FB-4FAA-8E22-F5BA6ACD0077}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Api", "Marketplace.Api\Marketplace.Api.csproj", "{B10DEECD-456D-41B4-8910-66BD64F28ED5}"
 EndProject

@@ -123,23 +123,23 @@ namespace Prolix.Xam.Navigation
 		/// <summary>
 		/// Navigate to a page mapped to a specific ViewModel.
 		/// </summary>
-		/// <typeparam name="ViewModelType">The ViewModel</typeparam>
+		/// <typeparam name="T">The ViewModel</typeparam>
 		/// <param name="modal">Sets true if the Page will be show in a modal window.</param>
 		/// <param name="initAction">An expression to initialise the ViewModel.</param>
 		/// <returns>The desired ViewModel.</returns>
-		public async Task<ViewModelType> Push<ViewModelType>(bool modal = false, Action<ViewModelType> initAction = null)
-			where ViewModelType : class, IViewModel
+		public async Task<T> Push<T>(bool modal = false, Action<T> initAction = null)
+			where T : class, IViewModel
 		{
 			bool cancel = OnNavigating();
 
 			if (cancel)
 				return null;
 
-			if (CurrentViewModel is ViewModelType)
+			if (CurrentViewModel is T)
 				return null;
 
-			ViewModelType currentViewModel;
-			Page view = _viewFactory.Resolve<ViewModelType>(out currentViewModel, initAction);
+			T currentViewModel;
+			Page view = _viewFactory.Resolve<T>(out currentViewModel, initAction);
 
 			if (view == null)
 				throw new InvalidOperationException("View Model not mapped!");
@@ -159,13 +159,13 @@ namespace Prolix.Xam.Navigation
 		/// <summary>
 		/// Navigate to a page mapped to a specific ViewModel.
 		/// </summary>
-		/// <typeparam name="ViewModelType">The ViewModel</typeparam>
+		/// <typeparam name="T">The ViewModel</typeparam>
 		/// <param name="initAction">An expression to initialise the ViewModel.</param>
 		/// <returns>The desired ViewModel.</returns>
-		public async Task<ViewModelType> Push<ViewModelType>(Action<ViewModelType> initAction)
-			where ViewModelType : class, IViewModel
+		public async Task<T> Push<T>(Action<T> initAction)
+			where T : class, IViewModel
 		{
-			return await Push<ViewModelType>(false, initAction);
+			return await Push<T>(false, initAction);
 		}
 
 		public void ToggleMenu()

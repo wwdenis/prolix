@@ -46,7 +46,6 @@
     <Compile Include="Contracts\Configuration\ICategoryService.cs" />
     <Compile Include="Contracts\Geography\ICountryService.cs" />
     <Compile Include="Contracts\Geography\IProvinceService.cs" />
-    <Compile Include="Contracts\Security\IAuditService.cs" />
     <Compile Include="Contracts\Security\IFeatureService.cs" />
     <Compile Include="Contracts\Security\IIdentityService.cs" />
     <Compile Include="Contracts\Security\IRoleService.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="Services\Configuration\CategoryService.cs" />
     <Compile Include="Services\Geography\CountryService.cs" />
     <Compile Include="Services\Geography\ProvinceService.cs" />
-    <Compile Include="Services\Security\AuditService.cs" />
     <Compile Include="Services\Security\FeatureService.cs" />
     <Compile Include="Services\Security\IdentityService.cs" />
     <Compile Include="Services\Security\RoleService.cs" />

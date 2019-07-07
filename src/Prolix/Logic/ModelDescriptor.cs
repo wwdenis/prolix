@@ -10,9 +10,9 @@ namespace Prolix.Logic
     /// <summary>
     /// Manages model business validation and metadata
     /// </summary>
-    /// <typeparam name="ModelType">The model type</typeparam>
-    public abstract class ModelDescriptor<ModelType> : IModelDescriptor
-        where ModelType : class
+    /// <typeparam name="TM">The model type</typeparam>
+    public abstract class ModelDescriptor<TM> : IModelDescriptor
+        where TM : class
     {
         #region Properties
 
@@ -24,12 +24,12 @@ namespace Prolix.Logic
         /// <summary>
         /// Descriptor fields. Each field has its rules.
         /// </summary>
-        public IList<ModelDescriptorField<ModelType>> Fields { get; } = new List<ModelDescriptorField<ModelType>>();
+        public IList<ModelDescriptorField<TM>> Fields { get; } = new List<ModelDescriptorField<TM>>();
 
         /// <summary>
         /// Descriptor rules.
         /// </summary>
-        public IList<ModelDescriptorRule<ModelType>> Rules { get; } = new List<ModelDescriptorRule<ModelType>>();
+        public IList<ModelDescriptorRule<TM>> Rules { get; } = new List<ModelDescriptorRule<TM>>();
 
         #endregion
 
@@ -49,9 +49,9 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="propertyExpression">The field expression</param>
         /// <returns>The created fields descriptor.</returns>
-        public ModelDescriptorField<ModelType, FieldType> Field<FieldType>(Expression<Func<ModelType, FieldType>> propertyExpression)
+        public ModelDescriptorField<TM, TP> Field<TP>(Expression<Func<TM, TP>> propertyExpression)
         {
-            var item = new ModelDescriptorField<ModelType, FieldType>(propertyExpression);
+            var item = new ModelDescriptorField<TM, TP>(propertyExpression);
             Fields.Add(item);
             return item;
         }
@@ -62,9 +62,9 @@ namespace Prolix.Logic
         /// <param name="condition">The business rule condition.</param>
         /// <param name="message">The error message.</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptor<ModelType> Validate(Expression<Func<ModelType, bool>> condition, string message)
+        public ModelDescriptor<TM> Validate(Expression<Func<TM, bool>> condition, string message)
         {
-            var item = new ModelDescriptorRule<ModelType>(condition, message);
+            var item = new ModelDescriptorRule<TM>(condition, message);
             Rules.Add(item);
             return this;
         }
@@ -74,24 +74,24 @@ namespace Prolix.Logic
 		/// </summary>
 		/// <param name="model">The model model to be validated</param>
 		/// <returns>The <see cref="RuleValidation"/> object with all error messages</returns>
-		public virtual RuleValidation Build(ModelType model)
+		public virtual RuleValidation Build(TM model)
         {
             RuleValidation result = new RuleValidation();
 
-            foreach (ModelDescriptorRule<ModelType> rule in Rules)
+            foreach (ModelDescriptorRule<TM> rule in Rules)
             {
-                Func<ModelType, bool> validator = rule.Condition.Compile();
+                Func<TM, bool> validator = rule.Condition.Compile();
                 bool success = model != null && validator(model);
 
                 if (!success)
                     result.Add("", rule.Message);
             }
 
-            foreach (ModelDescriptorField<ModelType> field in Fields)
+            foreach (ModelDescriptorField<TM> field in Fields)
             {
-                foreach (ModelDescriptorRule<ModelType> rule in field.Rules)
+                foreach (ModelDescriptorRule<TM> rule in field.Rules)
                 {
-                    Func<ModelType, bool> validator = rule.Condition.Compile();
+                    Func<TM, bool> validator = rule.Condition.Compile();
                     bool success = model != null && validator(model);
 
                     if (!success)
@@ -108,7 +108,7 @@ namespace Prolix.Logic
         /// <param name="current">The current model</param>
         /// /// <param name="data">The new model</param>
         /// <returns>All audit changes.</returns>
-        public virtual IList<ModelAudit> Audit(ModelType current, ModelType data)
+        public virtual IList<ModelAudit> Audit(TM current, TM data)
         {
             var result = new List<ModelAudit>();
 

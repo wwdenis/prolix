@@ -68,19 +68,19 @@ namespace Prolix.Extensions.Test
             return args[index];
         }
 
-		public static ItemType NextItem<ItemType>(this Random rnd, params ItemType[] args)
+		public static T NextItem<T>(this Random rnd, params T[] args)
 		{
 			if (!args?.Any() ?? false)
-				return default(ItemType);
+				return default;
 
 			var index = rnd.Next(args.Length);
 			return args[index];
 		}
 
-		public static ItemType NextItem<ItemType>(this Random rnd, List<ItemType> list)
+		public static T NextItem<T>(this Random rnd, List<T> list)
 		{
 			if (!list?.Any() ?? false)
-				return default(ItemType);
+				return default;
 
 			var index = rnd.Next(list.Count - 1);
 			var value = list[index];
@@ -95,10 +95,10 @@ namespace Prolix.Extensions.Test
 			return index % 2 == 0;
 		}
 
-		public static EnumType NextEnum<EnumType>(this Random rnd)
+		public static T NextEnum<T>(this Random rnd)
 		{
-			var type = typeof(EnumType);
-			var args = Enum.GetValues(type) as EnumType[];
+			var type = typeof(T);
+			var args = Enum.GetValues(type) as T[];
 			var index = rnd.Next(args.Length);
 			return args[index];
 		}

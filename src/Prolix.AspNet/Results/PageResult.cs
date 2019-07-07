@@ -14,14 +14,14 @@ using Prolix.Collections;
 
 namespace Prolix.AspNet.Results
 {
-    public class PageResult<ModelType> : OkNegotiatedContentResult<PagedList<ModelType>>
-        where ModelType : class
+    public class PageResult<T> : OkNegotiatedContentResult<PagedList<T>>
+        where T : class
     {
-        public PageResult(PagedList<ModelType> content, ApiController controller) : base(content, controller)
+        public PageResult(PagedList<T> content, ApiController controller) : base(content, controller)
         {
         }
 
-        public PageResult(PagedList<ModelType> content, IContentNegotiator contentNegotiator, HttpRequestMessage request, IEnumerable<MediaTypeFormatter> formatters) : base(content, contentNegotiator, request, formatters)
+        public PageResult(PagedList<T> content, IContentNegotiator contentNegotiator, HttpRequestMessage request, IEnumerable<MediaTypeFormatter> formatters) : base(content, contentNegotiator, request, formatters)
         {
         }
 

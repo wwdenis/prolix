@@ -35,22 +35,22 @@ namespace Prolix.Ioc.Autofac
             Dispose(false);
         }
 
-        public override void Register<ConcreteType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public override void Register<T>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
                 case DepedencyLifetime.PerDependency:
-                    _builder.RegisterType<ConcreteType>().InstancePerDependency();
+                    _builder.RegisterType<T>().InstancePerDependency();
                     break;
                 case DepedencyLifetime.PerLifetime:
-                    _builder.RegisterType<ConcreteType>().InstancePerLifetimeScope();
+                    _builder.RegisterType<T>().InstancePerLifetimeScope();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(lifetime));
             }
         }
 
-        public override void Register<AbstractType>(AbstractType instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public override void Register<T>(T instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
@@ -65,22 +65,22 @@ namespace Prolix.Ioc.Autofac
             }
         }
 
-        public override void Register<AbstractType>(Func<AbstractType> builder)
+        public override void Register<T>(Func<T> builder)
         {
             _builder
-                .Register<AbstractType>(context => builder())
+                .Register(context => builder())
                 .InstancePerLifetimeScope();
         }
 
-        public override void Register<ConcreteType, AbstractType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+        public override void Register<TC, TA>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
         {
             switch (lifetime)
             {
                 case DepedencyLifetime.PerDependency:
-                    _builder.RegisterType<ConcreteType>().As<AbstractType>().InstancePerDependency();
+                    _builder.RegisterType<TC>().As<TA>().InstancePerDependency();
                     break;
                 case DepedencyLifetime.PerLifetime:
-                    _builder.RegisterType<ConcreteType>().As<AbstractType>().InstancePerLifetimeScope();
+                    _builder.RegisterType<TC>().As<TA>().InstancePerLifetimeScope();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(lifetime));
@@ -131,22 +131,22 @@ namespace Prolix.Ioc.Autofac
                 .InstancePerLifetimeScope();
         }
 
-        public override AbstractType Resolve<AbstractType>()
+        public override T Resolve<T>()
         {
-            if (!IsRegistered<AbstractType>())
+            if (!IsRegistered<T>())
                 return null;
 
-            return _container.Resolve<AbstractType>();
+            return _container.Resolve<T>();
         }
 
-        public override IEnumerable<AbstractType> ResolveAll<AbstractType>()
+        public override IEnumerable<T> ResolveAll<T>()
         {
-            if (!IsRegistered<AbstractType>())
-                return Enumerable.Empty<AbstractType>();
+            if (!IsRegistered<T>())
+                return Enumerable.Empty<T>();
 
-            var enumerableType = typeof(IEnumerable<AbstractType>);
+            var enumerableType = typeof(IEnumerable<T>);
             var all = _container.Resolve(enumerableType);
-            return all as IEnumerable<AbstractType>;
+            return all as IEnumerable<T>;
         }
 
         public override object Resolve(Type abstractType)
@@ -164,9 +164,9 @@ namespace Prolix.Ioc.Autofac
             return all as IEnumerable<object>;
         }
 
-        public override bool IsRegistered<AbstractType>()
+        public override bool IsRegistered<T>()
         {
-            return _container.IsRegistered<AbstractType>();
+            return _container.IsRegistered<T>();
         }
 
         public override bool IsRegistered(Type abstractType)

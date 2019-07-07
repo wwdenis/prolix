@@ -13,14 +13,14 @@ namespace Prolix.Logic
     /// <summary>
     /// Base Field descriptor
     /// </summary>
-    /// <typeparam name="ModelType">Model type</typeparam>
-    public abstract class ModelDescriptorField<ModelType>
-        where ModelType : class
+    /// <typeparam name="T">Model type</typeparam>
+    public abstract class ModelDescriptorField<T>
+        where T : class
     {
         #region Constructors
 
         /// <summary>
-        /// Creates a new <see cref="ModelDescriptor{ModelType}" /> based on a expression
+        /// Creates a new <see cref="ModelDescriptor{T}" /> based on a expression
         /// </summary>
         /// <param name="propertyExpression">The property expression</param>
         public ModelDescriptorField(LambdaExpression propertyExpression)
@@ -52,7 +52,7 @@ namespace Prolix.Logic
 
         #region Public Properties
 
-        public IList<ModelDescriptorRule<ModelType>> Rules { get; } = new List<ModelDescriptorRule<ModelType>>();
+        public IList<ModelDescriptorRule<T>> Rules { get; } = new List<ModelDescriptorRule<T>>();
 
         /// <summary>
         /// Property name
@@ -73,7 +73,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="entity">The model</param>
         /// <returns>The property value</returns>
-        public object GetValue(ModelType entity)
+        public object GetValue(T entity)
         {
             var get = Property.Compile();
             return get.DynamicInvoke(entity);
@@ -85,15 +85,15 @@ namespace Prolix.Logic
     /// <summary>
     /// Field descriptor
     /// </summary>
-    /// <typeparam name="ModelType">Model type</typeparam>
-    /// <typeparam name="FieldType">The property type</typeparam>
-    public sealed class ModelDescriptorField<ModelType, FieldType> : ModelDescriptorField<ModelType>
-        where ModelType : class
+    /// <typeparam name="TM">Model type</typeparam>
+    /// <typeparam name="TP">The property type</typeparam>
+    public sealed class ModelDescriptorField<TM, TP> : ModelDescriptorField<TM>
+        where TM : class
     {
         #region Constructors
 
         /// <summary>
-        /// Creates a new <see cref="ModelDescriptor{ModelType}" /> based on a expression
+        /// Creates a new <see cref="ModelDescriptor{T}" /> based on a expression
         /// </summary>
         /// <param name="propertyExpression">The property expression</param>
         public ModelDescriptorField(LambdaExpression propertyExpression) : base(propertyExpression)
@@ -109,7 +109,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="caption">The field description</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Caption(string caption)
+        public ModelDescriptorField<TM, TP> Caption(string caption)
         {
             Text = caption;
             return this;
@@ -120,7 +120,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="message">The error message when the condition is not met.</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Required(string message = "")
+        public ModelDescriptorField<TM, TP> Required(string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("{0} is required", Text);
@@ -138,7 +138,7 @@ namespace Prolix.Logic
         /// <param name="maxLength">The maximum length</param>
         /// <param name="message">The error message when the condition is not met.</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> MaxLength(int maxLength, string message = "")
+        public ModelDescriptorField<TM, TP> MaxLength(int maxLength, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("{0} maximum length is {1} characters", Text, maxLength);
@@ -155,7 +155,7 @@ namespace Prolix.Logic
         /// <param name="minLength">The minimum length</param>
         /// <param name="message">The error message when the condition is not met.</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> MinLength(int minLength, string message = "")
+        public ModelDescriptorField<TM, TP> MinLength(int minLength, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("{0} minimum length is {1} characters", Text, minLength);
@@ -171,7 +171,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="values">The value list</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Contains(FieldType[] values, string message = "")
+        public ModelDescriptorField<TM, TP> Contains(TP[] values, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
             {
@@ -190,7 +190,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="value">The allowed value</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Exact(FieldType value, string message = "")
+        public ModelDescriptorField<TM, TP> Exact(TP value, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("The allowed value is: {0}", value);
@@ -206,7 +206,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="value">The minimum value</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Minimum(FieldType value, string message = "", params string[] args)
+        public ModelDescriptorField<TM, TP> Minimum(TP value, string message = "", params string[] args)
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("The minimum value is {0}", value);
@@ -222,7 +222,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="value">The maximum value</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Maximum(FieldType value, string message = "")
+        public ModelDescriptorField<TM, TP> Maximum(TP value, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("The maximum value is {0}", value);
@@ -238,7 +238,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="value">The specified value</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> GreaterThan(FieldType value, string message = "")
+        public ModelDescriptorField<TM, TP> GreaterThan(TP value, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("The value must be greater than {0}", value);
@@ -254,7 +254,7 @@ namespace Prolix.Logic
         /// </summary>
         /// <param name="value">The specified value</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> LessThan(FieldType value, string message = "")
+        public ModelDescriptorField<TM, TP> LessThan(TP value, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("The value must be less than {0}", value);
@@ -271,7 +271,7 @@ namespace Prolix.Logic
         /// <param name="min">Minimun value</param>
         /// <param name="max">Maximun value</param>
         /// <returns>The descriptor</returns>
-        public ModelDescriptorField<ModelType, FieldType> Range(FieldType min, FieldType max, string message = "")
+        public ModelDescriptorField<TM, TP> Range(TP min, TP max, string message = "")
         {
             if (string.IsNullOrWhiteSpace(message))
                 message = string.Format("The allowed range is between {0} and {1}", min, max);
@@ -288,9 +288,9 @@ namespace Prolix.Logic
         /// <param name="condition">The validation expression</param>
         /// <param name="message">The error message</param>
         /// <returns>The descriptor</returns>
-        public void Validate(Expression<Func<ModelType, bool>> condition, string message = "")
+        public void Validate(Expression<Func<TM, bool>> condition, string message = "")
         {
-            var item = new ModelDescriptorRule<ModelType>(condition, message);
+            var item = new ModelDescriptorRule<TM>(condition, message);
             Rules.Add(item);
         }
 
@@ -298,20 +298,20 @@ namespace Prolix.Logic
 
         #region Private Methods
 
-        FieldType TryGetValue(ModelType entity)
+        TP TryGetValue(TM entity)
         {
             if (entity == null)
-                return default(FieldType);
+                return default(TP);
 
             var obj = GetValue(entity);
 
-            if (obj is FieldType)
-                return (FieldType)obj;
+            if (obj is TP)
+                return (TP)obj;
 
-            return default(FieldType);
+            return default(TP);
         }
 
-        bool SearchArray(ModelType entity, FieldType[] values)
+        bool SearchArray(TM entity, TP[] values)
         {
             if (values == null || !values.Any())
                 return false;
@@ -321,7 +321,7 @@ namespace Prolix.Logic
             return found;
         }
 
-        int? Compare(ModelType entity, FieldType value)
+        int? Compare(TM entity, TP value)
         {
             var current = GetValue(entity);
             var compare = current as IComparable;
@@ -334,37 +334,37 @@ namespace Prolix.Logic
             return result;
         }
 
-        bool IsEqual(ModelType entity, FieldType value)
+        bool IsEqual(TM entity, TP value)
         {
             var compare = Compare(entity, value);
             return compare != null && compare == 0;
         }
 
-        bool IsLess(ModelType entity, FieldType value)
+        bool IsLess(TM entity, TP value)
         {
             var compare = Compare(entity, value);
             return compare != null && compare < 0;
         }
 
-        bool IsGreater(ModelType entity, FieldType value)
+        bool IsGreater(TM entity, TP value)
         {
             var compare = Compare(entity, value);
             return compare != null && compare > 0;
         }
 
-        bool IsLessOrEqual(ModelType entity, FieldType value)
+        bool IsLessOrEqual(TM entity, TP value)
         {
             var compare = Compare(entity, value);
             return compare != null && (compare < 0 || compare == 0);
         }
 
-        bool IsGreaterOrEqual(ModelType entity, FieldType value)
+        bool IsGreaterOrEqual(TM entity, TP value)
         {
             var compare = Compare(entity, value);
             return compare != null && (compare > 0 || compare == 0);
         }
 
-        bool IsEmpty(ModelType entity)
+        bool IsEmpty(TM entity)
         {
             var value = GetValue(entity);
 
@@ -385,7 +385,7 @@ namespace Prolix.Logic
             return false;
         }
 
-        bool IsLengthGreaterThan(ModelType entity, int minLength)
+        bool IsLengthGreaterThan(TM entity, int minLength)
         {
             var value = GetValue(entity);
 
@@ -396,7 +396,7 @@ namespace Prolix.Logic
             return parsed.Length >= minLength;
         }
 
-        bool IsLengthLessThan(ModelType entity, int maxLength)
+        bool IsLengthLessThan(TM entity, int maxLength)
         {
             var value = GetValue(entity);
 

@@ -15,11 +15,11 @@ namespace Prolix.Tests
     /// <summary>
     /// List-based mock entity set
     /// </summary>
-    /// <typeparam name="ModelType"></typeparam>
-    public class MockEntitySet<ModelType> : IEntitySet<ModelType>
-        where ModelType : class
+    /// <typeparam name="T"></typeparam>
+    public class MockEntitySet<T> : IEntitySet<T>
+        where T : class
     {
-        static List<ModelType> _list = new List<ModelType>();
+        static List<T> _list = new List<T>();
 
         public Expression Expression => _list.AsQueryable().Expression;
         public Type ElementType => _list.AsQueryable().ElementType;
@@ -30,35 +30,35 @@ namespace Prolix.Tests
         }
 
 
-        public MockEntitySet(IEnumerable<ModelType> source)
+        public MockEntitySet(IEnumerable<T> source)
         {
-            _list = new List<ModelType>(source);
+            _list = new List<T>(source);
         }
 
-        public ModelType Add(ModelType entity)
+        public T Add(T entity)
         {
             _list.Add(entity);
             return entity;
         }
 
-        public IEnumerator<ModelType> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return _list.GetEnumerator();
         }
 
-        public bool IsSaved(ModelType model)
+        public bool IsSaved(T model)
         {
             return _list.Contains(model);
         }
 
-        public void Remove(ModelType entity)
+        public void Remove(T entity)
         {
             _list.Remove(entity);
         }
 
-        public void Update(ModelType source, ModelType destination)
+        public void Update(T source, T target)
         {
-            var pos = _list.IndexOf(destination);
+            var pos = _list.IndexOf(target);
 
             if (pos < 0)
                 return;

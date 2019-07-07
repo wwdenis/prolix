@@ -8,14 +8,14 @@ namespace Prolix.Domain
     /// <summary>
     /// Identifiable model with generic key
     /// </summary>
-    /// <typeparam name="KeyType">Id type</typeparam>
-    public interface IIdentifiable<KeyType>
-        where KeyType : IComparable<KeyType>, IEquatable<KeyType>
+    /// <typeparam name="T">Id type</typeparam>
+    public interface IIdentifiable<T>
+        where T : IComparable<T>, IEquatable<T>
     {
         /// <summary>
         /// Model Id
         /// </summary>
-        KeyType Id { get; set; }
+        T Id { get; set; }
     }
 
     /// <summary>

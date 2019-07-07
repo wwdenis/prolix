@@ -17,33 +17,30 @@ namespace Prolix.AspNet.Extensions
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static DestinationType Map<DestinationType>(this object source)
-            where DestinationType : class, new()
+        public static T Map<T>(this object source)
+            where T : class, new()
         {
             if (source == null)
                 return null;
 
-            // Realiza o mapeamento
-            return Mapper.Map<DestinationType>(source);
+            return Mapper.Map<T>(source);
         }
 
         /// <summary>
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static DestinationType Map<DestinationType>(this IIdentifiable source, int id)
-            where DestinationType : class, IIdentifiable, new()
+        public static T Map<T>(this IIdentifiable source, int id)
+            where T : class, IIdentifiable, new()
         {
             if (source == null)
                 return null;
 
-            // Realiza o mapeamento
-            var result = source.Map<DestinationType>();
+            var result = source.Map<T>();
 
             if (result == null)
                 return null;
 
-            // Associa o ID, se for informado
             result.Id = id;
 
             return result;
@@ -53,27 +50,24 @@ namespace Prolix.AspNet.Extensions
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static IEnumerable<DestinationType> Map<SourceType, DestinationType>(this IEnumerable<SourceType> source)
-            where DestinationType : class, new()
-            where SourceType : class, new()
+        public static IEnumerable<TT> Map<TS, TT>(this IEnumerable<TS> source)
+            where TT : class, new()
+            where TS : class, new()
         {
-            // Realiza o mapeamento
-            return Mapper.Map<IEnumerable<DestinationType>>(source);
+            return Mapper.Map<IEnumerable<TT>>(source);
         }
 
         /// <summary>
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static PagedList<DestinationType> Map<SourceType, DestinationType>(this PagedList<SourceType> source)
-            where DestinationType : class, new()
-            where SourceType : class, new()
+        public static PagedList<TT> Map<TS, TT>(this PagedList<TS> source)
+            where TT : class, new()
+            where TS : class, new()
         {
-            // Mapea a lista paginada
-            var list = Mapper.Map<IEnumerable<DestinationType>>(source.Items);
+            var list = Mapper.Map<IEnumerable<TT>>(source.Items);
 
-            // Remonta a lista paginada com a view model
-            return new PagedList<DestinationType>(list, source);
+            return new PagedList<TT>(list, source);
         }
 
         #endregion

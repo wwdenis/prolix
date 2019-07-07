@@ -19,22 +19,22 @@ namespace Prolix.Client.Api
 		public IDictionary<string, string> Headers { get; protected set; }
     }
 
-    public class HttpBody<ContentType> : HttpBody
+    public class HttpBody<T> : HttpBody
     {
-        public HttpBody() : this(default(ContentType))
+        public HttpBody() : this(default)
         {
         }
 
-        public HttpBody(ContentType content)
+        public HttpBody(T content)
         {
             Content = content;
         }
 
-        public HttpBody(ContentType content, HttpBody parent) : this(content)
+        public HttpBody(T content, HttpBody parent) : this(content)
         {
             Headers = parent?.Headers ?? new WeakDictionary<string, string>();
         }
 
-        public ContentType Content { get; set; }
+        public T Content { get; set; }
     }
 }

@@ -17,9 +17,9 @@ namespace Prolix.Extensions.Parsing
 			return obj != null && types.Contains(obj.GetType());
 		}
 
-		public static EnumType ToEnum<EnumType>(this object value, EnumType defaultValue)
+		public static T ToEnum<T>(this object value, T defaultValue)
 		{
-			return (EnumType)value.ToEnum(typeof(EnumType), defaultValue);
+			return (T)value.ToEnum(typeof(T), defaultValue);
 		}
 
 		public static object ToEnum(this object value, Type enumType, object defaultValue)

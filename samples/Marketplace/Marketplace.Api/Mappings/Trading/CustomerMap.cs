@@ -6,15 +6,13 @@ using Marketplace.Client.Models;
 using Marketplace.Client.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Trading
+namespace Marketplace.Api.Mappings.Trading
 {
-    public class DealerMap : Profile
+    public class CustomerMap : Profile
     {
-        public DealerMap()
+        public CustomerMap()
         {
-            CreateMap<Dealer, NamedModel>();
-
-            CreateMap<Dealer, DealerModel>()
+            CreateMap<Customer, CustomerModel>()
                 .ReverseMap();
         }
     }

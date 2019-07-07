@@ -14,22 +14,22 @@ namespace Prolix.Client.Api
     /// <summary>
     /// REST Client for Prolix-powered Api's
     /// </summary>
-    public interface IApiService<ModelType, KeyType> : IService
-        where ModelType : Model<KeyType>, new()
-        where KeyType : IComparable<KeyType>, IEquatable<KeyType>
+    public interface IApiService<TM, TK> : IService
+        where TM : Model<TK>, new()
+        where TK : IComparable<TK>, IEquatable<TK>
     {
         string BaseUrl { get; set; }
         IDictionary<string, string> DefaultHeaders { get; set; }
 
-        Task<ModelType> Get(KeyType id);
-        Task<PagedList<ModelType>> List(QueryRequest<ModelType> query = null);
-        Task<ModelType> Add(ModelType model);
-        Task<ModelType> Update(ModelType model);
-        Task Delete(KeyType id);
+        Task<TM> Get(TK id);
+        Task<PagedList<TM>> List(QueryRequest<TM> query = null);
+        Task<TM> Add(TM model);
+        Task<TM> Update(TM model);
+        Task Delete(TK id);
     }
 
-    public interface IApiService<ModelType> : IApiService<ModelType, int>
-        where ModelType : Model, new()
+    public interface IApiService<T> : IApiService<T, int>
+        where T : Model, new()
     {
     }
 }

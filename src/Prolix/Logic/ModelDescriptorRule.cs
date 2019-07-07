@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Prolix.Logic
 {
-    public sealed class ModelDescriptorRule<ModelType>
-        where ModelType : class
+    public sealed class ModelDescriptorRule<T>
+        where T : class
     {
-        public ModelDescriptorRule(Expression<Func<ModelType, bool>> expression)
+        public ModelDescriptorRule(Expression<Func<T, bool>> expression)
         {
             if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
@@ -21,18 +21,18 @@ namespace Prolix.Logic
             Condition = expression;
         }
 
-        public ModelDescriptorRule(Expression<Func<ModelType, bool>> expression, string message) : this(expression)
+        public ModelDescriptorRule(Expression<Func<T, bool>> expression, string message) : this(expression)
         {
             Message = message;
         }
 
-        public Expression<Func<ModelType, bool>> Condition { get; }
+        public Expression<Func<T, bool>> Condition { get; }
 
         public string Name { get; set; }
 
         public string Message { get; set; }
 
-        public bool Validate(ModelType entity)
+        public bool Validate(T entity)
         {
             var validation = Condition.Compile();
             return validation(entity);

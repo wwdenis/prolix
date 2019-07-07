@@ -13,17 +13,17 @@ namespace Prolix.Collections
         /// <summary>
         /// Sorts a collection
         /// </summary>
-        /// <typeparam name="ModelType">Model type</typeparam>
+        /// <typeparam name="T">Model type</typeparam>
         /// <param name="source">The source collection</param>
         /// <param name="request">Sort information</param>
         /// <returns>The sorted collection.</returns>
-        public static IOrderedQueryable<ModelType> ToSorted<ModelType>(this IQueryable<ModelType> source, QueryRequest<ModelType> request)
-            where ModelType : class
+        public static IOrderedQueryable<T> ToSorted<T>(this IQueryable<T> source, QueryRequest<T> request)
+            where T : class
         {
             if (source == null)
                 return null;
 
-            IOrderedQueryable<ModelType> sorted = null;
+            IOrderedQueryable<T> sorted = null;
 
             // Sort the list based on mapped sort expressions
             if (request.SortExpression != null)
@@ -43,17 +43,17 @@ namespace Prolix.Collections
         /// <summary>
         /// Page and sorts a collection
         /// </summary>
-        /// <typeparam name="ModelType">Model type</typeparam>
+        /// <typeparam name="T">Model type</typeparam>
         /// <param name="source">The source collection</param>
         /// <param name="request">Page information</param>
         /// <returns>The paged collection.</returns>
-        public static PagedList<ModelType> ToPaged<ModelType>(this IQueryable<ModelType> source, QueryRequest<ModelType> request)
-            where ModelType : class
+        public static PagedList<T> ToPaged<T>(this IQueryable<T> source, QueryRequest<T> request)
+            where T : class
         {
             // Sort the collection based on query information
             var query = source.ToSorted(request);
 
-            IEnumerable<ModelType> paged = null;
+            IEnumerable<T> paged = null;
 
             int recordCount = 0;
             int pageSize = request?.PageSize ?? 0;
@@ -75,19 +75,19 @@ namespace Prolix.Collections
                 recordCount = query.Count();
             }
 
-            var result = new PagedList<ModelType>(paged, recordCount, request.PageSize, request.PageNumber);
+            var result = new PagedList<T>(paged, recordCount, request.PageSize, request.PageNumber);
 
             return result;
         }
 
-        static IOrderedQueryable<ModelType> Sort<ModelType>(IQueryable<ModelType> source, bool descending, LambdaExpression expression)
+        static IOrderedQueryable<T> Sort<T>(IQueryable<T> source, bool descending, LambdaExpression expression)
         {
             var methodName = descending ? "OrderByDescending" : "OrderBy";
-            var method = typeof(Queryable).MakeGenericMethod(methodName, typeof(ModelType), expression.ReturnType);
+            var method = typeof(Queryable).MakeGenericMethod(methodName, typeof(T), expression.ReturnType);
             var args = new object[] { source, expression };
             
             var query = method.Invoke(null, args);
-            var result = query as IOrderedQueryable<ModelType>;
+            var result = query as IOrderedQueryable<T>;
             
             return result;
         }

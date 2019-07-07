@@ -79,8 +79,8 @@ namespace Prolix.AspNet.Extensions
             return $"{config.Properties[DefaultRouteKey]}";
         }
 
-        public static ObjectContent<ModelType> GetContent<ModelType>(this HttpRequestMessage request, ModelType value)
-            where ModelType : class
+        public static ObjectContent<T> GetContent<T>(this HttpRequestMessage request, T value)
+            where T : class
         {
             if (request == null)
                 return null;
@@ -89,8 +89,8 @@ namespace Prolix.AspNet.Extensions
             var negotiator = config.Services.GetContentNegotiator();
             var formatters = config.Formatters;
 
-            var result = negotiator.Negotiate(typeof(ModelType), request, formatters);
-            var content = new ObjectContent<ModelType>(value, result.Formatter, result.MediaType);
+            var result = negotiator.Negotiate(typeof(T), request, formatters);
+            var content = new ObjectContent<T>(value, result.Formatter, result.MediaType);
 
             return content;
         }

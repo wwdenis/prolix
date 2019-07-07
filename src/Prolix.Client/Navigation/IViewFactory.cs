@@ -6,14 +6,14 @@ namespace Prolix.Client.Navigation
     /// <summary>
     /// View Factory
     /// </summary>
-    public interface IViewFactory<ViewType>
+    public interface IViewFactory<T>
 	{
 		/// <summary>
 		/// Register a ViewModel agains a View
 		/// </summary>
 		/// <typeparam name="View">The View type</typeparam>
 		void Register<View>()
-			where View : ViewType;
+			where View : T;
 
 		/// <summary>
 		/// Register a ViewModel agains a View
@@ -21,7 +21,7 @@ namespace Prolix.Client.Navigation
 		/// <typeparam name="View">The View type</typeparam>
 		/// <typeparam name="ViewModel">The ViewModel type</typeparam>
 		void Register<View, ViewModel>()
-			where View : ViewType
+			where View : T
             where ViewModel : class, IViewModel;
 
 		/// <summary>
@@ -49,7 +49,7 @@ namespace Prolix.Client.Navigation
         /// <typeparam name="ViewModel">The desired ViewModel type</typeparam>
         /// <param name="initAction">A expression for ViewModel initialisation</param>
         /// <returns>The ViewModel instance</returns>
-        ViewType Resolve<ViewModel>(Action<ViewModel> initAction = null)
+        T Resolve<ViewModel>(Action<ViewModel> initAction = null)
 			where ViewModel : class, IViewModel;
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Prolix.Client.Navigation
         /// <param name="viewModel">The output ViewModel instance</param>
         /// <param name="initAction">A expression for ViewModel initialisation</param>
         /// <returns>The ViewModel instance</returns>
-        ViewType Resolve<ViewModel>(out ViewModel viewModel, Action<ViewModel> initAction = null)
+        T Resolve<ViewModel>(out ViewModel viewModel, Action<ViewModel> initAction = null)
 			where ViewModel : class, IViewModel;
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Prolix.Client.Navigation
         /// <param name="viewModelType">The ViewModel type</param>
         /// <param name="viewModel">The output ViewModel instance</param>
         /// <returns>The ViewModel instance</returns>
-        ViewType Resolve(Type viewModelType, out IViewModel viewModel);
+        T Resolve(Type viewModelType, out IViewModel viewModel);
 
         /// <summary>
         /// Builds the Launch Page
@@ -76,7 +76,7 @@ namespace Prolix.Client.Navigation
         /// <typeparam name="LaunchViewModel">The Launch View Model type</typeparam>
         /// <param name="navigation">The INavigation instance for navigation</param>
         /// <returns>The Launch Page</returns>
-        ViewType Launch<LaunchViewModel>()
+        T Launch<LaunchViewModel>()
 			where LaunchViewModel : class, IViewModel;
 	}
 }

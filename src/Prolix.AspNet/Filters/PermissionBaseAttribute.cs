@@ -29,13 +29,11 @@ namespace Prolix.AspNet.Filters
 
                 bool allowAccess = false;
 
-                // Thread-safe call
                 lock (sync)
                 {
                     allowAccess = Evaluate(identity, route, method);
                 }
 
-                // Deny access
                 if (!allowAccess)
                     actionContext.Response = new HttpResponseMessage(HttpStatusCode.Forbidden);
             }
