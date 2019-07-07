@@ -13,30 +13,30 @@ namespace Prolix.Extensions.Reflection
 {
     public static class ReflectionExtensions
     {
-        public static Type[] FindTypes<CriteriaType>(this Assembly assembly)
+        public static Type[] FindTypes<T>(this Assembly assembly)
         {
             var types = from i in assembly.DefinedTypes
-                        where i.IsSubclassOf(typeof(CriteriaType))
+                        where i.IsSubclassOf(typeof(T))
                         select i.AsType();
 
             return types.ToArray();
         }
 
-        public static Type[] FindInterfaces<CriteriaType>(this Assembly assembly, bool isInstantiable = false)
+        public static Type[] FindInterfaces<T>(this Assembly assembly, bool isInstantiable = false)
         {
             var types = from t in assembly?.DefinedTypes
                         where t.IsClass
                         && !t.IsAbstract
-                        && t.ImplementedInterfaces.Contains(typeof(CriteriaType))
+                        && t.ImplementedInterfaces.Contains(typeof(T))
                         && (!isInstantiable || t.DeclaredConstructors.Any(c => !c.GetParameters().Any()))
                         select t.AsType();
 
             return types?.ToArray() ?? new Type[0];
         }
 
-        public static IDictionary<Type, Type> MapTypes<CriteriaType>(this Assembly assembly)
+        public static IDictionary<Type, Type> MapTypes<T>(this Assembly assembly)
         {
-            var types = from i in assembly.FindInterfaces<CriteriaType>()
+            var types = from i in assembly.FindInterfaces<T>()
                         where !i.GetTypeInfo().IsAbstract
                         select i;
 
@@ -44,9 +44,9 @@ namespace Prolix.Extensions.Reflection
             return mappings;
         }
 
-        public static IDictionary<Type, Type> MapGenericTypes<CriteriaType>(this Assembly assembly, bool fromBase = false)
+        public static IDictionary<Type, Type> MapGenericTypes<T>(this Assembly assembly, bool fromBase = false)
         {
-            var types = from i in assembly.FindInterfaces<CriteriaType>()
+            var types = from i in assembly.FindInterfaces<T>()
                         where !i.GetTypeInfo().IsAbstract
                         select i;
 
@@ -71,7 +71,7 @@ namespace Prolix.Extensions.Reflection
             return call;
         }
 
-        public static MethodInfo MakeGenericMethod<InstanceType>(this InstanceType instance, Expression<Func<InstanceType, object>> expression, params Type[] args)
+        public static MethodInfo MakeGenericMethod<T>(this T instance, Expression<Func<T, object>> expression, params Type[] args)
         {
             var method = expression.GetMethod();
 
@@ -131,14 +131,14 @@ namespace Prolix.Extensions.Reflection
             }
         }
 
-        public static AttributeType GetAttribute<AttributeType>(this Type type) where AttributeType : Attribute
+        public static T GetAttribute<T>(this Type type) where T : Attribute
         {
-            return type?.GetTypeInfo()?.GetCustomAttribute<AttributeType>();
+            return type?.GetTypeInfo()?.GetCustomAttribute<T>();
         }
 
-        public static bool ContainsAttribute<AttributeType>(this Type type) where AttributeType : Attribute
+        public static bool ContainsAttribute<T>(this Type type) where T : Attribute
         {
-            return type.GetAttribute<AttributeType>() != null;
+            return type.GetAttribute<T>() != null;
         }
 
         public static bool ImplementsInterface(this Type type, Type interfaceType)
@@ -146,7 +146,7 @@ namespace Prolix.Extensions.Reflection
             return type?.GetTypeInfo()?.ImplementedInterfaces?.Contains(interfaceType) ?? false;
         }
 
-        public static void CopyValues<ObjectType>(this ObjectType target, ObjectType source, bool ignoreNulls = false) where ObjectType : class
+        public static void CopyValues<T>(this T target, T source, bool ignoreNulls = false) where T : class
         {
             var props = from i in target.GetType().GetRuntimeProperties()
                         where i.CanWrite
@@ -160,7 +160,7 @@ namespace Prolix.Extensions.Reflection
             }
         }
 
-        public static void CopyValues<ObjectType>(this ObjectType target, ObjectType source, IEnumerable<string> ignoredProps, bool ignoreNulls = false) where ObjectType : class
+        public static void CopyValues<T>(this T target, T source, IEnumerable<string> ignoredProps, bool ignoreNulls = false) where T : class
         {
             var props = from i in target.GetType().GetRuntimeProperties()
                         where i.CanWrite && !ignoredProps.Contains(i.Name)
@@ -198,15 +198,15 @@ namespace Prolix.Extensions.Reflection
             return Activator.CreateInstance(type, args);
         }
 
-        public static ObjectType Instantiate<ObjectType>(this Type type, params object[] args)
-            where ObjectType : class
+        public static T Instantiate<T>(this Type type, params object[] args)
+            where T : class
         {
             if (type == null)
                 return null;
 
             args = args ?? new object[0];
 
-            return type.Instantiate(args) as ObjectType;
+            return type.Instantiate(args) as T;
         }
 
         public static Assembly GetAssembly(this object obj)
@@ -231,20 +231,16 @@ namespace Prolix.Extensions.Reflection
             return string.Format(template, ver.Major, ver.Minor, ver.Build);
         }
 
-        public static PropertyInfo GetProperty<SourceType, PropertyType>(this Expression<Func<SourceType, PropertyType>> lambda)
+        public static PropertyInfo GetProperty<TS, TP>(this Expression<Func<TS, TP>> expression)
         {
-            var body = lambda.Body;
-            MemberExpression member = null;
-
-            switch (body.NodeType)
+            var body = expression.Body;
+            
+            if (body.NodeType == ExpressionType.Convert && body is UnaryExpression unary)
             {
-                case ExpressionType.Convert:
-                    member = ((UnaryExpression)lambda.Body).Operand as MemberExpression;
-                    break;
-                case ExpressionType.MemberAccess:
-                    member = lambda.Body as MemberExpression;
-                    break;
+                body = unary.Operand;
             }
+
+            var member = body as MemberExpression;
 
             if (member?.Member is PropertyInfo prop)
                 return prop;
@@ -278,7 +274,7 @@ namespace Prolix.Extensions.Reflection
             return props.ToArray();
         }
 
-        public static bool IsEmpty<ModelType>(this ModelType model)
+        public static bool IsEmpty<T>(this T model)
         {
             if (model == null)
                 return true;
@@ -327,8 +323,8 @@ namespace Prolix.Extensions.Reflection
             return names.ToArray();
         }
 
-        public static object[] GetPropertyValues<Modeltype>(this Modeltype model)
-            where Modeltype : class
+        public static object[] GetPropertyValues<T>(this T model)
+            where T : class
         {
             if (model == null)
                 return new object[0];

@@ -11,9 +11,9 @@ namespace Marketplace.Logic
     /// <summary>
     /// Ready-only repository bound to App Data Context
     /// </summary>
-    /// <typeparam name="ModelType">Model Type</typeparam>
-    public abstract class RepositoryService<ModelType> : RepositoryService<ModelType, IDataContext>
-        where ModelType : class, IIdentifiable
+    /// <typeparam name="T">Model Type</typeparam>
+    public abstract class RepositoryService<T> : RepositoryService<T, IDataContext>
+        where T : class, IIdentifiable
     {
         #region Constructors
 

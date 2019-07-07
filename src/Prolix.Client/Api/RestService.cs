@@ -5,8 +5,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Prolix.Collections;
-using Prolix.Client.Api;
 using Prolix.Client.Extensions;
 
 namespace Prolix.Client.Api
@@ -55,105 +55,105 @@ namespace Prolix.Client.Api
         /// <summary>
         /// Performs GET calls to get an individual resource.
         /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
+        /// <typeparam name="T">The result model type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <param name="param">The endpoint parameters</param>
         /// <returns>The requested model</returns>
-        async public virtual Task<HttpBody<ResponseType>> Get<ResponseType>(string resource, object param = null)
-            where ResponseType : class, new()
+        async public virtual Task<HttpBody<T>> Get<T>(string resource, object param = null)
+            where T : class, new()
         {
-            return await GetApi<ResponseType>(resource, param);
+            return await GetApi<T>(resource, param);
         }
 
         /// <summary>
         /// Performs GET calls to get a list of resources.
         /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
+        /// <typeparam name="T">The result model type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <param name="param">The endpoint parameters</param>
         /// <returns>The requested model list</returns>
-        async public Task<HttpBody<ResponseType[]>> List<ResponseType>(string resource, object param = null)
-            where ResponseType : class
+        async public Task<HttpBody<T[]>> List<T>(string resource, object param = null)
+            where T : class
         {
-            return await GetApi<ResponseType[]>(resource, param);
+            return await GetApi<T[]>(resource, param);
 		}
 
         /// <summary>
         /// Performs POST calls to add a new resource.
         /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
-        /// <typeparam name="BodyType">The body type</typeparam>
+        /// <typeparam name="TR">The result model type</typeparam>
+        /// <typeparam name="TB">The body type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <param name="body">The body data</param>
         /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Post<ResponseType, BodyType>(string resource, HttpBody<BodyType> body)
-			where ResponseType : class
-			where BodyType : class
+        async public virtual Task<HttpBody<TR>> Post<TR, TB>(string resource, HttpBody<TB> body)
+			where TR : class
+			where TB : class
 		{
-			return await PostApi<ResponseType, BodyType>(resource, body);
+			return await PostApi<TR, TB>(resource, body);
 		}
 
         /// <summary>
         /// Performs POST calls to add a new resource.
         /// </summary>
-        /// <typeparam name="BodyType">The body type</typeparam>
+        /// <typeparam name="T">The body type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <param name="body">The body data</param>
         /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Post<ResponseType>(string resource, HttpBody<ResponseType> body)
-			where ResponseType : class
+        async public virtual Task<HttpBody<T>> Post<T>(string resource, HttpBody<T> body)
+			where T : class
 		{
-			return await Post<ResponseType, ResponseType>(resource, body);
+			return await Post<T, T>(resource, body);
 		}
 
         /// <summary>
         /// Performs PUT calls to add an existing resource.
         /// </summary>
-        /// <typeparam name="ResponseType">The result model type</typeparam>
-        /// <typeparam name="BodyType">The body type</typeparam>
+        /// <typeparam name="TR">The result model type</typeparam>
+        /// <typeparam name="TB">The body type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <param name="body">The body data</param>
         /// <returns>The requested response</returns>
-		async public virtual Task<HttpBody<ResponseType>> Put<ResponseType, BodyType>(string resource, HttpBody<BodyType> body)
-            where ResponseType : class
-            where BodyType : class
+		async public virtual Task<HttpBody<TR>> Put<TR, TB>(string resource, HttpBody<TB> body)
+            where TR : class
+            where TB : class
         {
-            return await PutApi<ResponseType>(resource, body?.Content);
+            return await PutApi<TR>(resource, body?.Content);
         }
 
         /// <summary>
         /// Performs PUT calls to add an existing resource.
         /// </summary>
-        /// <typeparam name="BodyType">The body type</typeparam>
+        /// <typeparam name="T">The body type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <param name="body">The body data</param>
         /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Put<ResponseType>(string resource, HttpBody<ResponseType> body)
-            where ResponseType : class
+        async public virtual Task<HttpBody<T>> Put<T>(string resource, HttpBody<T> body)
+            where T : class
         {
-            return await Put<ResponseType, ResponseType>(resource, body);
+            return await Put<T, T>(resource, body);
         }
 
         /// <summary>
         /// Performs DELETE calls to remove an existing resource.
         /// </summary>
-        /// <typeparam name="BodyType">The body type</typeparam>
+        /// <typeparam name="T">The body type</typeparam>
         /// <param name="resource">The relative endpoint Url</param>
         /// <returns>The requested response</returns>
-        async public virtual Task<HttpBody<ResponseType>> Delete<ResponseType>(string resource)
-            where ResponseType : class
+        async public virtual Task<HttpBody<T>> Delete<T>(string resource)
+            where T : class
         {
-            return await DeleteApi<ResponseType>(resource);
+            return await DeleteApi<T>(resource);
         }
 
         #endregion
 
         #region Private Methods
 
-        async Task<HttpBody<ResponseType>> GetApi<ResponseType>(string resourceOrUrl, object param)
-            where ResponseType : class
+        async Task<HttpBody<T>> GetApi<T>(string resourceOrUrl, object param)
+            where T : class
         {
-            HttpBody<ResponseType> result;
+            HttpBody<T> result;
 
             try
             {
@@ -162,8 +162,8 @@ namespace Prolix.Client.Api
 
                 // Gets JSON and parse the result
                 StringBody response = await HttpService.Get(url);
-				ResponseType data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-				result = new HttpBody<ResponseType>(data, response);
+				T data = JsonConvert.DeserializeObject<T>(response.Content);
+				result = new HttpBody<T>(data, response);
 			}
             catch (HttpException)
             {
@@ -177,11 +177,11 @@ namespace Prolix.Client.Api
             return result;
         }
 
-		async Task<HttpBody<ResponseType>> PostApi<ResponseType, BodyType>(string url, HttpBody<BodyType> body)
-			where ResponseType : class
-			where BodyType: class
+		async Task<HttpBody<TR>> PostApi<TR, TB>(string url, HttpBody<TB> body)
+			where TR : class
+			where TB: class
 		{
-            HttpBody<ResponseType> result;
+            HttpBody<TR> result;
 
 			try
 			{
@@ -209,8 +209,8 @@ namespace Prolix.Client.Api
                     response = await HttpService.Post(url, json);
 				}
 
-				var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-				result = new HttpBody<ResponseType>(data, response);
+				var data = JsonConvert.DeserializeObject<TR>(response.Content);
+				result = new HttpBody<TR>(data, response);
 			}
             catch (HttpException)
             {
@@ -224,16 +224,16 @@ namespace Prolix.Client.Api
 			return result;
 		}
 
-        async Task<HttpBody<ResponseType>> PutApi<ResponseType>(string url, object input)
-            where ResponseType : class
+        async Task<HttpBody<TR>> PutApi<TR>(string url, object input)
+            where TR : class
         {
-            HttpBody<ResponseType> result;
+            HttpBody<TR> result;
             try
             {
                 var json = JsonConvert.SerializeObject(input);
                 var response = await HttpService.Put(url, json);
-                var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-                result = new HttpBody<ResponseType>(data, response);
+                var data = JsonConvert.DeserializeObject<TR>(response.Content);
+                result = new HttpBody<TR>(data, response);
             }
             catch (HttpException)
             {
@@ -248,15 +248,15 @@ namespace Prolix.Client.Api
         }
 
 
-        async Task<HttpBody<ResponseType>> DeleteApi<ResponseType>(string url)
-            where ResponseType : class
+        async Task<HttpBody<T>> DeleteApi<T>(string url)
+            where T : class
         {
-            HttpBody<ResponseType> result;
+            HttpBody<T> result;
             try
             {
                 var response = await HttpService.Delete(url);
-                var data = JsonConvert.DeserializeObject<ResponseType>(response.Content);
-                result = new HttpBody<ResponseType>(data, response);
+                var data = JsonConvert.DeserializeObject<T>(response.Content);
+                result = new HttpBody<T>(data, response);
             }
             catch (HttpException)
             {

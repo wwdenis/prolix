@@ -18,9 +18,9 @@ namespace Prolix.Data
         /// Returns a generic set of database entities. 
         /// All operations using this method results in database operations (after callling SaveChanges method).
         /// </summary>
-        /// <typeparam name="ModelType">The entity model</typeparam>
+        /// <typeparam name="T">The entity model</typeparam>
         /// <returns>A generic entity set</returns>
-        IEntitySet<ModelType> Set<ModelType>() where ModelType : class;
+        IEntitySet<T> Set<T>() where T : class;
 
         /// <summary>
         /// Save all changes in all entity sets.

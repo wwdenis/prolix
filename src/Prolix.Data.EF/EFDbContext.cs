@@ -40,11 +40,11 @@ namespace Prolix.Data.EF
 
         #region Protected Methods
 
-        public IEntitySet<ModelType> Set<ModelType>()
-            where ModelType : class
+        public IEntitySet<T> Set<T>()
+            where T : class
         {
-            var set = _db.Set<ModelType>();
-            return new EFEntitySet<ModelType>(set, _db);
+            var set = _db.Set<T>();
+            return new EFEntitySet<T>(set, _db);
         }
 
         async public Task<int> SaveChanges()

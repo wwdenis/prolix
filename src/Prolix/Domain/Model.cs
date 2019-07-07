@@ -10,13 +10,13 @@ namespace Prolix.Domain
     /// Model with generic Id.
     /// This is the most basic model in the architecture hierarchy.
     /// </summary>
-    /// <typeparam name="KeyType">Id type</typeparam>
-    public abstract class Model<KeyType> : Observable, IIdentifiable<KeyType>
-        where KeyType : IComparable<KeyType>, IEquatable<KeyType>
+    /// <typeparam name="T">Id type</typeparam>
+    public abstract class Model<T> : Observable, IIdentifiable<T>
+        where T : IComparable<T>, IEquatable<T>
     {
         #region Fields
 
-        private KeyType _id;
+        private T _id;
         private bool _isDirty;
 
         #endregion
@@ -35,7 +35,7 @@ namespace Prolix.Domain
         /// <summary>
 		/// The unique identifier
 		/// </summary>
-		public virtual KeyType Id
+		public virtual T Id
         {
             get { return _id; }
             set { Set(ref _id, value); }
@@ -78,7 +78,7 @@ namespace Prolix.Domain
             if (obj?.GetType() != this.GetType())
                 return false;
 
-            var entity = obj as Model<KeyType>;
+            var entity = obj as Model<T>;
 
             return Equals(entity);
         }
@@ -88,7 +88,7 @@ namespace Prolix.Domain
         /// </summary>
         /// <param name="model">The comparing model</param>
         /// <returns>TRUE if the two models are the same type and have the same Id.</returns>
-        public bool Equals(Model<KeyType> model)
+        public bool Equals(Model<T> model)
         {
             return model?.Id?.Equals(Id) ?? false;
         }
@@ -106,7 +106,7 @@ namespace Prolix.Domain
 
         #region Overloaded Operators
 
-        public static bool operator ==(Model<KeyType> first, Model<KeyType> second)
+        public static bool operator ==(Model<T> first, Model<T> second)
         {
             if (object.ReferenceEquals(first, second))
                 return true;
@@ -117,7 +117,7 @@ namespace Prolix.Domain
             return first.Equals(second);
         }
 
-        public static bool operator !=(Model<KeyType> first, Model<KeyType> second)
+        public static bool operator !=(Model<T> first, Model<T> second)
         {
             return !(first == second);
         }

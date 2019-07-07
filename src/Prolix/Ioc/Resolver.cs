@@ -43,37 +43,37 @@ namespace Prolix.Ioc
         /// <summary>
         /// Registers a dependency
         /// </summary>
-        /// <typeparam name="ConcreteType">The implemented type</typeparam>
-        /// <typeparam name="AbstractType">The interface type</typeparam>
+        /// <typeparam name="TC">The implemented type</typeparam>
+        /// <typeparam name="TA">The interface type</typeparam>
         /// <param name="lifetime">The lifetime type</param>
-        public abstract void Register<ConcreteType, AbstractType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-			where ConcreteType : class, AbstractType
-			where AbstractType : class;
+        public abstract void Register<TC, TA>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+			where TC : class, TA
+			where TA : class;
 
         /// <summary>
         /// Registers a dependency
         /// </summary>
-        /// <typeparam name="ConcreteType">The implemented type</typeparam>
+        /// <typeparam name="T">The implemented type</typeparam>
         /// <param name="lifetime">The lifetime type</param>
-        public abstract void Register<ConcreteType>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-			where ConcreteType : class;
+        public abstract void Register<T>(DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+			where T : class;
 
         /// <summary>
         /// Registers an instance
         /// </summary>
-        /// <typeparam name="AbstractType">The interface type</typeparam>
+        /// <typeparam name="T">The interface type</typeparam>
         /// <param name="instance">The dependency instance</param>
         /// <param name="lifetime">The lifetime type</param>
-        public abstract void Register<AbstractType>(AbstractType instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
-			where AbstractType : class;
+        public abstract void Register<T>(T instance, DepedencyLifetime lifetime = DepedencyLifetime.PerDependency)
+			where T : class;
 
         /// <summary>
         /// Registers a dependency through an initialiser
         /// </summary>
-        /// <typeparam name="AbstractType">The interface type</typeparam>
+        /// <typeparam name="T">The interface type</typeparam>
         /// <param name="builder">The expression initialiser</param>
-        public abstract void Register<AbstractType>(Func<AbstractType> builder)
-			where AbstractType : class;
+        public abstract void Register<T>(Func<T> builder)
+			where T : class;
 
         /// <summary>
         /// Registers a dependency
@@ -101,18 +101,18 @@ namespace Prolix.Ioc
         /// <summary>
         /// Resolves a dependency
         /// </summary>
-        /// <typeparam name="AbstractType">The interface type</typeparam>
+        /// <typeparam name="T">The interface type</typeparam>
         /// <returns>The concrete instance</returns>
-        public abstract AbstractType Resolve<AbstractType>()
-			where AbstractType : class;
+        public abstract T Resolve<T>()
+			where T : class;
 
         /// <summary>
 		/// Resolves all dependencies
 		/// </summary>
-		/// <typeparam name="AbstractType">The interface type</typeparam>
+		/// <typeparam name="T">The interface type</typeparam>
 		/// <returns>The concrete instances</returns>
-        public abstract IEnumerable<AbstractType> ResolveAll<AbstractType>()
-            where AbstractType : class;
+        public abstract IEnumerable<T> ResolveAll<T>()
+            where T : class;
 
         /// <summary>
         /// Resolves a dependency
@@ -131,10 +131,10 @@ namespace Prolix.Ioc
         /// <summary>
 		/// Check if a type is registered
 		/// </summary>
-		/// <typeparam name="AbstractType">The interface type</typeparam>
+		/// <typeparam name="T">The interface type</typeparam>
 		/// <returns>TRUE is the type is registered</returns>
-		public abstract bool IsRegistered<AbstractType>()
-            where AbstractType : class;
+		public abstract bool IsRegistered<T>()
+            where T : class;
 
         /// <summary>
 		/// Check if a type is registered
@@ -198,10 +198,10 @@ namespace Prolix.Ioc
         /// <summary>
         /// Searchs an Assembly for registrable Services
         /// </summary>
-        /// <typeparam name="AssemblyContainer">The class inside the Assembly that will be part of the search.</typeparam>
-        public void ScanAssembly<AssemblyContainer>()
+        /// <typeparam name="T">The class inside the Assembly that will be part of the search.</typeparam>
+        public void ScanAssembly<T>()
         {
-            var assembly = typeof(AssemblyContainer).GetAssembly();
+            var assembly = typeof(T).GetAssembly();
             ScanAssembly(assembly);
         }
 
@@ -234,10 +234,10 @@ namespace Prolix.Ioc
         /// <summary>
         /// Searchs an Assembly for a specific Services
         /// </summary>
-        /// <typeparam name="AbstractType">The type that will be registered.</typeparam>
-        public void ScanTypes<AbstractType>(Assembly assembly)
+        /// <typeparam name="T">The type that will be registered.</typeparam>
+        public void ScanTypes<T>(Assembly assembly)
         {
-            var types = assembly.FindInterfaces<AbstractType>();
+            var types = assembly.FindInterfaces<T>();
             Types.AddRange(types);
         }
 

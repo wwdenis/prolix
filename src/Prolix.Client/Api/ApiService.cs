@@ -13,9 +13,9 @@ using Prolix.Client.Extensions;
 
 namespace Prolix.Client.Api
 {
-    public abstract class ApiService<ModelType, KeyType> : IApiService<ModelType, KeyType>
-        where ModelType : Model<KeyType>, new()
-        where KeyType : IComparable<KeyType>, IEquatable<KeyType>
+    public abstract class ApiService<TM, TK> : IApiService<TM, TK>
+        where TM : Model<TK>, new()
+        where TK : IComparable<TK>, IEquatable<TK>
     {
         public string BaseUrl { get; set; }
         public string ResourceName { get; set; }
@@ -24,7 +24,7 @@ namespace Prolix.Client.Api
 
         IRestService RestService => new RestService(BaseUrl, DefaultHeaders);
 
-        async public Task<ModelType> Get(KeyType id)
+        async public Task<TM> Get(TK id)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Prolix.Client.Api
                     throw new ArgumentNullException(nameof(ResourceName));
 
                 var url = $"{ResourceName}/{id}";
-                var body = await RestService.Get<ModelType>(url);
+                var body = await RestService.Get<TM>(url);
                 return body?.Content;
             }
             catch (HttpException ex)
@@ -45,15 +45,15 @@ namespace Prolix.Client.Api
             }
         }
 
-        async public Task<PagedList<ModelType>> List(QueryRequest<ModelType> query = null)
+        async public Task<PagedList<TM>> List(QueryRequest<TM> query = null)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(ResourceName))
                     throw new ArgumentNullException(nameof(ResourceName));
 
-                var body = await RestService.List<ModelType>(ResourceName, query);
-                var result = new PagedList<ModelType>(body?.Content)
+                var body = await RestService.List<TM>(ResourceName, query);
+                var result = new PagedList<TM>(body?.Content)
                 {
                     PageSize = query?.PageSize ?? 0,
                     PageNumber = query?.PageNumber ?? 1,
@@ -73,7 +73,7 @@ namespace Prolix.Client.Api
             }
         }
 
-        async public Task<ModelType> Add(ModelType model)
+        async public Task<TM> Add(TM model)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace Prolix.Client.Api
                 if (model == null)
                     throw new ArgumentNullException(nameof(model));
 
-                var request = new HttpBody<ModelType>(model);
+                var request = new HttpBody<TM>(model);
                 var response = await RestService.Post(ResourceName, request);
                 return response?.Content;
             }
@@ -97,7 +97,7 @@ namespace Prolix.Client.Api
             }
         }
 
-        async public Task<ModelType> Update(ModelType model)
+        async public Task<TM> Update(TM model)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Prolix.Client.Api
                     throw new ArgumentNullException(nameof(model));
 
                 var url = $"{ResourceName}/{model.Id}";
-                var request = new HttpBody<ModelType>(model);
+                var request = new HttpBody<TM>(model);
                 var response = await RestService.Put(url, request);
                 return response?.Content;
             }
@@ -122,7 +122,7 @@ namespace Prolix.Client.Api
             }
         }
 
-        async public Task Delete(KeyType id)
+        async public Task Delete(TK id)
         {
             try
             {
@@ -143,8 +143,8 @@ namespace Prolix.Client.Api
         }
     }
 
-    public abstract class ApiService<ModelType> : ApiService<ModelType, int>
-        where ModelType : Model, new()
+    public abstract class ApiService<T> : ApiService<T, int>
+        where T : Model, new()
     {
     }
 }

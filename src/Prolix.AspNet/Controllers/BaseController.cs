@@ -47,10 +47,10 @@ namespace Prolix.AspNet.Controllers
         /// Creates a (200 Ok) response with the specified values.
         /// </summary>
         /// <returns></returns>
-        protected IHttpActionResult Page<ModelType>(PagedList<ModelType> page)
-            where ModelType : class
+        protected IHttpActionResult Page<T>(PagedList<T> page)
+            where T : class
         {
-            return new PageResult<ModelType>(page, this);
+            return new PageResult<T>(page, this);
         }
     }
 }

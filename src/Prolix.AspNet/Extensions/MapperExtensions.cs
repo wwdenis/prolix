@@ -17,26 +17,26 @@ namespace Prolix.AspNet.Extensions
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static TargetType Map<TargetType>(this object source)
-            where TargetType : class, new()
+        public static T Map<T>(this object source)
+            where T : class, new()
         {
             if (source == null)
                 return null;
 
-            return Mapper.Map<TargetType>(source);
+            return Mapper.Map<T>(source);
         }
 
         /// <summary>
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static TargetType Map<TargetType>(this IIdentifiable source, int id)
-            where TargetType : class, IIdentifiable, new()
+        public static T Map<T>(this IIdentifiable source, int id)
+            where T : class, IIdentifiable, new()
         {
             if (source == null)
                 return null;
 
-            var result = source.Map<TargetType>();
+            var result = source.Map<T>();
 
             if (result == null)
                 return null;
@@ -50,24 +50,24 @@ namespace Prolix.AspNet.Extensions
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static IEnumerable<TargetType> Map<SourceType, TargetType>(this IEnumerable<SourceType> source)
-            where TargetType : class, new()
-            where SourceType : class, new()
+        public static IEnumerable<TT> Map<TS, TT>(this IEnumerable<TS> source)
+            where TT : class, new()
+            where TS : class, new()
         {
-            return Mapper.Map<IEnumerable<TargetType>>(source);
+            return Mapper.Map<IEnumerable<TT>>(source);
         }
 
         /// <summary>
         /// Maps two models using AutoMapper.
         /// Both types must be mapped.
         /// </summary>
-        public static PagedList<TargetType> Map<SourceType, TargetType>(this PagedList<SourceType> source)
-            where TargetType : class, new()
-            where SourceType : class, new()
+        public static PagedList<TT> Map<TS, TT>(this PagedList<TS> source)
+            where TT : class, new()
+            where TS : class, new()
         {
-            var list = Mapper.Map<IEnumerable<TargetType>>(source.Items);
+            var list = Mapper.Map<IEnumerable<TT>>(source.Items);
 
-            return new PagedList<TargetType>(list, source);
+            return new PagedList<TT>(list, source);
         }
 
         #endregion

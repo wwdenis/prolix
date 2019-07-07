@@ -5,8 +5,8 @@ using Prolix.Client.Api;
 
 namespace Marketplace.Client.Services
 {
-    public abstract class BaseApiService<ModelType> : ApiService<ModelType>
-        where ModelType : Model, new()
+    public abstract class BaseApiService<T> : ApiService<T>
+        where T : Model, new()
     {
         public BaseApiService(ApplicationContext context)
         {

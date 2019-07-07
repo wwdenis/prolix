@@ -16,16 +16,16 @@ namespace Prolix.Collections
     /// Represents a dynamic data collection that provides notifications 
     /// when items get added, removed, refreshed, or any item is changed
     /// </summary>
-    /// <typeparam name="ItemType">The type of elements in the collection</typeparam>
-    public class NotifiableCollection<ItemType> : ObservableCollection<ItemType>
-		where ItemType : class, INotifyPropertyChanged
+    /// <typeparam name="T">The type of elements in the collection</typeparam>
+    public class NotifiableCollection<T> : ObservableCollection<T>
+		where T : class, INotifyPropertyChanged
 	{
 		#region Events
 
 		/// <summary>
 		/// Is fired when a items changed
 		/// </summary>
-		public event NotifyItemChangedEventHandler<ItemType> ItemChanged;
+		public event NotifyItemChangedEventHandler<T> ItemChanged;
 
 		#endregion
 
@@ -41,7 +41,7 @@ namespace Prolix.Collections
 			NotifyItem = notifyItem;
 		}
 
-		public NotifiableCollection(IEnumerable<ItemType> source) : base(source)
+		public NotifiableCollection(IEnumerable<T> source) : base(source)
 		{
 			NotifyItem = true;
 		}
@@ -62,7 +62,7 @@ namespace Prolix.Collections
         /// <summary> 
         /// Adds the elements of the specified collection to the end of the ObservableCollection(Of T). 
         /// </summary> 
-        public void AddRange(IEnumerable<ItemType> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
+        public void AddRange(IEnumerable<T> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
         {
             if (collection == null)
                 throw new ArgumentNullException(nameof(collection));
@@ -84,7 +84,7 @@ namespace Prolix.Collections
             }
 
             int startIndex = Count;
-            var changedItems = collection as List<ItemType> ?? new List<ItemType>(collection);
+            var changedItems = collection as List<T> ?? new List<T>(collection);
             foreach (var i in changedItems)
             {
                 Items.Add(i);
@@ -98,7 +98,7 @@ namespace Prolix.Collections
         /// <summary> 
         /// Removes the first occurence of each item in the specified collection from ObservableCollection(Of T). 
         /// </summary> 
-        public void RemoveRange(IEnumerable<ItemType> collection)
+        public void RemoveRange(IEnumerable<T> collection)
         {
             if (collection == null)
                 throw new ArgumentNullException(nameof(collection));
@@ -112,7 +112,7 @@ namespace Prolix.Collections
         /// <summary> 
         /// Clears the current collection and replaces it with the specified item. 
         /// </summary> 
-        public void Replace(ItemType item)
+        public void Replace(T item)
         {
             ReplaceRange(new[] { item });
         }
@@ -120,7 +120,7 @@ namespace Prolix.Collections
         /// <summary> 
         /// Clears the current collection and replaces it with the specified collection. 
         /// </summary> 
-        public void ReplaceRange(IEnumerable<ItemType> collection)
+        public void ReplaceRange(IEnumerable<T> collection)
         {
             if (collection == null)
                 throw new ArgumentNullException(nameof(collection));
@@ -167,8 +167,8 @@ namespace Prolix.Collections
 
         void Item_PropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
-			var item = sender as ItemType;
-			var args = new NotifyItemChangedEventArgs<ItemType>(item, e.PropertyName);
+			var item = sender as T;
+			var args = new NotifyItemChangedEventArgs<T>(item, e.PropertyName);
 
             ItemChanged?.Invoke(this, args);
 

@@ -10,19 +10,19 @@ using System.Threading.Tasks;
 
 namespace Prolix.Collections
 {
-    public delegate void NotifyItemChangedEventHandler<ItemType>(object sender, NotifyItemChangedEventArgs<ItemType> e)
-        where ItemType : INotifyPropertyChanged;
+    public delegate void NotifyItemChangedEventHandler<T>(object sender, NotifyItemChangedEventArgs<T> e)
+        where T : INotifyPropertyChanged;
 
-    public sealed class NotifyItemChangedEventArgs<ItemType> : EventArgs
-        where ItemType : INotifyPropertyChanged
+    public sealed class NotifyItemChangedEventArgs<T> : EventArgs
+        where T : INotifyPropertyChanged
     {
-        public NotifyItemChangedEventArgs(ItemType item, string propertyName)
+        public NotifyItemChangedEventArgs(T item, string propertyName)
         {
             Item = item;
             PropertyName = propertyName;
         }
         
-        public ItemType Item { get; set; }
+        public T Item { get; set; }
         public string PropertyName { get; set; }
     }
 }

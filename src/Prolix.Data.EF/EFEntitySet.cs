@@ -8,18 +8,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-using Prolix.Data;
-
 namespace Prolix.Data.EF
 {
 
-    public sealed class EFEntitySet<ModelType> : IEntitySet<ModelType>
-        where ModelType : class
+    public sealed class EFEntitySet<T> : IEntitySet<T>
+        where T : class
     {
-        readonly IDbSet<ModelType> _set;
+        readonly IDbSet<T> _set;
         readonly DbContext _context;
 
-        public EFEntitySet(IDbSet<ModelType> set, DbContext context)
+        public EFEntitySet(IDbSet<T> set, DbContext context)
         {
             _set = set ?? throw new ArgumentNullException(nameof(set));
             _context = context ?? throw new ArgumentNullException(nameof(context));
@@ -29,7 +27,7 @@ namespace Prolix.Data.EF
         public Expression Expression => _set.Expression;
         public Type ElementType => _set.ElementType;
         
-        public ModelType Add(ModelType model)
+        public T Add(T model)
         {
             var entry = _context.Entry(model);
 
@@ -39,7 +37,7 @@ namespace Prolix.Data.EF
             return _set.Add(model);
         }
 
-        public void Remove(ModelType model)
+        public void Remove(T model)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
@@ -52,7 +50,7 @@ namespace Prolix.Data.EF
             _set.Remove(model);
         }
 
-        public void Update(ModelType source, ModelType target)
+        public void Update(T source, T target)
         {
             var entry = _context.Entry(source);
 
@@ -62,14 +60,14 @@ namespace Prolix.Data.EF
             entry.CurrentValues.SetValues(target);
         }
 
-        public bool IsSaved(ModelType model)
+        public bool IsSaved(T model)
         {
             var entry = _context.Entry(model);
             bool isSaved = (entry.State != EntityState.Detached);
             return isSaved;
         }
 
-        public IEnumerator<ModelType> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return _set.GetEnumerator();
         }

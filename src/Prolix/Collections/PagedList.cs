@@ -11,18 +11,18 @@ namespace Prolix.Collections
     /// <summary>
     /// Manages a page list of items
     /// </summary>
-    public sealed class PagedList<ModelType> : IPageInfo
-        where ModelType : class
+    public sealed class PagedList<T> : IPageInfo
+        where T : class
     {
         #region Fields
 
-        readonly static IEnumerable<ModelType> EmptyList = Enumerable.Empty<ModelType>();
+        readonly static IEnumerable<T> EmptyList = Enumerable.Empty<T>();
 
         #endregion
 
         #region Constructors
 
-        public PagedList(IEnumerable<ModelType> source, int recordCount, int pageSize, int pageNumber)
+        public PagedList(IEnumerable<T> source, int recordCount, int pageSize, int pageNumber)
         {
             Items = source ?? EmptyList;
             RecordCount = recordCount;
@@ -31,11 +31,11 @@ namespace Prolix.Collections
             PageNumber = ParseNumber(pageNumber, PageCount);
         }
 
-        public PagedList(IEnumerable<ModelType> source, IPageInfo info) : this(source, info?.RecordCount ?? 0, info?.PageSize ?? 0, info?.PageNumber ?? 0)
+        public PagedList(IEnumerable<T> source, IPageInfo info) : this(source, info?.RecordCount ?? 0, info?.PageSize ?? 0, info?.PageNumber ?? 0)
         {
         }
 
-        public PagedList(IEnumerable<ModelType> source) : this(source, 0, 0, 1)
+        public PagedList(IEnumerable<T> source) : this(source, 0, 0, 1)
         {
         }
 
@@ -43,7 +43,7 @@ namespace Prolix.Collections
 
         #region Properties
 
-        public IEnumerable<ModelType> Items { get; }
+        public IEnumerable<T> Items { get; }
 
         public int PageSize { get; set; }
 
@@ -57,9 +57,9 @@ namespace Prolix.Collections
 
         #region Static Methods
 
-        public static PagedList<ModelType> Empty()
+        public static PagedList<T> Empty()
         {
-            return new PagedList<ModelType>(EmptyList);
+            return new PagedList<T>(EmptyList);
         }
 
         static int ParseCount(int recordCount, int pageSize)
