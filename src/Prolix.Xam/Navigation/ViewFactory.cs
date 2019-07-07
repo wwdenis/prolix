@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using Prolix.Extensions.Reflection;
 using Prolix.Ioc;
 using Prolix.Client.Navigation;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Prolix.Xam.Navigation
 {
@@ -15,12 +17,6 @@ namespace Prolix.Xam.Navigation
     /// </summary>
     public class ViewFactory : IXamViewFactory
     {
-		#region Constants
-
-		public const double IOS_PADDING = 20;
-
-		#endregion
-
 		#region Fields
 
 		readonly IDictionary<Type, ViewMapAttribute> _mappings = new Dictionary<Type, ViewMapAttribute>();
@@ -44,8 +40,8 @@ namespace Prolix.Xam.Navigation
 		/// </summary>
 		/// <typeparam name="View">The View type</typeparam>
 		public void Register<View>()
-			where View : Page
-		{
+			where View : Xamarin.Forms.Page
+        {
 			Register(typeof(View), null);
 		}
 
@@ -55,8 +51,8 @@ namespace Prolix.Xam.Navigation
 		/// <typeparam name="View">The View type</typeparam>
 		/// <typeparam name="ViewModel">The ViewModel type</typeparam>
 		public void Register<View, ViewModel>()
-			where View : Page
-			where ViewModel : class, IViewModel
+			where View : Xamarin.Forms.Page
+            where ViewModel : class, IViewModel
 		{
 			Register(typeof(View), typeof(ViewModel));
 		}
@@ -104,7 +100,7 @@ namespace Prolix.Xam.Navigation
 		/// <param name="coreAssembly">The Xamarin Forms application assembly</param>
 		public void Register(Assembly coreAssembly)
         {
-            Type[] views = coreAssembly.FindTypes<Page>();
+            Type[] views = coreAssembly.FindTypes<Xamarin.Forms.Page>();
             Register(views);
         }
 
@@ -114,7 +110,7 @@ namespace Prolix.Xam.Navigation
         /// <typeparam name="ViewModel">The desired ViewModel type</typeparam>
         /// <param name="initAction">A expression for ViewModel initialisation</param>
         /// <returns>The ViewModel instance</returns>
-        public Page Resolve<ViewModel>(Action<ViewModel> initAction = null) 
+        public Xamarin.Forms.Page Resolve<ViewModel>(Action<ViewModel> initAction = null) 
 			where ViewModel : class, IViewModel
 		{
 			ViewModel viewModel = null;
@@ -128,11 +124,11 @@ namespace Prolix.Xam.Navigation
 		/// <param name="viewModel">The output ViewModel instance</param>
 		/// <param name="initAction">A expression for ViewModel initialisation</param>
 		/// <returns>The ViewModel instance</returns>
-		public Page Resolve<ViewModel>(out ViewModel viewModel, Action<ViewModel> initAction = null)
+		public Xamarin.Forms.Page Resolve<ViewModel>(out ViewModel viewModel, Action<ViewModel> initAction = null)
 			where ViewModel : class, IViewModel
 		{
 			IViewModel resultViewModel = null;
-			Page view = Resolve(typeof(ViewModel), out resultViewModel);
+            Xamarin.Forms.Page view = Resolve(typeof(ViewModel), out resultViewModel);
 
 			viewModel = resultViewModel as ViewModel;
 
@@ -148,17 +144,19 @@ namespace Prolix.Xam.Navigation
 		/// <param name="viewModelType">The ViewModel type</param>
 		/// <param name="vm">The output ViewModel instance</param>
 		/// <returns>The ViewModel instance</returns>
-		public Page Resolve(Type viewModelType, out IViewModel viewModel)
+		public Xamarin.Forms.Page Resolve(Type viewModelType, out IViewModel viewModel)
 		{
 			var vm = _resolver.Resolve(viewModelType) as ViewModel;
 
-			Page view = null;
+            Xamarin.Forms.Application.Current.On<iOS>().SetPanGestureRecognizerShouldRecognizeSimultaneously(true);
+
+            Xamarin.Forms.Page view = null;
 			ViewMapAttribute map = _mappings[viewModelType];
 
 			if (vm == null || map == null)
 				throw new InvalidOperationException("View Model not mapped!");
 
-			Page pageView = _resolver.Resolve(map.View) as Page;
+            Xamarin.Forms.Page pageView = _resolver.Resolve(map.View) as Xamarin.Forms.Page;
 
 			if (pageView == null)
 			{
@@ -169,16 +167,12 @@ namespace Prolix.Xam.Navigation
 			if (map.MenuViewModel == null)
 			{
 				view = pageView;
-
-				if (Device.RuntimePlatform == Device.iOS)
-				{
-					view.Padding = new Thickness(0, IOS_PADDING, 0, 0);
-				}
-			}
+                view.On<iOS>().SetUseSafeArea(true);
+            }
 			else
 			{
 				IViewModel menuViewModel = null;
-				Page menuView = Resolve(map.MenuViewModel, out menuViewModel);
+                Xamarin.Forms.Page menuView = Resolve(map.MenuViewModel, out menuViewModel);
 
 				if (menuView != null)
 				{
@@ -202,19 +196,16 @@ namespace Prolix.Xam.Navigation
 						Detail = pageView
 					};
 
-                    if (Device.RuntimePlatform == Device.iOS)
-                    {
-						pageView.Padding = new Thickness(0, IOS_PADDING, 0, 0);
-					}
-				}
-			}
+                    pageView.On<iOS>().SetUseSafeArea(true);
+                }
+            }
 
 			view.Title = vm.Title;
 			view.BindingContext = vm;
 
 			if (map.HideNavigation)
 			{
-				NavigationPage.SetHasNavigationBar(view, false);
+				Xamarin.Forms.NavigationPage.SetHasNavigationBar(view, false);
 			}
 
 			viewModel = vm;
@@ -228,11 +219,11 @@ namespace Prolix.Xam.Navigation
 		/// <typeparam name="LaunchViewModel">The Launch View Model type</typeparam>
 		/// <param name="navigation">The INavigation instance for navigation</param>
 		/// <returns>The Launch Page</returns>
-		public Page Launch<LaunchViewModel>()
+		public Xamarin.Forms.Page Launch<LaunchViewModel>()
 			where LaunchViewModel : class, IViewModel
 		{
 			var startPage = Resolve<LaunchViewModel>();
-			var navigationPage = new NavigationPage(startPage);
+			var navigationPage = new Xamarin.Forms.NavigationPage(startPage);
 			return navigationPage;
 		}
 
