@@ -10,7 +10,7 @@ using Marketplace.Logic.Contracts.Security;
 
 using Prolix.AspNet.Filters;
 
-namespace Marketplace.Api.Infrastructure.Filters
+namespace Marketplace.Api.Infrastructure
 {
     internal class PermissionAttribute : PermissionBaseAttribute
     {

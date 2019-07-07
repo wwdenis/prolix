@@ -6,7 +6,7 @@ using AutoMapper;
 using Marketplace.Client.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Trading
+namespace Marketplace.Api.Mappings.Trading
 {
     public class SaleMap : Profile
     {

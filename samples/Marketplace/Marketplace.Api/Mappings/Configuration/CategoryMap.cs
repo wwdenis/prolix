@@ -6,7 +6,7 @@ using AutoMapper;
 using Marketplace.Client.Models.Configuration;
 using Marketplace.Domain.Models.Configuration;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Configuration
+namespace Marketplace.Api.Mappings.Configuration
 {
     public class CategoryMap : Profile
     {

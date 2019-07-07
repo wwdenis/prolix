@@ -2,17 +2,19 @@
 // See License.txt in the project root for license information.
 
 using AutoMapper;
-
+using Marketplace.Client.Models;
 using Marketplace.Client.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Trading
+namespace Marketplace.Api.Mappings.Trading
 {
-    public class ProductMap : Profile
+    public class DealerMap : Profile
     {
-        public ProductMap()
+        public DealerMap()
         {
-            CreateMap<Product, ProductModel>()
+            CreateMap<Dealer, NamedModel>();
+
+            CreateMap<Dealer, DealerModel>()
                 .ReverseMap();
         }
     }

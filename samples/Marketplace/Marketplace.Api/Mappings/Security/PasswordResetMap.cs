@@ -6,13 +6,13 @@ using AutoMapper;
 using Marketplace.Client.Models.Security;
 using Marketplace.Domain.Models.Security;
 
-namespace Marketplace.Api.Infrastructure.Mapping.Security
+namespace Marketplace.Api.Mappings.Security
 {
-    public class RoleMap : Profile
+    public class PasswordResetMap : Profile
     {
-        public RoleMap()
+        public PasswordResetMap()
         {
-            CreateMap<Role, RoleModel>()
+            CreateMap<PasswordReset, PasswordResetModel>()
                 .ReverseMap();
         }
     }
