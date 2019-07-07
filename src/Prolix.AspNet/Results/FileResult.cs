@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace Prolix.AspNet.Results
@@ -39,14 +40,12 @@ namespace Prolix.AspNet.Results
 
             var fileName = Path.GetFileName(FilePath);
             var contents = File.ReadAllBytes(FilePath);
+            var contentType = MimeMapping.GetMimeMapping(FilePath);
 
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new ByteArrayContent(contents)
             };
-
-            var fileExtension = Path.GetExtension(FilePath);
-            var contentType = MimeTypes.GetMimeType(fileExtension);
 
             response.Content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
 
