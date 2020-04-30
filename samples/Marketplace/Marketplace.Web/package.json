@@ -30,7 +30,7 @@
     "bootstrap": "^3.4.1",
     "dcjqaccordion": "^2.7.1",
     "font-awesome": "^4.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery.nicescroll": "^3.7.6",
     "jquery.scrollto": "^2.1.2",
     "toastr": "^2.1.4"
